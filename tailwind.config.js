@@ -3,6 +3,13 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        aileron: ["Aileron", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        times: ['"Times New Roman"', "serif"],
+        brittany: ["Brittany", "serif"],
+        sans: ["Roboto", "sans-serif"],
+      },
       colors: {
         primary: {
           light: "#DED3E3",
@@ -20,16 +27,13 @@ module.exports = {
           dark: "#3c382f",
         },
         accent: {
-          light: "",
-          DEFAULT: "",
-          dark: "",
+          light: "#8277a3",
+          DEFAULT: "#8277a3",
+          dark: "#8277a3",
         },
       },
     },
   },
-  //ToDO fontFamily
-  // fontFamily: {
-  // },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),

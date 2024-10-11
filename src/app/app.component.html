@@ -36,18 +36,6 @@
 
     --pill-accent: var(--bright-blue);
 
-    font-family:
-      "Inter",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol";
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -60,18 +48,6 @@
     line-height: 100%;
     letter-spacing: -0.125rem;
     margin: 0;
-    font-family:
-      "Inter Tight",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol";
   }
 
   p {
@@ -348,7 +324,26 @@
     </div>
   </div>
 </main>
-
+<div>
+  <button class="bg-primary font-brittany text-black hover:bg-primary-dark">
+    Primary brittany Button
+  </button>
+</div>
+<div>
+  <button class="bg-secondary font-times text-black hover:bg-secondary-dark">
+    Secondary times Button
+  </button>
+</div>
+<div>
+  <button class="bg-accent font-aileron text-black hover:bg-accent-dark">
+    Accent aileron Button
+  </button>
+</div>
+<div>
+  <button class="bg-accent font-roboto text-black hover:bg-accent-dark">
+    Accent roboto Button
+  </button>
+</div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -356,13 +351,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<button class="bg-primary text-white hover:bg-primary-dark">
-  Primary Button
-</button>
-<button class="bg-secondary text-white hover:bg-secondary-dark">
-  Secondary Button
-</button>
-<button class="bg-black text-white hover:bg-accent-dark">Accent Button</button>
 
 <router-outlet />
