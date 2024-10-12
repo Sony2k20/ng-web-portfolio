@@ -5,7 +5,6 @@ const angular = require("angular-eslint");
 const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
 
 module.exports = tseslint.config(
-  eslintPluginPrettierRecommended,
   {
     files: ["**/*.ts"],
     extends: [
@@ -13,9 +12,16 @@ module.exports = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
+      eslintPluginPrettierRecommended,
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
       "@angular-eslint/directive-selector": [
         "error",
         {
