@@ -44,5 +44,5 @@ jobs:
         run: |
           docker buildx build \
           --platform linux/arm64,linux/amd64 \
-          --tag sony2k20/ng-web-blog:latest \
+          --tag sony2k20/ng-web-portfolio:latest \
           --push .
