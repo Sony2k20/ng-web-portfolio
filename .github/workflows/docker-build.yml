@@ -16,11 +16,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: "18"
 
-        #https://github.com/npm/cli/issues/4828
-      - name: Workaround for arm - remove package-lock.json
-        run: rm package-lock.json
+      #   #https://github.com/npm/cli/issues/4828
+      # - name: Workaround for arm - remove package-lock.json
+      #   run: rm package-lock.json
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
