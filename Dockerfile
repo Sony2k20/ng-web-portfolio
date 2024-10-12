@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copy the build output from the Angular app to the nginx directory
-COPY ./dist/app /usr/share/nginx/html
+COPY ./dist/app/browser /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
