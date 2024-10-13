@@ -1,20 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
   theme: {
+    letterSpacing: {
+      brittany: "-.15em",
+    },
     extend: {
       fontFamily: {
         aileron: ["Aileron", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
         times: ['"Times New Roman"', "serif"],
         brittany: ["Brittany", "serif"],
-        sans: ["Roboto", "sans-serif"],
+        sans: ["Aileron", "sans-serif"],
       },
       colors: {
         primary: {
-          light: "#DED3E3",
+          light: "#ece5ef",
           DEFAULT: "#DED3E3",
-          dark: "#DED3E3",
+          dark: "#6c5574",
         },
         secondary: {
           light: "#f4f0f7",
@@ -38,5 +41,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
+    require("flowbite/plugin"),
   ],
 };
