@@ -7,7 +7,6 @@ export const routes: Routes = [
     path: 'podcast',
     loadComponent: () =>
       import('./podcast/podcast.component').then((mod) => mod.PodcastComponent),
-    pathMatch: 'full',
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
