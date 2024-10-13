@@ -6,6 +6,5 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   imports: [HeaderComponent],
   templateUrl: './podcast.component.html',
-  styleUrl: './podcast.component.css',
 })
 export class PodcastComponent {}

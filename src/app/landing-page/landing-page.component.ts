@@ -7,7 +7,6 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   imports: [CommonModule, HeaderComponent],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css',
 })
 export class LandingPageComponent {
   pages = new Array(10);
