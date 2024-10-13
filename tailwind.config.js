@@ -2,8 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
   theme: {
-    letterSpacing: {
-      brittany: "-.15em",
+    theme: {
+      letterSpacing: {
+        tightest: "-.075em",
+        tighter: "-.05em",
+        tight: "-.025em",
+        normal: "0",
+        wide: ".025em",
+        wider: ".05em",
+        widest: ".25em",
+      },
     },
     extend: {
       fontFamily: {
@@ -30,7 +38,7 @@ module.exports = {
           dark: "#3c382f",
         },
         accent: {
-          light: "#8277a3",
+          light: "#A8A2B4",
           DEFAULT: "#8277a3",
           dark: "#8277a3",
         },
