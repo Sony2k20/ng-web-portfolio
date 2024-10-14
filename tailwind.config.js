@@ -19,6 +19,7 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
         times: ['"Times New Roman"', "serif"],
         brittany: ["Brittany", "serif"],
+        eyesome: ["Eyesome", "serif"],
         sans: ["Aileron", "sans-serif"],
       },
       colors: {
