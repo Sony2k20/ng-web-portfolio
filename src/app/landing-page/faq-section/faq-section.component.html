@@ -1,14 +1,14 @@
 <!-- ToDo Last item does not open smooth -->
 
 <div class="mx-auto max-w-screen-xl py-16 lg:text-xl">
-  <h2 class="lg:text-5xl font-bold text text-center font-eyesome mb-12">
+  <h2 class="lg:text-5xl font-bold text text-center font-eyesome mb-16">
     Frequently Asked Questions
   </h2>
   <div id="faq">
     <div
       *ngFor="let item of accordionItems; let i = index"
       [ngClass]="{
-        'border-b border-accent-dark': i < accordionItems.length - 1,
+        'border-b border-primary': i < accordionItems.length - 1,
       }"
       class="max-w-screen-xl mx-auto"
     >
@@ -48,7 +48,7 @@
         class="transition-all duration-300 ease-in-out"
       >
         <div
-          class="p-4 py-6 w-full text-accent flex justify-between items-center border-t border-accent-dark"
+          class="p-4 py-6 w-full text-accent flex justify-between items-center border-t border-accent-light"
           #content
         >
           {{ item.answer }}

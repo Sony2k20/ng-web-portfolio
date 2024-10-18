@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { FaqSectionComponent } from './faq-section/faq-section.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,6 +13,7 @@ import { FaqSectionComponent } from './faq-section/faq-section.component';
     HeaderComponent,
     HeroSectionComponent,
     FaqSectionComponent,
+    FooterComponent,
   ],
   templateUrl: './landing-page.component.html',
 })
