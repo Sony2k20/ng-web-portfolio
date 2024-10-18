@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +9,6 @@ import { initFlowbite } from 'flowbite';
   imports: [RouterOutlet, HeaderComponent, LandingPageComponent],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'ng-web-portfolio';
-
-  ngOnInit(): void {
-    initFlowbite();
-  }
 }
