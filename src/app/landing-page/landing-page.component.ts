@@ -21,6 +21,4 @@ import { CoachingComponent } from './coaching/coaching.component';
   ],
   templateUrl: './landing-page.component.html',
 })
-export class LandingPageComponent {
-  pages = new Array(10);
-}
+export class LandingPageComponent {}

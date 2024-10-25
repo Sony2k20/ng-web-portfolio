@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocialLinks } from '../../shared/enums/social-links';
 
 @Component({
   selector: 'app-about-me',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './about-me.component.html',
 })
-export class AboutMeComponent {}
+export class AboutMeComponent {
+  socialLinks = SocialLinks;
+}
