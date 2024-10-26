@@ -26,3 +26,64 @@
 html {
   scroll-behavior: smooth;
 }
+
+/***************************** Animations *****************************/
+
+.autoShow {
+  animation: autoShowAnimation both;
+  animation-timeline: view(80% 10%);
+  /* first value is where it should end, second value is where it starts */
+}
+
+@keyframes autoShowAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.autoHide {
+  animation: autoHideAnimation both;
+  animation-timeline: view(5% 80%);
+}
+
+@keyframes autoHideAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    filter: blur(5px);
+  }
+}
+
+.fadeIn {
+  transform: translateY(30px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: fadeInAnimation 0.5s 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 0;
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animDelay08 {
+  animation-delay: 0.8s;
+}
+
+.animDelay11 {
+  animation-delay: 1.1s;
+}

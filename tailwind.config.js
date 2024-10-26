@@ -33,12 +33,7 @@ module.exports = {
           "100%": { transform: "translateY(0)" },
         },
       },
-      animation: {
-        fadeIn: "fadeIn 1s ease-in-out",
-        fadeOut: "fadeOut 1s ease-in-out",
-        slideIn: "slideIn 0.5s ease-out",
-        slideInFromTop: "slideInFromTop 0.5s ease-out",
-      },
+
       fontFamily: {
         aileron: ["Aileron", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
