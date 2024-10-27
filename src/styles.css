@@ -1,14 +1,12 @@
+/*  Imports */
 @import "@fontsource/aileron/index.css";
-@tailwind base;
-@layer base {
-  html {
-    @apply text-black;
-  }
-}
 
+/*  Tailwind base, components, and utilities */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*  Font Faces */
 @font-face {
   font-family: "Brittany";
   src: url("assets/fonts/brittany/BrittanySignature.ttf") format("truetype");
@@ -23,11 +21,26 @@
   font-style: normal;
 }
 
-html {
-  scroll-behavior: smooth;
+/*  Base Styles */
+@layer base {
+  html {
+    @apply text-black;
+    scroll-behavior: smooth;
+  }
 }
 
 /***************************** Animations *****************************/
+
+.animate {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
 
 .autoShow {
   animation: autoShowAnimation both;
@@ -35,6 +48,23 @@ html {
   /* first value is where it should end, second value is where it starts */
 }
 
+.fadeIn {
+  opacity: 0;
+  /* first is duration, second is delay */
+  animation: fadeInAnimation 0.5s 0.5s ease-in-out forwards;
+}
+
+.fadeOutText {
+  animation: fadeOutAnimation both;
+  animation-timeline: view(5% 80%);
+}
+
+.fadeOutComponent {
+  animation: fadeOutAnimation both;
+  animation-timeline: view(5% 110%);
+}
+
+/* 7. Keyframes */
 @keyframes autoShowAnimation {
   from {
     opacity: 0;
@@ -46,30 +76,23 @@ html {
   }
 }
 
-.fadeIn {
-  transform: translateY(30px);
-  filter: blur(20px);
-  opacity: 0;
-  animation: fadeInAnimation 0.5s 0.5s ease-in-out forwards;
-}
-
 @keyframes fadeInAnimation {
-  to {
-    opacity: 0;
+  /* to {
+    opacity: 1;
     transform: translateY(0);
     filter: blur(0);
-    opacity: 1;
+  } */
+
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Slight upward movement */
+    filter: blur(20px);
   }
-}
-
-.fadeOutText {
-  animation: fadeOutAnimation both;
-  animation-timeline: view(5% 80%);
-}
-
-.fadeOutComponent {
-  animation: fadeOutAnimation both;
-  animation-timeline: view(5% 110%);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 @keyframes fadeOutAnimation {
@@ -84,6 +107,8 @@ html {
     filter: blur(5px);
   }
 }
+
+/* Utility Classes (if needed) */
 
 .animDelay08 {
   animation-delay: 0.8s;
