@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
   theme: {
     theme: {
       letterSpacing: {
@@ -70,5 +70,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
+    require("flowbite/plugin"),
   ],
 };

@@ -1,7 +1,9 @@
 <!-- ToDo Last item does not open smooth -->
 
-<div class="mx-auto max-w-screen-xl py-16 lg:text-xl">
-  <h2 class="lg:text-5xl font-bold text text-center font-eyesome mb-16">
+<div class="mx-auto max-w-screen-xl px-5 2xl:px-0 py-8 lg:py-16 lg:text-xl">
+  <h2
+    class="text-3xl lg:text-5xl font-bold text text-center font-eyesome pb-8 lg:pb-16"
+  >
     Frequently Asked Questions
   </h2>
   <div id="faq">
@@ -18,10 +20,10 @@
           '': openIndex === i,
           'bg-secondary': openIndex !== i,
         }"
-        class="w-full flex justify-between items-center transition-colors duration-300 ease-in-out p-4"
+        class="w-full flex justify-between items-center transition-colors duration-300 ease-in-out p-4 xl:px-2"
       >
-        <span>{{ item.question }}</span>
-        <span class="transition-transform duration-300">
+        <span class="mr-4">{{ item.question }}</span>
+        <span class="transition-transform duration-300 mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -48,7 +50,7 @@
         class="transition-all duration-300 ease-in-out"
       >
         <div
-          class="p-4 py-6 w-full text-accent flex justify-between items-center border-t border-accent-light"
+          class="p-4 py-6 w-full flex justify-between items-center border-t-2 border-accent-light"
           #content
         >
           {{ item.answer }}

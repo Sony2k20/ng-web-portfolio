@@ -1,30 +1,33 @@
-<div class="relative h-screen">
-  <img
-    src="../../assets/images/small-a.jpg"
-    alt="Landing Page Background"
-    class="absolute inset-0 w-full h-full object-cover z-0"
-  />
+<div class="relative lg:h-screen">
+  <div
+    class="absolute inset-0 h-full w-full z-0"
+    style="
+      background-image: url(&quot;../../assets/images/small-a.jpg&quot;);
+      background-size: cover;
+      background-position: 25% 75%;
+    "
+  ></div>
 
   <!-- Opacitiy Overlay -->
   <!-- <div class="absolute inset-0 bg-black opacity-40"></div> -->
   <div
-    class="relative z-10 flex items-center justify-end h-full max-w-screen-xl mx-auto"
+    class="relative z-10 flex items-center justify-end h-full max-w-screen-xl mx-auto px-8"
   >
-    <div class="" style="max-width: 540px">
+    <div class="max-w-fit">
       <h1
-        class="mb-12 text-4xl font-extrabold font-eyesome leading-none text-black md:text-5xl lg:text-6xl fadeIn"
+        class="pb-8 xl:pb-10 text font-extrabold font-eyesome leading-none text-black md:text-5xl lg:text-5xl xl:text-6xl text-4xl fadeIn text-center"
       >
         Erfolg beginnt in Dir
       </h1>
 
-      <p class="mb-6 lg:text-xl fadeIn animDelay08">
-        Bist Du bereit Dein Leben selbstzu bestimmen und deine Visionen mit
-        Freude und Leichtigkeitzu verwirklichen.
+      <p class="pb-8 text-lg xl:text-xl fadeIn animDelay08 text-center">
+        Bist Du bereit Dein Leben selbstzu bestimmen und deine <br />Visionen
+        mit Freude und Leichtigkeitzu verwirklichen.
       </p>
       <div class="text-center fadeIn animDelay11">
         <button
           type="button"
-          class="text-secondary uppercase bg-accent hover:bg-primary-dark rounded-full text-sm px-12 py-2.5 text-center me-2 mb-2 transition-colors duration-500 ease-in-out shadow-md shadow-accent/50"
+          class="text-xs lg:text-sm text-secondary uppercase bg-accent hover:bg-primary-dark rounded-full px-12 py-2.5 text-center me-2 mb-2 transition-colors duration-500 ease-in-out shadow-md shadow-accent/50"
         >
           Zum Coaching
         </button>
@@ -33,6 +36,6 @@
   </div>
   <!-- Right-side gradient -->
   <div
-    class="absolute inset-y-0 right-0 w-7/12 bg-gradient-to-l from-primary to-transparent"
+    class="hidden md:block absolute inset-y-0 right-0 w-7/12 bg-gradient-to-l from-primary to-transparent"
   ></div>
 </div>
