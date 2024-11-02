@@ -1,8 +1,5 @@
-<!-- <nav
-  class="glass-header absolute top-0 left-0 w-full h-16 bg-secondary bg-opacity-10 backdrop-blur-lg shadow-lg border-b border-white/20 z-50"
-> -->
 <nav
-  class="absolute top-0 left-0 w-full z-50 bg-secondary bg-opacity-60 shadow-md px-8 2xl:px-0"
+  class="absolute top-0 left-0 w-full z-50 bg-secondary lg:bg-opacity-60 shadow-md px-8 2xl:px-0"
 >
   <div
     class="max-w-screen-xl flex flex-wrap items-center w-full justify-center lg:justify-between mx-auto py-4"
@@ -13,12 +10,14 @@
         >Katharina Niesche</span
       >
     </a>
-
+    <!-- <app-hamburger-menu
+      class="absolute right-10 p-2 scale-50"
+    ></app-hamburger-menu> -->
     <!-- ToDo Mobile size -->
     <button
       data-collapse-toggle="navbar-default"
       type="button"
-      class="absolute top-2 right-0 p-2 w-10 h-10 inline-flex items-center justify-center text-sm text-black rounded-lg md:hidden"
+      class="absolute top-2 right-0 p-2 w-10 h-10 inline-flex items-center justify-center text-sm text-black rounded-lg lg:hidden"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
@@ -40,15 +39,18 @@
       </svg>
     </button>
 
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+    <div
+      class="hidden w-full lg:block lg:w-auto h-screen lg:h-auto"
+      id="navbar-default"
+    >
       <ul
-        class="font-medium text-lg uppercase flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
+        class="font-medium text-lg uppercase flex flex-col p-4 lg:p-0 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0"
       >
         <li>
           <a
             (click)="scrollToSection('start')"
             role="presentation"
-            class="block py-2 px-3 md:p-0 text-accent cursor-pointer"
+            class="block py-2 lg:px-3 lg:p-0 text-accent cursor-pointer"
             >Startseite</a
           >
         </li>
@@ -56,7 +58,7 @@
           <a
             (click)="scrollToSection('about')"
             role="presentation"
-            class="block py-2 px-3 md:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
+            class="block py-2 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Über mich</a
           >
         </li>
@@ -64,7 +66,7 @@
           <a
             (click)="scrollToSection('coaching')"
             role="presentation"
-            class="block py-2 px-3 md:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
+            class="block py-2 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Coaching</a
           >
         </li>
@@ -72,7 +74,7 @@
           <a
             (click)="scrollToSection('podcast')"
             role="presentation"
-            class="block py-2 px-3 md:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
+            class="block py-2 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Podcast</a
           >
         </li>
@@ -80,7 +82,7 @@
           <a
             (click)="scrollToSection('contact')"
             role="presentation"
-            class="block py-2 px-3 md:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
+            class="block py-2 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Kontakt</a
           >
         </li>
