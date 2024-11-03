@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, inject } from '@angular/core';
+import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
 
 @Component({
   selector: 'app-faq-section',
@@ -7,9 +8,21 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './faq-section.component.html',
 })
-export class FaqSectionComponent {
+export class FaqSectionComponent implements AfterViewInit {
   // This will hold the state of the accordion items
   openIndex: number | null = null;
+
+  private elementRef = inject(ElementRef);
+  private intersectionObserverService = inject(IntersectionObserverService);
+
+  ngAfterViewInit() {
+    this.intersectionObserverService.observeElements(
+      this.elementRef,
+      'animate-visible',
+      'animate',
+      1,
+    );
+  }
 
   // Accordion items data
   accordionItems = [
@@ -17,7 +30,7 @@ export class FaqSectionComponent {
       question:
         'Woher weiß ich welches Coaching-Paket zu meinem Anliegen passt?',
       answer:
-        'Wir beginnen mit einem kostenlosen Erstgespräch, in dem wir deine Ziele besprechen. In diesem Gespräch bekomme ich ein Gefühl für dein Anliegen, erkläre dir meine Coaching Pakete nochmalk konkret und kann dir für dein Anliegen ein Paket empfehlen. Du selbst kannst jedoch nach diesem Gespräch entscheiden, welches Paket sich für dich richtig anfühlt.',
+        'Wir beginnen mit einem kostenlosen Erstgespräch, in dem wir deine Ziele besprechen. In diesem Gespräch bekomme ich ein Gefühl für dein Anliegen, erkläre dir meine Coaching Pakete nochmal konkret und kann dir für dein Anliegen ein Paket empfehlen. Du selbst kannst jedoch nach diesem Gespräch entscheiden, welches Paket sich für dich richtig anfühlt.',
     },
     {
       question: 'In welchen Abständen finden unsere Termine statt?',

@@ -1,6 +1,6 @@
-<div class="md:flex md:h-screen mx-auto text-lg xl:text-xl">
+<div class="md:flex md:h-screen mx-auto text-lg xl:text-xl bg-secondary">
   <div
-    class="bg-secondary flex flex-col items-center md:items-start justify-center md:w-7/12 h-full p-12 lg:p-20 xl:p-32 text-center md:text-left"
+    class="flex flex-col items-center md:items-start justify-center md:w-7/12 h-full p-12 pt-8 pb-24 lg:p-20 xl:p-32 text-center md:text-left"
   >
     <h2
       #headline
@@ -30,10 +30,10 @@
   </div>
 
   <div
-    class="bg-secondary lg:bg-primary flex flex-col items-center justify-center h-full md:w-5/12 lg:bg-gradient-to-tr from-primary to-secondary/50"
+    class="flex flex-col items-center justify-center h-full md:w-5/12 bg-secondary lg:bg-primary lg:bg-gradient-to-tr from-primary to-secondary/50"
   >
     <div
-      class="bg-primary p-12 md:p-8 lg:p-12 text-center lg:shadow-xl lg:sm:shadow-accent/40 sm:rounded-xl"
+      class="bg-primary p-24 md:p-8 lg:p-12 text-center lg:shadow-xl lg:sm:shadow-accent/40 sm:rounded-xl"
     >
       <div
         class="relative mx-auto lg:w-72 lg:h-72 rounded-full overflow-hidden"
@@ -49,7 +49,7 @@
       >
         Katharina Niesche
       </h2>
-      <h3 class="uppercase mt-4 text-md">
+      <h3 class="uppercase my-4 text-md">
         Transformations- <br />und Erfolgscoach
       </h3>
       <app-social-links></app-social-links>
@@ -57,9 +57,7 @@
   </div>
 </div>
 
-<!-- <div class="bg-secondary h-screen"></div>
-
-<div class="relative flex h-screen">
+<!-- <div class="relative flex h-screen">
   <img
     src="../../assets/images/bg.png"
     alt="About Page Background"
@@ -109,86 +107,12 @@
           Katharina Niesche
         </h2>
         <h3 class="uppercase mt-4">Transformations- <br />und Erfolgscoach</h3>
-        <div class="flex space-x-4 sm:justify-center mt-4">
-          <a
-            [href]="socialLinks.Instagram"
-            target="_blank"
-            aria-label="instagram"
-            class="w-9 h-9 rounded-full bg-accent hover:bg-primary-dark shadow-sm shadow-accent/50 flex justify-center items-center transition-colors duration-500 ease-in-out"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              class="h-5 w-5 text-secondary"
-            >
-              <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-
-          <a
-            [href]="socialLinks.TikTok"
-            target="_blank"
-            aria-label="tiktok"
-            class="w-9 h-9 rounded-full bg-accent hover:bg-primary-dark shadow-sm shadow-accent/50 flex justify-center items-center transition-colors duration-500 ease-in-out"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              class="h-4 w-4 text-secondary"
-            >
-              <path
-                d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-
-          <a
-            [href]="socialLinks.Spotify"
-            target="_blank"
-            aria-label="spotify"
-            class="w-9 h-9 rounded-full bg-accent hover:bg-primary-dark shadow-sm shadow-accent/50 flex justify-center items-center transition-colors duration-500 ease-in-out"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 496 512"
-              class="h-5 w-5 text-secondary"
-            >
-              <path
-                d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-          <a
-            [href]="socialLinks.YouTube"
-            target="_blank"
-            aria-label="youtube"
-            class="w-9 h-9 rounded-full bg-accent hover:bg-primary-dark shadow-sm shadow-accent/50 flex justify-center items-center transition-colors duration-500 ease-in-out"
-          >
-            <svg
-              class="h-5 w-5 text-secondary"
-              viewBox="0 0 16 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M13.9346 1.13529C14.5684 1.30645 15.0665 1.80588 15.2349 2.43896C15.5413 3.58788 15.5413 5.98654 15.5413 5.98654C15.5413 5.98654 15.5413 8.3852 15.2349 9.53412C15.0642 10.1695 14.5661 10.669 13.9346 10.8378C12.7886 11.1449 8.19058 11.1449 8.19058 11.1449C8.19058 11.1449 3.59491 11.1449 2.44657 10.8378C1.81277 10.6666 1.31461 10.1672 1.14622 9.53412C0.839844 8.3852 0.839844 5.98654 0.839844 5.98654C0.839844 5.98654 0.839844 3.58788 1.14622 2.43896C1.31695 1.80353 1.81511 1.30411 2.44657 1.13529C3.59491 0.828125 8.19058 0.828125 8.19058 0.828125C8.19058 0.828125 12.7886 0.828125 13.9346 1.13529ZM10.541 5.98654L6.72178 8.19762V3.77545L10.541 5.98654Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="relative inline-block p-1">
+</div> -->
+
+<!-- <div class="relative inline-block p-1">
   <textarea class="h-30"></textarea>
   <div
     class="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-[#ff9000]"
