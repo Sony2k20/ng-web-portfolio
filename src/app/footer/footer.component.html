@@ -1,8 +1,8 @@
-<footer class="w-full bg-primary px-5 2xl:px-0 lg:text-xl py-12">
+<footer class="w-full bg-primary px-5 2xl:px-0 xl:text-xl py-12">
   <div class="mx-auto max-w-screen-xl">
     <!--Grid-->
     <div
-      class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 py-0 sm:py-4 text-center md:text-left"
+      class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 py-0 sm:py-4 text-center md:text-left font-roboto"
     >
       <div class="flex justify-center md:justify-start mb-2 sm:mb-0">
         <img
@@ -14,10 +14,18 @@
       <div
         class="flex justify-center sm:col-start-3 lg:col-start-4 xl:justify-end items-end mb-3"
       >
-        <h4 class="cursor-pointer">Impressum</h4>
+        <a
+          [routerLink]="routes.Impressum"
+          class="hover:text-accent-dark duration-500 ease-in-out"
+          >Impressum</a
+        >
       </div>
       <div class="flex justify-center md:justify-end items-end mb-3">
-        <div class="cursor-pointer">Datenschutzerklärung</div>
+        <a
+          [routerLink]="routes.Datenschutz"
+          class="hover:text-accent-dark duration-500 ease-in-out"
+          >Datenschutzerklärung</a
+        >
       </div>
     </div>
 

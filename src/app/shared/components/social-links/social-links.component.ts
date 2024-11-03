@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialLinks } from '../../enums/social-links';
+import { SocialLinks } from './social-links.enum';
 
 @Component({
   selector: 'app-social-links',

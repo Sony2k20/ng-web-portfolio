@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
     theme: {
       letterSpacing: {
@@ -33,7 +33,12 @@ module.exports = {
           "100%": { transform: "translateY(0)" },
         },
       },
-
+      animation: {
+        fadeIn: "fadeIn 0.6s ease-in-out",
+        fadeOut: "fadeOut 0.6s ease-in-out",
+        slideIn: "slideIn 0.5s ease-out",
+        slideInFromTop: "slideInFromTop 0.5s ease-out",
+      },
       fontFamily: {
         aileron: ["Aileron", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
@@ -70,6 +75,5 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("flowbite/plugin"),
   ],
 };

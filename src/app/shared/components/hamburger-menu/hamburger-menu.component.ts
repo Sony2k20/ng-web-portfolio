@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hamburger-menu',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './hamburger-menu.component.html',
   styleUrl: './hamburger-menu.component.css',
 })
-export class HamburgerMenuComponent {}
+export class HamburgerMenuComponent {
+  @Input() isChecked = false;
+
+  toggleHamburger() {
+    this.isChecked = !this.isChecked;
+  }
+}

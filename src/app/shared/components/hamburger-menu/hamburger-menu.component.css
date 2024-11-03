@@ -9,18 +9,12 @@
   border: 0;
 }
 
-.container {
-  transform: scale(0.55);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-
 .hamburger {
   margin: 0 auto;
   width: 30px;
   height: 30px;
   position: relative;
+  cursor: pointer;
 }
 
 .hamburger .bar {
@@ -32,6 +26,13 @@
   border-radius: 4px;
   transition: all 0.4s ease-in-out;
   position: absolute;
+}
+
+.container {
+  transform: scale(0.85);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .bar1 {
@@ -60,25 +61,26 @@
   transform-origin: 5%;
 }
 
-.checkbox3:checked + label > .hamburger3 > .bar1 {
+/* Styles when the hamburger is toggled (using .checked) */
+.hamburger3.checked .bar1 {
   transform: rotate(45deg);
   height: 3px;
   width: 42px;
 }
 
-.checkbox3:checked + label > .hamburger3 > .bar3 {
+.hamburger3.checked .bar3 {
   transform: rotate(45deg);
   height: 3px;
   background-color: transparent;
 }
 
-.checkbox3:checked + label > .hamburger3 > .bar2 {
+.hamburger3.checked .bar2 {
   transform: rotate(-45deg);
   height: 3px;
   background-color: transparent;
 }
 
-.checkbox3:checked + label > .hamburger3 > .bar4 {
+.hamburger3.checked .bar4 {
   transform: rotate(-45deg);
   height: 3px;
   width: 42px;
