@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { SocialLinks } from '../shared/enums/social-links';
+import { SocialLinksComponent } from '../shared/components/social-links/social-links.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [SocialLinksComponent],
   templateUrl: './footer.component.html',
 })
-export class FooterComponent {
-  socialLinks = SocialLinks;
-}
+export class FooterComponent {}

@@ -1,16 +1,14 @@
 import { Component, ElementRef, AfterViewInit, inject } from '@angular/core';
-import { SocialLinks } from '../../shared/enums/social-links';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
+import { SocialLinksComponent } from '../../shared/components/social-links/social-links.component';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [],
+  imports: [SocialLinksComponent],
   templateUrl: './about-me.component.html',
 })
 export class AboutMeComponent implements AfterViewInit {
-  socialLinks = SocialLinks;
-
   private elementRef = inject(ElementRef);
   private intersectionObserverService = inject(IntersectionObserverService);
 
@@ -19,7 +17,7 @@ export class AboutMeComponent implements AfterViewInit {
       this.elementRef,
       'animate-visible',
       'animate',
-      0,
+      1,
     );
   }
 }

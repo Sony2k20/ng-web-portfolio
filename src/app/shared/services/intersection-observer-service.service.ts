@@ -35,7 +35,7 @@ export class IntersectionObserverService {
           }
         });
       },
-      { threshold: threshold, rootMargin: '-100px' },
+      { rootMargin: '-100px' },
     );
 
     elements.forEach((element: Element) => observer.observe(element));

@@ -1,8 +1,36 @@
-<app-header></app-header>
-<div class="relative h-screen">
-  <img
-    src="../../assets/images/katy1.jpg"
-    alt="Landing Page Background"
-    class="absolute inset-0 w-full h-full object-cover z-0"
-  />
+<div
+  class="md:flex md:h-screen mx-auto text-lg xl:text-xl p-12 bg-gradient-to-r from-primary to-secondary"
+>
+  <a
+    class="flex mx-auto items-center justify-center mt-12 md:mt-0"
+    [href]="socialLinks.Spotify"
+    target="_blank"
+    aria-label="apple"
+  >
+    <img
+      src="../../assets/images/smartphone.png"
+      alt="about image"
+      class="object-cover h-64 md:h-3/4 lg:ml-28 xl:ml-96"
+    />
+  </a>
+
+  <div
+    class="flex flex-col items-center md:items-start justify-center md:w-7/12 h-full pl-0 pt-12 md:p-12 lg:p-20 lg:pl-12 xl:p-32 xl:pl-24"
+  >
+    <h2 #headline class="text-3xl xl:text-5xl uppercase animate leading-tight">
+      Love Yourself, <br />
+      Speak Yourself
+    </h2>
+    <div #content class="leading-8 max-w-lg xl:max-w-xl">
+      <hr class="h-0.5 w-44 my-8 bg-accent mx-auto md:mx-0" />
+
+      <p class="mb-4">
+        In meinem Videopodcast „Love yourself - Speak yourself“ geht es um mehr
+        als nur persönliche Entwicklung - es geht darum, deine Grenzen zu
+        sprengen, mutig deine Ziele zu verfolgen und das Leben zu gestalten, das
+        du wirklich willst. Hier dreht sich alles um Transformation, Klarheit
+        und die kraftvolle Umsetzung deiner Visionen.
+      </p>
+    </div>
+  </div>
 </div>

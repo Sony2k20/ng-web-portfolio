@@ -21,6 +21,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Droid";
+  src: url("assets/fonts/droid-serif/Droid-Serif.ttf.woff") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
 /*  Base Styles */
 @layer base {
   html {

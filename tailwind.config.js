@@ -40,7 +40,7 @@ module.exports = {
         times: ['"Times New Roman"', "serif"],
         brittany: ["Brittany", "serif"],
         eyesome: ["Eyesome", "serif"],
-        sans: ["Aileron", "sans-serif"],
+        sans: ["Droid", "sans-serif"],
       },
       colors: {
         primary: {
