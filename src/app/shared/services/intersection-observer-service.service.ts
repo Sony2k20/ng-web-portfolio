@@ -5,24 +5,24 @@ import { Injectable, ElementRef } from '@angular/core';
 })
 export class IntersectionObserverService {
   /**
-   * Observe an element and add a class when it becomes visible.
-   * @param elementRef - The ElementRef of the target element.
-   * @param classNameToAdd - The class name to be added when the element is visible.
-   * @param querySelectorClass - The class name used to query the element.
+   * Observe multiple elements and add a class when they become visible.
+   * @param elementRef - The ElementRef of the parent container.
+   * @param classNameToAdd - The class name to be added when an element is visible.
+   * @param querySelectorClass - The class name used to query the elements.
    * @param threshold - The intersection threshold (default is 0.1).
    */
-  observeElement(
+  observeElements(
     elementRef: ElementRef,
     classNameToAdd: string,
     querySelectorClass: string,
     threshold = 0.1,
   ) {
-    const element = elementRef.nativeElement.querySelector(
+    const elements = elementRef.nativeElement.querySelectorAll(
       `.${querySelectorClass}`,
     );
 
-    if (!element) {
-      console.warn(`Element with class "${querySelectorClass}" not found.`);
+    if (elements.length === 0) {
+      console.warn(`Elements with class "${querySelectorClass}" not found.`);
       return;
     }
 
@@ -31,13 +31,13 @@ export class IntersectionObserverService {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add(classNameToAdd);
-            observer.unobserve(entry.target); // Stop observing for performance reasons
+            observer.unobserve(entry.target); // Stop observing to optimize performance
           }
         });
       },
-      { threshold: threshold },
+      { threshold: threshold, rootMargin: '-100px' },
     );
 
-    observer.observe(element);
+    elements.forEach((element: Element) => observer.observe(element));
   }
 }

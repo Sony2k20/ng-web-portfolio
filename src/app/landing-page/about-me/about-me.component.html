@@ -1,11 +1,11 @@
-<!-- <div class="flex h-screen mx-auto">
+<div class="lg:flex lg:h-screen mx-auto">
   <div
-    class="bg-secondary flex flex-col items-center justify-center w-7/12 h-full p-32 text-center"
+    class="bg-secondary flex flex-col items-center justify-center lg:w-7/12 h-full p-12 lg:p-32 text-center"
   >
-    <h2 class="text-7xl uppercase animate">
+    <h2 #headline class="text-7xl uppercase animate">
       hi<span class="text-accent-dark">!</span>
     </h2>
-    <div class="mt-8">
+    <div #content class="mt-8">
       <p class="mb-4">
         als Transformations- und Erfolgscoach unterstütze ich Frauen dabei, ihre
         Selbstständigkeit erfolgreich und nachhaltig aufzubauen, und ihre
@@ -25,13 +25,13 @@
   </div>
 
   <div
-    class="bg-primary flex flex-col items-center justify-center w-5/12 h-full bg-gradient-to-tr from-primary to-secondary/50"
+    class="bg-primary flex flex-col items-center justify-center h-full lg:w-5/12 bg-gradient-to-tr from-primary to-secondary/50"
   >
     <div
-      class="bg-primary pt-12 pb-8 px-12 text-center shadow-xl shadow-accent/40 rounded-xl"
+      class="bg-primary p-12 text-center sm:shadow-xl sm:sm:shadow-accent/40 sm:rounded-xl"
     >
       <div
-        class="relative mx-auto w-72 h-72 rounded-full overflow-hidden group"
+        class="relative mx-auto sm:w-72 sm:h-72 rounded-full overflow-hidden"
       >
         <img
           src="../../assets/images/small-16.jpg"
@@ -45,7 +45,7 @@
         Katharina Niesche
       </h2>
       <h3 class="uppercase mt-4">Transformations- <br />und Erfolgscoach</h3>
-      <div class="flex space-x-4 sm:justify-center mt-4">
+      <div class="flex space-x-4 justify-center mt-4">
         <a
           [href]="socialLinks.Instagram"
           target="_blank"
@@ -124,7 +124,7 @@
   </div>
 </div>
 
-<div class="bg-secondary h-screen"></div>
+<!-- <div class="bg-secondary h-screen"></div>
 
 <div class="relative flex h-screen">
   <img

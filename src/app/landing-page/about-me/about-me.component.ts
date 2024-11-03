@@ -15,11 +15,11 @@ export class AboutMeComponent implements AfterViewInit {
   private intersectionObserverService = inject(IntersectionObserverService);
 
   ngAfterViewInit() {
-    this.intersectionObserverService.observeElement(
+    this.intersectionObserverService.observeElements(
       this.elementRef,
       'animate-visible',
       'animate',
-      0.8,
+      0,
     );
   }
 }
