@@ -7,7 +7,9 @@ export const routes: Routes = [
   {
     path: 'podcast',
     loadComponent: () =>
-      import('./podcast/podcast.component').then((mod) => mod.PodcastComponent),
+      import('./landing-page/podcast/podcast.component').then(
+        (mod) => mod.PodcastComponent,
+      ),
   },
   {
     path: RoutesEnums.Impressum,

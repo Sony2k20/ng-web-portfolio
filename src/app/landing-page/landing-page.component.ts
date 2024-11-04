@@ -6,7 +6,7 @@ import { FaqSectionComponent } from './faq-section/faq-section.component';
 import { FooterComponent } from '../footer/footer.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { CoachingComponent } from './coaching/coaching.component';
-import { PodcastComponent } from '../podcast/podcast.component';
+import { PodcastComponent } from './podcast/podcast.component';
 
 @Component({
   selector: 'app-landing-page',

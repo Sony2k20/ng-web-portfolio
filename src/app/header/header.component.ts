@@ -30,8 +30,13 @@ export class HeaderComponent {
   scrollToSection(sectionId: string) {
     this.router.navigate(['/']);
     setTimeout(() => {
-      this.toggleMenu();
-      this.viewportScroller.scrollToAnchor(sectionId);
+      if (sectionId === 'start') {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      } else {
+        this.viewportScroller.scrollToAnchor(sectionId);
+      }
+      this.isMenuOpen = false;
+      this.isElementVisible = false;
     }, 50);
   }
 }

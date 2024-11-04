@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, AfterViewInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { IntersectionObserverService } from '../shared/services/intersection-observer-service.service';
-import { SocialLinks } from '../shared/components/social-links/social-links.enum';
+import { HeaderComponent } from '../../header/header.component';
+import { SocialLinks } from '../../shared/components/social-links/social-links.enum';
+import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
 
 @Component({
   selector: 'app-podcast',
