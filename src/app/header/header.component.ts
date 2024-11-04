@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamburger-menu.component';
 import { Router } from '@angular/router';
@@ -15,6 +15,21 @@ export class HeaderComponent {
 
   isMenuOpen = false; // or whatever logic you use to open/close the menu
   isElementVisible = false;
+
+  isScrolled = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // Check the scroll position
+    const scrollDistance =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
+    // Set the class based on scroll distance (e.g., 100px)
+    this.isScrolled = scrollDistance > 100;
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
