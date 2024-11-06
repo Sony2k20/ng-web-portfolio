@@ -18,6 +18,7 @@ export class HeaderComponent {
 
   isScrolled = false;
 
+  //toDo - use gsap as scroll indicator
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Check the scroll position
@@ -48,7 +49,11 @@ export class HeaderComponent {
       if (sectionId === 'start') {
         this.viewportScroller.scrollToPosition([0, 0]);
       } else {
-        this.viewportScroller.scrollToAnchor(sectionId);
+        // this.viewportScroller.scrollToAnchor(sectionId);
+        document.querySelector('#' + sectionId)!.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start', // Aligns the top of the element to the top of the viewport
+        });
       }
       this.isMenuOpen = false;
       this.isElementVisible = false;
