@@ -3,6 +3,7 @@ import { Injectable, ElementRef } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
+// to do - use gsap
 export class IntersectionObserverService {
   /**
    * Observe multiple elements and add a class when they become visible.

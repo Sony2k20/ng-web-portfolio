@@ -35,7 +35,8 @@
       >
         <li>
           <a
-            (click)="scrollToSection('start')"
+            href="#header"
+            (click)="scrollToSection('header', $event)"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 text-accent cursor-pointer"
             >Startseite</a
@@ -43,7 +44,8 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('about')"
+            href="#about"
+            (click)="scrollToSection('about', $event)"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Über mich</a
@@ -51,7 +53,8 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('coaching')"
+            href="#about"
+            (click)="scrollToSection('coaching', $event)"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Coaching</a
@@ -59,7 +62,8 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('podcast')"
+            href="#podcast"
+            (click)="scrollToSection('podcast', $event)"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Podcast</a
@@ -67,7 +71,8 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('contact')"
+            href="#contact"
+            (click)="scrollToSection('contact', $event)"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Kontakt</a

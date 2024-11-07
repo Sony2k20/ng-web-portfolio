@@ -43,18 +43,17 @@ export class HeaderComponent {
     }
   }
 
-  scrollToSection(sectionId: string) {
+  scrollToSection(sectionId: string, event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.router.navigate(['/']);
     setTimeout(() => {
-      if (sectionId === 'start') {
-        this.viewportScroller.scrollToPosition([0, 0]);
-      } else {
-        // this.viewportScroller.scrollToAnchor(sectionId);
-        document.querySelector('#' + sectionId)!.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start', // Aligns the top of the element to the top of the viewport
-        });
-      }
+      document.querySelector('#' + sectionId)!.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start', // Aligns the top of the element to the top of the viewport
+      });
+
       this.isMenuOpen = false;
       this.isElementVisible = false;
     }, 50);
