@@ -36,9 +36,7 @@ export class AppComponent implements OnInit {
     gsap.registerPlugin(ScrollTrigger, Draggable);
 
     setTimeout(() => {
-      document
-        .querySelector('#start')!
-        .classList.remove('animate-slideInFromTop');
+      document.querySelector('#start')!.classList.remove('slideInFromTop');
       this.initScrollTriggers();
     }, 1000);
 

@@ -1,18 +1,9 @@
-/*  Imports */
-@import "@fontsource/aileron/index.css";
-
 /*  Tailwind base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*  Font Faces */
-@font-face {
-  font-family: "Brittany";
-  src: url("assets/fonts/brittany/BrittanySignature.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
 
 @font-face {
   font-family: "Eyesome";
@@ -48,48 +39,35 @@
   filter: blur(0);
 }
 
-.autoShow {
-  animation: autoShowAnimation both;
-  animation-timeline: view(80% 10%);
-  /* first value is where it should end, second value is where it starts */
-}
-
 /* toDo rename effects */
-.fadeIn {
+.fadeInTextFromTop {
   opacity: 0;
-  /* first is duration, second is delay */
-  animation: fadeInAnimation 0.5s 0.5s ease-in-out forwards;
+  animation: fadeInTextFromTop 0.5s 0.5s ease-in-out forwards;
 }
 
-.fadeOutText {
-  animation: fadeOutAnimation both;
-  animation-timeline: view(5% 80%);
+.fadeInBg {
+  animation: fadeInBg 0.63s ease-in-out;
 }
 
-.fadeOutComponent {
-  animation: fadeOutAnimation both;
-  animation-timeline: view(5% 110%);
+.fadeInNav {
+  animation: fadeInNav 0.6s ease-in-out;
+}
+
+.fadeOutNav {
+  animation: fadeOutNav 0.6s ease-in-out;
+}
+
+.slideInFromTop {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.slideInFromBot {
+  animation: slideInFromBot 0.5s ease-out;
 }
 
 /* 7. Keyframes */
-@keyframes autoShowAnimation {
-  from {
-    opacity: 0;
-    transform: translateY(200px) scale(0.3);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 
-@keyframes fadeInAnimation {
-  /* to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  } */
-
+@keyframes fadeInTextFromTop {
   from {
     opacity: 0;
     transform: translateY(30px); /* Slight upward movement */
@@ -102,16 +80,50 @@
   }
 }
 
-@keyframes fadeOutAnimation {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-  to {
+@keyframes fadeInBg {
+  0% {
     opacity: 0;
-    transform: translateY(-50px);
-    filter: blur(5px);
+    filter: blur(15px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInNav {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutNav {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBot {
+  0% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

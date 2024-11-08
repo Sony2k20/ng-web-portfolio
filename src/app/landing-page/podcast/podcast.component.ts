@@ -1,12 +1,11 @@
 import { Component, ElementRef, inject, AfterViewInit } from '@angular/core';
-import { HeaderComponent } from '../../header/header.component';
 import { SocialLinks } from '../../shared/components/social-links/social-links.enum';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
 
 @Component({
   selector: 'app-podcast',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [],
   templateUrl: './podcast.component.html',
 })
 export class PodcastComponent implements AfterViewInit {
