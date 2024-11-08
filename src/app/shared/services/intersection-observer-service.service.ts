@@ -31,7 +31,9 @@ export class IntersectionObserverService {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(classNameToAdd);
+            setTimeout(() => {
+              entry.target.classList.add(classNameToAdd);
+            }, 100);
             observer.unobserve(entry.target); // Stop observing to optimize performance
           }
         });

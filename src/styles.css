@@ -54,6 +54,7 @@
   /* first value is where it should end, second value is where it starts */
 }
 
+/* toDo rename effects */
 .fadeIn {
   opacity: 0;
   /* first is duration, second is delay */

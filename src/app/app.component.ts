@@ -35,15 +35,20 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     gsap.registerPlugin(ScrollTrigger, Draggable);
 
-    this.initScrollTriggers();
+    setTimeout(() => {
+      document
+        .querySelector('#start')!
+        .classList.remove('animate-slideInFromTop');
+      this.initScrollTriggers();
+    }, 1000);
 
     //lenis init
-    const lenis = new Lenis({});
-    const animate = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
+    // const lenis = new Lenis({});
+    // const animate = (time: number) => {
+    //   lenis.raf(time);
+    //   requestAnimationFrame(animate);
+    // };
+    // requestAnimationFrame(animate);
   }
 
   initScrollTriggers() {
@@ -58,7 +63,6 @@ export class AppComponent implements OnInit {
         { yPercent: 0, paused: true, duration: 0.2, opacity: 1.0 },
       )
       .progress(1);
-
     ScrollTrigger.create({
       start: 'top top',
       end: 'max',

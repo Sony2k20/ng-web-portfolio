@@ -16,28 +16,33 @@ module.exports = {
     },
     extend: {
       keyframes: {
-        fadeIn: {
+        fadeInBg: {
+          "0%": { opacity: "0", filter: "blur(15px)" },
+          "100%": { opacity: "1", filter: "blur(0px)" },
+        },
+        fadeInNav: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        fadeOut: {
+        fadeOutNav: {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" },
-        },
-        slideIn: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(0)" },
         },
         slideInFromTop: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        slideInFromBot: {
+          "0%": { transform: "translateY(15%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
-        fadeIn: "fadeIn 0.6s ease-in-out",
-        fadeOut: "fadeOut 0.6s ease-in-out",
-        slideIn: "slideIn 0.5s ease-out",
+        fadeInBg: "fadeInBg 0.63s ease-in-out",
+        fadeInNav: "fadeInNav 0.6s ease-in-out",
+        fadeOutNav: "fadeOutNav 0.6s ease-in-out",
         slideInFromTop: "slideInFromTop 0.5s ease-out",
+        slideInFromBot: "slideInFromBot 0.5s ease-out",
       },
       fontFamily: {
         aileron: ["Aileron", "sans-serif"],
