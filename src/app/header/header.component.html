@@ -24,9 +24,9 @@
       class="absolute bg-secondary lg:bg-transparent top-16 lg:top-0 lg:relative lg:block w-full k lg:w-auto h-screen lg:h-auto duration-500"
       [ngClass]="
         isMenuOpen
-          ? 'block fadeInBg'
+          ? 'block fadeInNav'
           : isElementVisible
-            ? 'block fadeOutNav'
+            ? 'block fadeOutNav animDelay05'
             : 'hidden'
       "
     >
@@ -38,6 +38,10 @@
             href="#header"
             (click)="scrollToSection('header', $event)"
             role="presentation"
+            [ngClass]="{
+              'slideInFromBot animDelay03': isMenuOpen && isSmallScreen,
+              'slideOutFromBot animDelay04': !isMenuOpen && isSmallScreen,
+            }"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 text-accent cursor-pointer"
             >Startseite</a
           >
@@ -46,6 +50,10 @@
           <a
             href="#about"
             (click)="scrollToSection('about', $event)"
+            [ngClass]="{
+              'slideInFromBot animDelay04': isMenuOpen && isSmallScreen,
+              'slideOutFromBot animDelay03': !isMenuOpen && isSmallScreen,
+            }"
             role="presentation"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Über mich</a
@@ -56,6 +64,10 @@
             href="#about"
             (click)="scrollToSection('coaching', $event)"
             role="presentation"
+            [ngClass]="{
+              'slideInFromBot animDelay05': isMenuOpen && isSmallScreen,
+              'slideOutFromBot animDelay02': !isMenuOpen && isSmallScreen,
+            }"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Coaching</a
           >
@@ -65,6 +77,10 @@
             href="#podcast"
             (click)="scrollToSection('podcast', $event)"
             role="presentation"
+            [ngClass]="{
+              'slideInFromBot animDelay06': isMenuOpen && isSmallScreen,
+              'slideOutFromBot animDelay01': !isMenuOpen && isSmallScreen,
+            }"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Podcast</a
           >
@@ -74,6 +90,10 @@
             href="#contact"
             (click)="scrollToSection('contact', $event)"
             role="presentation"
+            [ngClass]="{
+              'slideInFromBot animDelay07': isMenuOpen && isSmallScreen,
+              slideOutFromBot: !isMenuOpen && isSmallScreen,
+            }"
             class="flex lg:block justify-center py-4 lg:py-0 lg:px-3 lg:p-0 hover:text-accent transition-colors duration-500 ease-in-out cursor-pointer"
             >Kontakt</a
           >

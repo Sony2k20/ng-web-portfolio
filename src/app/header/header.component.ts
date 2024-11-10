@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamburger-menu.component';
 import { Router } from '@angular/router';
@@ -9,14 +9,24 @@ import { Router } from '@angular/router';
   imports: [HamburgerMenuComponent, CommonModule],
   templateUrl: './header.component.html',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private viewportScroller = inject(ViewportScroller);
   private router = inject(Router);
 
   isMenuOpen = false; // or whatever logic you use to open/close the menu
   isElementVisible = false;
-
   isScrolled = false;
+
+  isSmallScreen = false;
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkScreenSize();
+  }
 
   //toDo - use gsap as scroll indicator
   @HostListener('window:scroll', [])
@@ -39,7 +49,7 @@ export class HeaderComponent {
     } else {
       setTimeout(() => {
         this.isElementVisible = false;
-      }, 600);
+      }, 1000);
     }
   }
 
@@ -57,5 +67,9 @@ export class HeaderComponent {
       this.isMenuOpen = false;
       this.isElementVisible = false;
     }, 50);
+  }
+
+  checkScreenSize() {
+    this.isSmallScreen = window.innerWidth < 1024;
   }
 }
