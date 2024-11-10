@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
     } else {
       setTimeout(() => {
         this.isElementVisible = false;
-      }, 1000);
+      }, 900);
     }
   }
 
