@@ -46,7 +46,7 @@
 }
 
 .fadeInBg {
-  animation: fadeInBg 0.63s ease-in-out;
+  animation: fadeInBg 0.7s ease-in-out;
 }
 
 .fadeInNav {
@@ -58,11 +58,11 @@
 }
 
 .slideInFromTop {
-  animation: slideInFromTop 0.5s ease-out;
+  animation: slideInFromTop 0.6s ease-out;
 }
 
 .slideInFromBot {
-  animation: slideInFromBot 0.5s ease-out;
+  animation: slideInFromBot 0.6s ease-out;
 }
 
 /* 7. Keyframes */
@@ -120,7 +120,7 @@
 
 @keyframes slideInFromBot {
   0% {
-    transform: translateY(15%);
+    transform: translateY(20%);
   }
   100% {
     transform: translateY(0);
