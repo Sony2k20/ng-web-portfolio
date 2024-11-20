@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { gsap } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { CommonModule } from '@angular/common';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+
+gsap.registerPlugin(ScrollTrigger, Draggable);
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    LandingPageComponent,
-    FooterComponent,
-  ],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';
+  private imageLoaded$ = new BehaviorSubject<boolean>(false);
+  private fontLoaded$ = new BehaviorSubject<boolean>(false);
+  isReadyToRender$ = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        //set timeout to dont infer with css animation at start
         setTimeout(() => {
           ScrollTrigger.refresh();
         }, 100); // Timeout to ensure the DOM is updated
@@ -31,14 +34,23 @@ export class AppComponent implements OnInit {
     });
   }
 
-  //move to service and refreh - see chatgpt
+  //move to service and refresh
   ngOnInit() {
-    gsap.registerPlugin(ScrollTrigger, Draggable);
+    this.checkFontLoaded('Eyesome');
+    combineLatest([this.imageLoaded$, this.fontLoaded$]).subscribe(
+      ([isImageLoaded, isFontLoaded]) => {
+        this.isReadyToRender$.next(isImageLoaded && isFontLoaded);
+      },
+    );
 
-    setTimeout(() => {
-      document.querySelector('#start')!.classList.remove('slideInFromTop');
-      this.initScrollTriggers();
-    }, 1000);
+    this.isReadyToRender$.subscribe((value) => {
+      if (value) {
+        setTimeout(() => {
+          document.querySelector('#start')!.classList.remove('slideInFromTop');
+          this.initScrollTriggers();
+        }, 1000);
+      }
+    });
 
     //lenis init
     // const lenis = new Lenis({});
@@ -72,6 +84,16 @@ export class AppComponent implements OnInit {
           showAnim.reverse();
         }
       },
+    });
+  }
+
+  onImageLoad(): void {
+    this.imageLoaded$.next(true);
+  }
+
+  checkFontLoaded(fontName: string): void {
+    document.fonts.load(`1em ${fontName}`).then(() => {
+      this.fontLoaded$.next(true);
     });
   }
 }

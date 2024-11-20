@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from '../../header/header.component';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { gsap } from 'gsap';
+import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 
 @Component({
   selector: 'app-imprint',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [],
   templateUrl: './imprint.component.html',
+  styleUrls: ['./test.css'],
 })
 export class ImprintComponent {}

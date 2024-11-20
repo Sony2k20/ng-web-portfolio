@@ -1,0 +1,103 @@
+body {
+  font-family: "Signika Negative", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.lettering {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0 !important;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .lettering {
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .lettering {
+    top: 0;
+  }
+}
+
+.lettering svg {
+  float: left;
+  max-width: 100%;
+
+  position: absolute;
+  display: block;
+  top: calc(50vh - 125px) !important;
+  left: calc(50vw - 375px) !important;
+  border-radius: 5px;
+  filter: drop-shadow(0 6px 4px rgba(0, 0, 0, 0.2));
+
+  width: 750px;
+}
+
+.lettering .welcome,
+.lettering .home,
+.lettering .buddy {
+  cursor: pointer;
+  fill: #d83e00;
+  position: absolute;
+  left: 370px;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  height: 250px;
+
+  background-color: #fff;
+}
+
+.lettering .welcome .mask,
+.lettering .home .mask,
+.lettering .buddy .mask {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+}
+
+a.button {
+  position: absolute;
+  left: calc(50vw - 125px);
+  bottom: 25px;
+  width: 250px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  border: 2px solid teal;
+  cursor: pointer;
+  z-index: 999;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 20px;
+  color: teal;
+  text-transform: uppercase;
+}
+
+a.button.blocked {
+  color: #808080;
+  border: 2px solid #808080;
+  cursor: no-drop;
+}
+
+a.button.stop {
+  color: firebrick;
+  border: 2px solid firebrick;
+  cursor: pointer;
+}
