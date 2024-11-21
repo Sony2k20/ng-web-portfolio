@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  inject,
-  DestroyRef,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,9 +8,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject, combineLatest } from 'rxjs';
-import { GoogleAnalyticsService } from './shared/services/google-analytics.service';
-import { ScrollTriggerHeaderService } from './shared/services/scroll-trigger-header.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
@@ -26,39 +17,37 @@ gsap.registerPlugin(ScrollTrigger, Draggable);
   imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';
-  isReadyToRender$ = new BehaviorSubject<boolean>(false);
-
   private imageLoaded$ = new BehaviorSubject<boolean>(false);
   private fontLoaded$ = new BehaviorSubject<boolean>(false);
+  isReadyToRender$ = new BehaviorSubject<boolean>(false);
 
-  private router = inject(Router);
-  private googleAnalyticsService = inject(GoogleAnalyticsService);
-  private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService);
-  private destroyRef = inject(DestroyRef);
-
-  ngOnInit() {
+  constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.googleAnalyticsService.trackPage(event.urlAfterRedirects);
+        //set timeout to dont infer with css animation at start
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100); // Timeout to ensure the DOM is updated
       }
     });
+  }
 
-    this.checkFontLoaded();
-    combineLatest([this.imageLoaded$, this.fontLoaded$])
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(([isImageLoaded, isFontLoaded]) => {
+  //move to service and refresh
+  ngOnInit() {
+    this.checkFontLoaded('Eyesome');
+    combineLatest([this.imageLoaded$, this.fontLoaded$]).subscribe(
+      ([isImageLoaded, isFontLoaded]) => {
         this.isReadyToRender$.next(isImageLoaded && isFontLoaded);
-      });
+      },
+    );
 
     this.isReadyToRender$.subscribe((value) => {
       if (value) {
         setTimeout(() => {
-          //Timeout to don't interfere with initial animation
-          //ToDo make slideInFromTop with gsap
           document.querySelector('#start')!.classList.remove('slideInFromTop');
-          this.scrollTriggerHeaderService.initScrollTriggers();
+          this.initScrollTriggers();
         }, 1000);
       }
     });
@@ -72,16 +61,38 @@ export class AppComponent implements OnInit, AfterViewInit {
     // requestAnimationFrame(animate);
   }
 
-  ngAfterViewInit() {
-    ScrollTrigger.refresh();
+  initScrollTriggers() {
+    const showAnim = gsap
+      .fromTo(
+        document.querySelector('#start'),
+        {
+          yPercent: -100,
+          opacity: 1,
+          paused: true,
+        },
+        { yPercent: 0, paused: true, duration: 0.2, opacity: 1.0 },
+      )
+      .progress(1);
+    ScrollTrigger.create({
+      start: 'top top',
+      end: 'max',
+      markers: false,
+      onUpdate: (self) => {
+        if (self.direction === -1) {
+          showAnim.play();
+        } else {
+          showAnim.reverse();
+        }
+      },
+    });
   }
 
   onImageLoad(): void {
     this.imageLoaded$.next(true);
   }
 
-  checkFontLoaded(): void {
-    document.fonts.load(`1em Eyesome`).then(() => {
+  checkFontLoaded(fontName: string): void {
+    document.fonts.load(`1em ${fontName}`).then(() => {
       this.fontLoaded$.next(true);
     });
   }
