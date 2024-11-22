@@ -47,7 +47,6 @@ export class AppComponent implements OnInit {
       if (value) {
         setTimeout(() => {
           document.querySelector('#start')!.classList.remove('slideInFromTop');
-          // this.initScrollTriggers();
           this.scrollTriggerHeaderService.initScrollTriggers();
         }, 1000);
       }

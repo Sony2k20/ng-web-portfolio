@@ -11,21 +11,20 @@ import {
 import { routes } from './app/app.routes';
 
 const routesConfig: RouterConfigOptions = {
-  onSameUrlNavigation: 'reload',
+  // onSameUrlNavigation: 'reload', // not working correctly
 };
 
 const inMemoryScrollingFeature: InMemoryScrollingFeature =
   withInMemoryScrolling({
-    anchorScrolling: 'enabled',
+    // anchorScrolling: 'enabled', // not working correctly
   });
 
-// Bootstrap the application with the router, scrolling, and routesConfig
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(
       routes,
-      withRouterConfig(routesConfig), // Apply the routesConfig here as a feature
-      inMemoryScrollingFeature, // Apply the in-memory scrolling feature
+      withRouterConfig(routesConfig),
+      inMemoryScrollingFeature,
     ),
   ],
 }).catch((err) => console.error(err));
