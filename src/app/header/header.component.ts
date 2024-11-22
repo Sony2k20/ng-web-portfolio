@@ -58,7 +58,10 @@ export class HeaderComponent implements OnInit {
     if (event) {
       event.preventDefault();
     }
-    this.router.navigate(['/']);
+
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']);
+    }
     setTimeout(() => {
       document.querySelector('#' + sectionId)!.scrollIntoView({
         behavior: 'smooth',

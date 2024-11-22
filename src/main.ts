@@ -3,20 +3,29 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import {
   InMemoryScrollingFeature,
-  InMemoryScrollingOptions,
   provideRouter,
+  RouterConfigOptions,
   withInMemoryScrolling,
+  withRouterConfig,
 } from '@angular/router';
 import { routes } from './app/app.routes';
 
-const scrollConfig: InMemoryScrollingOptions = {
-  scrollPositionRestoration: 'top',
-  anchorScrolling: 'enabled',
+const routesConfig: RouterConfigOptions = {
+  onSameUrlNavigation: 'reload',
 };
 
 const inMemoryScrollingFeature: InMemoryScrollingFeature =
-  withInMemoryScrolling(scrollConfig);
+  withInMemoryScrolling({
+    anchorScrolling: 'enabled',
+  });
 
+// Bootstrap the application with the router, scrolling, and routesConfig
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes, inMemoryScrollingFeature)],
+  providers: [
+    provideRouter(
+      routes,
+      withRouterConfig(routesConfig), // Apply the routesConfig here as a feature
+      inMemoryScrollingFeature, // Apply the in-memory scrolling feature
+    ),
+  ],
 }).catch((err) => console.error(err));
