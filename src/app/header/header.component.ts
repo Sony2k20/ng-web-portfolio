@@ -53,6 +53,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //ToDo remove timeout
   scrollToSection(sectionId: string, event?: Event) {
     if (event) {
       event.preventDefault();
@@ -66,7 +67,7 @@ export class HeaderComponent implements OnInit {
 
       this.isMenuOpen = false;
       this.isElementVisible = false;
-    }, 50);
+    }, 200);
   }
 
   checkScreenSize() {
