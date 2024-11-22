@@ -25,7 +25,9 @@
     @apply text-black;
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /***************************** Animations *****************************/
 
 .animate {

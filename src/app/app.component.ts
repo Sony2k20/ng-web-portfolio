@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, AfterViewInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,6 +22,7 @@ gsap.registerPlugin(ScrollTrigger, Draggable);
 export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';
   fontLoaded$ = new BehaviorSubject<boolean>(false);
+  private lenis!: Lenis;
 
   private router = inject(Router);
   private googleAnalyticsService = inject(GoogleAnalyticsService);

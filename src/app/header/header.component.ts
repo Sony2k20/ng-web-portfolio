@@ -1,12 +1,12 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamburger-menu.component';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [HamburgerMenuComponent, CommonModule],
+  imports: [HamburgerMenuComponent, CommonModule, RouterModule],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
