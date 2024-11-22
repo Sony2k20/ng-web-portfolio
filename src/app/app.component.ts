@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -7,7 +7,9 @@ import Draggable from 'gsap/Draggable';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, combineLatest } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { GoogleAnalyticsService } from './shared/services/google-analytics.service';
+import { ScrollTriggerHeaderService } from './shared/services/scroll-trigger-header.service';
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
@@ -19,35 +21,31 @@ gsap.registerPlugin(ScrollTrigger, Draggable);
 })
 export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';
-  private imageLoaded$ = new BehaviorSubject<boolean>(false);
-  private fontLoaded$ = new BehaviorSubject<boolean>(false);
-  isReadyToRender$ = new BehaviorSubject<boolean>(false);
+  fontLoaded$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router) {
+  private router = inject(Router);
+  private googleAnalyticsService = inject(GoogleAnalyticsService);
+  private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService);
+
+  ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        //set timeout to dont infer with css animation at start
+        this.googleAnalyticsService.trackPage(event.urlAfterRedirects);
+
         setTimeout(() => {
           ScrollTrigger.refresh();
         }, 100); // Timeout to ensure the DOM is updated
       }
     });
-  }
 
-  //move to service and refresh
-  ngOnInit() {
     this.checkFontLoaded('Eyesome');
-    combineLatest([this.imageLoaded$, this.fontLoaded$]).subscribe(
-      ([isImageLoaded, isFontLoaded]) => {
-        this.isReadyToRender$.next(isImageLoaded && isFontLoaded);
-      },
-    );
 
-    this.isReadyToRender$.subscribe((value) => {
+    this.fontLoaded$.subscribe((value) => {
       if (value) {
         setTimeout(() => {
           document.querySelector('#start')!.classList.remove('slideInFromTop');
-          this.initScrollTriggers();
+          // this.initScrollTriggers();
+          this.scrollTriggerHeaderService.initScrollTriggers();
         }, 1000);
       }
     });
@@ -59,36 +57,6 @@ export class AppComponent implements OnInit {
     //   requestAnimationFrame(animate);
     // };
     // requestAnimationFrame(animate);
-  }
-
-  initScrollTriggers() {
-    const showAnim = gsap
-      .fromTo(
-        document.querySelector('#start'),
-        {
-          yPercent: -100,
-          opacity: 1,
-          paused: true,
-        },
-        { yPercent: 0, paused: true, duration: 0.2, opacity: 1.0 },
-      )
-      .progress(1);
-    ScrollTrigger.create({
-      start: 'top top',
-      end: 'max',
-      markers: false,
-      onUpdate: (self) => {
-        if (self.direction === -1) {
-          showAnim.play();
-        } else {
-          showAnim.reverse();
-        }
-      },
-    });
-  }
-
-  onImageLoad(): void {
-    this.imageLoaded$.next(true);
   }
 
   checkFontLoaded(fontName: string): void {

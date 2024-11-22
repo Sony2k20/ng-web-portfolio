@@ -1,10 +1,4 @@
-<img
-  src="../../assets/images/small-a.jpg"
-  (load)="onImageLoad()"
-  alt="background"
-  style="display: none"
-/>
-<div *ngIf="isReadyToRender$ | async">
+<div *ngIf="fontLoaded$ | async">
   <app-header id="header" class="bg-secondary"></app-header>
 
   <router-outlet />
