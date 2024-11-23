@@ -1,13 +1,24 @@
-<app-hero-section></app-hero-section>
+<img
+  src="../../assets/images/small-a.jpg"
+  (load)="onImageLoad()"
+  alt="background"
+  style="display: none"
+/>
+<div *ngIf="isReadyToRender$ | async">
+  <app-header id="header" class="bg-secondary"></app-header>
 
-<div id="about" class="bg-secondary">
-  <app-about-me></app-about-me>
-</div>
+  <app-hero-section></app-hero-section>
 
-<div id="podcast" class="bg-secondary">
-  <app-podcast></app-podcast>
-</div>
+  <div id="about" class="bg-secondary">
+    <app-about-me></app-about-me>
+  </div>
 
-<div id="faq" class="bg-secondary">
-  <app-faq-section></app-faq-section>
+  <div id="podcast" class="bg-secondary">
+    <app-podcast></app-podcast>
+  </div>
+
+  <div id="faq" class="bg-secondary">
+    <app-faq-section></app-faq-section>
+  </div>
+  <app-footer></app-footer>
 </div>

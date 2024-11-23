@@ -9,10 +9,11 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { HeaderComponent } from '../../header/header.component';
+import { FooterComponent } from '../footer.component';
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, FooterComponent],
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.css',
 })
