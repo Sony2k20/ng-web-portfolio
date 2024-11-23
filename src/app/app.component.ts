@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
 
     this.checkFontLoaded('Eyesome');
 
+    //toDo refactor this
     this.fontLoaded$.subscribe((value) => {
       if (value) {
         setTimeout(() => {
