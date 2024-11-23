@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { gsap } from 'gsap';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 

@@ -36,8 +36,6 @@ export class AppComponent implements OnInit {
         setTimeout(() => {
           ScrollTrigger.refresh();
         }, 100); // Timeout to ensure the DOM is updated
-
-        window.scrollTo(0, 0); // Scroll to top for all routes
       }
     });
 

@@ -1,7 +1,8 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamburger-menu.component';
 import { Router, RouterModule } from '@angular/router';
+import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 
 @Component({
   selector: 'app-header',
@@ -10,21 +11,21 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  private viewportScroller = inject(ViewportScroller);
   private router = inject(Router);
+  scroller = inject(ScrollToSectionService);
 
-  isMenuOpen = false; // or whatever logic you use to open/close the menu
+  isMenuOpen = false;
   isElementVisible = false;
   isScrolled = false;
 
   isSmallScreen = false;
 
-  ngOnInit() {
+  @HostListener('window:resize', [])
+  onResize() {
     this.checkScreenSize();
   }
 
-  @HostListener('window:resize', [])
-  onResize() {
+  ngOnInit() {
     this.checkScreenSize();
   }
 
@@ -51,26 +52,6 @@ export class HeaderComponent implements OnInit {
         this.isElementVisible = false;
       }, 900);
     }
-  }
-
-  //ToDo remove timeout
-  scrollToSection(sectionId: string, event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    if (this.router.url !== '/') {
-      this.router.navigate(['/']);
-    }
-    setTimeout(() => {
-      document.querySelector('#' + sectionId)!.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start', // Aligns the top of the element to the top of the viewport
-      });
-
-      this.isMenuOpen = false;
-      this.isElementVisible = false;
-    }, 200);
   }
 
   checkScreenSize() {

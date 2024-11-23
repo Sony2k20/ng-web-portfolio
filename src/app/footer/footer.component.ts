@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SocialLinksComponent } from '../shared/components/social-links/social-links.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Routes } from '../shared/enums/routes.enum';
+import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,4 +12,6 @@ import { Routes } from '../shared/enums/routes.enum';
 })
 export class FooterComponent {
   routes = Routes;
+  scroller = inject(ScrollToSectionService);
+  private router = inject(Router);
 }
