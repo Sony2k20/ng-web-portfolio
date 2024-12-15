@@ -23,6 +23,10 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './landing-page.component.html',
 })
 export class LandingPageComponent {
+  isContentLoaded = false;
+  isFontLoaded = false;
+  isImageLoaded = false;
+
   isReadyToRender$ = new BehaviorSubject<boolean>(false);
 
   //toDo refactor preloading

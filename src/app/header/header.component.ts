@@ -57,4 +57,10 @@ export class HeaderComponent implements OnInit {
   checkScreenSize() {
     this.isSmallScreen = window.innerWidth < 1024;
   }
+
+  scrollToSection(route: string, sectionId: string, event?: Event) {
+    this.scroller.scrollToSection(route, sectionId, event);
+
+    this.toggleMenu()
+  }
 }

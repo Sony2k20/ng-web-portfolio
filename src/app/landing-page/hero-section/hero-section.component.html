@@ -1,12 +1,41 @@
+<div class="max-w-screen-lg mx-auto">
+  <!-- Full-width container for the backgrounds -->
+  <div class="relative">
+    <!-- First child container -->
+    <div class="absolute top-0 left-0 w-screen bg-blue-500 h-full">
+      <div class="max-w-screen-lg mx-auto h-full">
+        <div class="p-4">Content of the first container</div>
+      </div>
+    </div>
+    <!-- Second child container -->
+    <div class="absolute top-0 right-0 w-screen bg-red-500 h-full">
+      <div class="max-w-screen-lg mx-auto h-full">
+        <div class="p-4">Content of the second container</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="relative h-fit lg:h-screen text-lg xl:text-xl bg-secondary">
-  <div
+  <!-- <div
     class="absolute inset-0 [height:64vh] lg:h-full w-full z-0 bg-cover [background-position:21%] md:[background-position:30%] xl:bg-center mt-8 lg:mt-0 fadeInBg"
     style="background-image: url(&quot;../../assets/images/small-a.jpg&quot;)"
   >
     <div
       class="absolute inset-y-0 right-0 w-4/12 sm:w-7/12 bg-gradient-to-l from-primary/60 sm:from-primary to-transparent"
     ></div>
-  </div>
+  </div> -->
+  <!-- <div class="absolut inset-0 [height:64vh] lg:h-full w-full z-0 mt-8 lg:mt-0 fadeInBg"> -->
+    <img
+      src="../../assets/images/small-a.jpg"
+      alt="Background"
+      class="absolute object-cover object-[21%] md:object-[30%] xl:object-center inset-0 [height:64vh] lg:h-full w-full z-0 mt-8 lg:mt-0 fadeInBg"
+    />
+    <div
+      class="absolute inset-y-0 right-0 w-4/12 sm:w-7/12 bg-gradient-to-l [height:64vh] lg:h-full from-primary/80 sm:from-primary to-transparent mt-8 lg:mt-0"
+    ></div>
+  
+
 
   <div
     class="relative z-10 flex items-center justify-center lg:justify-end h-full max-w-screen-xl mx-auto px-4 md:px-32 lg:px-0 2xl:mr-44 pb-14"
