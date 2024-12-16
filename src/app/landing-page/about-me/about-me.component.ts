@@ -1,6 +1,7 @@
 import { Component, ElementRef, AfterViewInit, inject } from '@angular/core';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
 import { SocialLinksComponent } from '../../shared/components/social-links/social-links.component';
+import { Contact } from '../../shared/enums/contact.enum';
 
 @Component({
   selector: 'app-about-me',
@@ -9,6 +10,7 @@ import { SocialLinksComponent } from '../../shared/components/social-links/socia
   templateUrl: './about-me.component.html',
 })
 export class AboutMeComponent implements AfterViewInit {
+  contact = Contact;
   private elementRef = inject(ElementRef);
   private intersectionObserverService = inject(IntersectionObserverService);
 

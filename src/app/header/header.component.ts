@@ -11,6 +11,7 @@ import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamb
 import { Router, RouterModule } from '@angular/router';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 import { ScrollTriggerHeaderService } from '../shared/services/scroll-trigger-header.service';
+import { Contact } from '../shared/enums/contact.enum';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +21,8 @@ import { ScrollTriggerHeaderService } from '../shared/services/scroll-trigger-he
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('start', { static: false }) start!: ElementRef;
+
+  contact = Contact;
 
   private router = inject(Router);
   private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService);

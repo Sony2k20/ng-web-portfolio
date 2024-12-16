@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, AfterViewInit } from '@angular/core';
-import { SocialLinks } from '../../shared/components/social-links/social-links.enum';
+import { SocialLinks } from '../../shared/enums/social-links.enum';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
 
 @Component({
