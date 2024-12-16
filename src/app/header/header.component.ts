@@ -1,8 +1,16 @@
-import { Component, HostListener, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HamburgerMenuComponent } from '../shared/components/hamburger-menu/hamburger-menu.component';
 import { Router, RouterModule } from '@angular/router';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
+import { ScrollTriggerHeaderService } from '../shared/services/scroll-trigger-header.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +19,11 @@ import { ScrollToSectionService } from '../shared/services/scroll-to-section.ser
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('start', { static: false }) start!: ElementRef;
+
   private router = inject(Router);
+  private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService);
+
   scroller = inject(ScrollToSectionService);
 
   isMenuOpen = false;
@@ -27,6 +39,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.checkScreenSize();
+
+    setTimeout(() => {
+      document.querySelector('#start')!.classList.remove('slideInFromTop');
+      this.scrollTriggerHeaderService.initScrollTriggers();
+    }, 1000);
   }
 
   //toDo - use gsap as scroll indicator
@@ -59,8 +76,11 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToSection(route: string, sectionId: string, event?: Event) {
-    this.scroller.scrollToSection(route, sectionId, event);
-
-    this.toggleMenu()
+    if (this.isMenuOpen) {
+      this.toggleMenu();
+      setTimeout(() => {
+        this.scroller.scrollToSection(route, sectionId, event);
+      }, 400);
+    } else this.scroller.scrollToSection(route, sectionId, event);
   }
 }
