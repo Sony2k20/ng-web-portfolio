@@ -28,7 +28,17 @@
         überprüfen.
       </p>
       <h3 class="font-semibold mb-4">Verantwortliche/r</h3>
-
+      <p class="mb-8">
+        {{ contact.Name }} <br />
+        {{ contact.Street }} <br />
+        {{ contact.City }} <br />
+        {{ contact.Country }} <br />
+        E-Mail: {{ contact.Email }} <br />
+        Website:
+        <a class="hover:underline" href="contact.Website"
+          >{{ contact.Website }}
+        </a>
+      </p>
       Verantwortlicher Zwecke der Datenverarbeitung: Warum werden
       personenbezogene Daten gesammelt? (z.B. zur Kontaktaufnahme,
       Newsletter-Versand, Analyse des Webverkehrs) Rechtsgrundlage der

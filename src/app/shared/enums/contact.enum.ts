@@ -5,4 +5,5 @@ export enum Contact {
   PostalCode = 'Code',
   Country = 'Deutschland',
   Email = 'coaching@katharinaniesche.de',
+  Website = 'https://katharinaniesche.de',
 }
