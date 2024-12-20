@@ -19,6 +19,6 @@ jobs:
             docker rm ${{ github.event.repository.name }} || true
             docker run -d \
               --name ${{ github.event.repository.name }} \
-              -p 4200:4200 \
+              -p 80:4200 \
               -e EMAIL_SERVER_URL=http://nestjs-email-service:3000/email/send \
               sony2k20/${{ github.event.repository.name }}:latest
