@@ -37,7 +37,7 @@
       >
         <li>
           <a
-            (click)="scrollToSection('/', 'header', $event)"
+            (click)="scrollToSection(routes.Start, 'header', $event)"
             role="presentation"
             [ngClass]="{
               'slideInFromBot animDelay03': isMenuOpen && isSmallScreen,
@@ -49,7 +49,7 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('/', 'about', $event)"
+            (click)="scrollToSection(routes.Start, 'about', $event)"
             [ngClass]="{
               'slideInFromBot animDelay04': isMenuOpen && isSmallScreen,
               'slideOutFromBot animDelay03': !isMenuOpen && isSmallScreen,
@@ -61,7 +61,7 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('/', 'coaching', $event)"
+            (click)="scrollToSection(routes.Start, 'coaching', $event)"
             role="presentation"
             [ngClass]="{
               'slideInFromBot animDelay05': isMenuOpen && isSmallScreen,
@@ -73,7 +73,7 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('/', 'podcast', $event)"
+            (click)="scrollToSection(routes.Start, 'podcast', $event)"
             role="presentation"
             [ngClass]="{
               'slideInFromBot animDelay06': isMenuOpen && isSmallScreen,
@@ -85,7 +85,7 @@
         </li>
         <li>
           <a
-            (click)="scrollToSection('/', 'contact', $event)"
+            (click)="scrollToSection(routes.Contact, 'header', $event)"
             role="presentation"
             [ngClass]="{
               'slideInFromBot animDelay07': isMenuOpen && isSmallScreen,

@@ -1,4 +1,6 @@
 export enum Routes {
-  Impressum = 'impressum',
-  Datenschutz = 'datenschutz',
+  Start = '/',
+  Imprint = 'impressum',
+  PrivacyPolicy = 'datenschutz',
+  Contact = 'kontakt',
 }

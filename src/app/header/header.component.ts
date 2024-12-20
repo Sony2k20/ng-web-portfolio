@@ -12,6 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 import { ScrollTriggerHeaderService } from '../shared/services/scroll-trigger-header.service';
 import { Contact } from '../shared/enums/contact.enum';
+import { Routes } from '../shared/enums/routes.enum';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,7 @@ import { Contact } from '../shared/enums/contact.enum';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('start', { static: false }) start!: ElementRef;
+  routes = Routes;
 
   contact = Contact;
 

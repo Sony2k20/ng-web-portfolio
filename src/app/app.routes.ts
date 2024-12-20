@@ -20,17 +20,24 @@ export const routes: Routes = [
       ),
   },
   {
-    path: RoutesEnums.Impressum,
+    path: RoutesEnums.Imprint,
     loadComponent: () =>
       import('./footer/imprint/imprint.component').then(
         (mod) => mod.ImprintComponent,
       ),
   },
   {
-    path: RoutesEnums.Datenschutz,
+    path: RoutesEnums.PrivacyPolicy,
     loadComponent: () =>
       import('./footer/privacy-policy/privacy-policy.component').then(
         (mod) => mod.PrivacyPolicyComponent,
+      ),
+  },
+  {
+    path: RoutesEnums.Contact,
+    loadComponent: () =>
+      import('./email/component/email.component').then(
+        (mod) => mod.EmailComponent,
       ),
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
