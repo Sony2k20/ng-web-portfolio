@@ -21,4 +21,10 @@ export class EmailService {
   sendEmail(payload: EmailPayload): Observable<void> {
     return this.http.post<void>(this.API_URL, payload);
   }
+
+  getTemplate(fileName: string): Observable<string> {
+    return this.http.get(`assets/email-templates/${fileName}`, {
+      responseType: 'text',
+    });
+  }
 }

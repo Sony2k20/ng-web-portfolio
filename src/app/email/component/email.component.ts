@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,6 +12,7 @@ import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { forkJoin, switchMap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-email',
@@ -27,11 +28,13 @@ import { forkJoin, switchMap } from 'rxjs';
   templateUrl: './email.component.html',
   providers: [EmailService],
 })
-export class EmailComponent {
+export class EmailComponent implements OnInit {
   emailForm: FormGroup;
 
   private fb = inject(FormBuilder);
   private emailService = inject(EmailService);
+  private emailConfirmationTemplate: string = '';
+  private emailInquiryTemplate: string = '';
   private snackBar = inject(MatSnackBar);
 
   constructor() {
@@ -57,41 +60,100 @@ export class EmailComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.emailService
+      .getTemplate('email-confirmation-template.html')
+      .subscribe({
+        next: (content) => {
+          this.emailConfirmationTemplate = content;
+        },
+        error: () => {
+          console.log('Error loading email template');
+        },
+      });
+    this.emailService.getTemplate('email-inquiry-template.html').subscribe({
+      next: (content) => {
+        this.emailInquiryTemplate = content;
+      },
+      error: () => {
+        console.log('Error loading email template');
+      },
+    });
+  }
+
   onSubmit() {
     if (!this.emailForm.valid) {
       return;
     }
 
-    const message = this.emailForm.get('message')?.value;
-    const formattedMessage = message.replace(/\n/g, '<br>');
+    const formattedMessage = this.emailForm
+      .get('message')
+      ?.value.replace(/\n/g, '<br>');
+
+    const emailConfirmationTemplate = this.replacePlaceholder(
+      this.emailConfirmationTemplate,
+      {
+        firstName: this.emailForm.get('firstName')?.value,
+        message: formattedMessage,
+      },
+    );
+
+    const emailInquiryTemplate = this.replacePlaceholder(
+      this.emailInquiryTemplate,
+      {
+        firstName: this.emailForm.get('firstName')?.value,
+        surname: this.emailForm.get('surname')?.value,
+        to: this.emailForm.get('to')?.value,
+        message: formattedMessage,
+      },
+    );
 
     const confirmationEmail: EmailPayload = {
       fromName: 'Katharina Niesche',
       to: this.emailForm.get('to')?.value,
       subject: 'Bestätigung der Kontaktanfrage an Katharina Niesche',
       text: '',
-      html: `Hallo ${this.emailForm.get('firstName')?.value}, 
-      <br> vielen Dank für deine Kontaktanfrage. Ich werde mich sobald es geht bei dir melden.
-      <br> Mit freudnlichen Grüßen <br> Deine Katharina <br><br>
-      Deine Originalanfrage: <br>
-      ${formattedMessage}`,
+      html: emailConfirmationTemplate,
     };
 
     const inquiryEmail: EmailPayload = {
       fromName: 'Website Kontaktanfrage',
-      to: 'contact@csnguyen.de',
-      subject: `Website Kontaktanfrage von ${this.emailForm.get('fromName')?.value} ${this.emailForm.get('surname')?.value}`,
+      to: environment.emailAdress,
+      subject: `Website Kontaktanfrage von ${this.emailForm.get('firstName')?.value} ${this.emailForm.get('surname')?.value}`,
       text: '',
-      html: `Anfrage von ${this.emailForm.get('firstName')?.value} ${this.emailForm.get('surname')?.value} ${this.emailForm.get('to')?.value}
-      <br><br>${formattedMessage}`,
+      html: emailInquiryTemplate,
     };
 
+    console.log(emailInquiryTemplate);
+    this.sendMail(confirmationEmail, inquiryEmail);
+  }
+
+  private replacePlaceholder(
+    template: string,
+    values: { [key: string]: string },
+  ): string {
+    let updatedTemplate = template;
+
+    for (const [key, value] of Object.entries(values)) {
+      const placeholder = `{{ ${key} }}`;
+      updatedTemplate = updatedTemplate.replace(
+        new RegExp(placeholder, 'g'),
+        value,
+      );
+    }
+    return updatedTemplate;
+  }
+
+  private sendMail(
+    confirmationEmail: EmailPayload,
+    inquiryEmail: EmailPayload,
+  ) {
     forkJoin([
       this.emailService.sendEmail(confirmationEmail),
       this.emailService.sendEmail(inquiryEmail),
     ]).subscribe({
       next: () => {
-        this.snackBar.open('Die Kontaktanfrage war erfolgreich!', 'Close', {
+        this.snackBar.open('Die Kontaktanfrage war erfolgreich.', 'Schließen', {
           duration: 5000,
         });
         this.emailForm.reset();
@@ -99,7 +161,7 @@ export class EmailComponent {
       error: () => {
         this.snackBar.open(
           'Die Kontaktanfrage ist fehlgeschlagen! Versuchen Sie es später erneut',
-          'Close',
+          'Schließen',
           {
             duration: 5000,
           },
