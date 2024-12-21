@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
-interface EmailPayload {
+export interface EmailPayload {
   fromName: string;
   to: string;
   subject: string;

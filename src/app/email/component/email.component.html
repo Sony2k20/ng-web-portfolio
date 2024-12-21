@@ -16,38 +16,132 @@
       [formGroup]="emailForm"
       class="leading-8 lg:leading-9 max-w-screen-md mx-auto"
     >
-      <div class="mb-5 md:flex md:space-x-4">
-        <div class="flex-1">
-          <label for="email" class="mb-2 text-sm">Vorname</label>
+      <div class="md:flex md:space-x-4">
+        <!-- First Name -->
+        <div class="flex-1 mb-5">
+          <label for="firstName" class="mb-2 text-sm">Vorname</label>
           <input
+            id="firstName"
+            formControlName="firstName"
             class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            [ngClass]="{
+              'border-red-700':
+                emailForm.get('firstName')?.invalid &&
+                emailForm.get('firstName')?.touched,
+            }"
             required
           />
+          <div
+            *ngIf="
+              emailForm.get('firstName')?.touched &&
+              emailForm.get('firstName')?.invalid
+            "
+            class="text-red-700 text-xs mt-1"
+          >
+            <div *ngIf="emailForm.get('firstName')?.errors?.['required']">
+              Vorname ist erforderlich.
+            </div>
+            <div *ngIf="emailForm.get('firstName')?.errors?.['pattern']">
+              Nur Buchstaben sind erlaubt.
+            </div>
+            <div *ngIf="emailForm.get('firstName')?.errors?.['maxLength']">
+              Der Name darf maximal 20 Zeichen lang sein.
+            </div>
+          </div>
         </div>
-        <div class="flex-1">
-          <label for="email" class="mb-2 text-sm">Nachname</label>
+
+        <!-- Surname -->
+        <div class="flex-1 mb-5">
+          <label for="surname" class="mb-2 text-sm">Nachname</label>
           <input
+            id="surname"
+            formControlName="surname"
             class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            [ngClass]="{
+              'border-red-700':
+                emailForm.get('surname')?.invalid &&
+                emailForm.get('surname')?.touched,
+            }"
             required
           />
+          <div
+            *ngIf="
+              emailForm.get('surname')?.touched &&
+              emailForm.get('surname')?.invalid
+            "
+            class="text-red-700 text-xs mt-1"
+          >
+            <div *ngIf="emailForm.get('surname')?.errors?.['required']">
+              Nachname ist erforderlich.
+            </div>
+            <div *ngIf="emailForm.get('surname')?.errors?.['pattern']">
+              Nur Buchstaben sind erlaubt.
+            </div>
+            <div *ngIf="emailForm.get('surname')?.errors?.['maxLength']">
+              Der Name darf maximal 20 Zeichen lang sein.
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Email -->
       <div class="mb-5">
-        <label for="email" class="mb-2 text-sm">E-Mail Adresse</label>
+        <label for="to" class="mb-2 text-sm">E-Mail Adresse</label>
         <input
+          id="to"
+          formControlName="to"
           type="email"
           class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+          [ngClass]="{
+            'border-red-700':
+              emailForm.get('to')?.invalid && emailForm.get('to')?.touched,
+          }"
           required
         />
+        <div
+          *ngIf="emailForm.get('to')?.touched && emailForm.get('to')?.invalid"
+          class="text-red-700 text-xs mt-1"
+        >
+          <div *ngIf="emailForm.get('to')?.errors?.['required']">
+            E-Mail Adresse ist erforderlich.
+          </div>
+          <div *ngIf="emailForm.get('to')?.errors?.['email']">
+            Bitte geben Sie eine gültige E-Mail-Adresse ein.
+          </div>
+        </div>
       </div>
+
+      <!-- Message -->
       <div class="mb-5">
-        <label for="email" class="mb-2 text-sm">Nachricht</label>
+        <label for="message" class="mb-2 text-sm">Nachricht</label>
         <textarea
-          type="email"
+          id="message"
+          formControlName="message"
           class="bg-white border border-primary h-full min-h-[150px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+          [ngClass]="{
+            'border-red-700':
+              emailForm.get('message')?.invalid &&
+              emailForm.get('message')?.touched,
+          }"
           required
         ></textarea>
+        <div
+          *ngIf="
+            emailForm.get('message')?.touched &&
+            emailForm.get('message')?.invalid
+          "
+          class="text-red-700 text-xs mt-1"
+        >
+          <div *ngIf="emailForm.get('message')?.errors?.['required']">
+            Eine Nachricht ist erforderlich.
+          </div>
+          <div *ngIf="emailForm.get('message')?.errors?.['minlength']">
+            Die Nachricht muss mindestens 10 Zeichen lang sein.
+          </div>
+        </div>
       </div>
+
+      <!-- Submit Button -->
       <button
         type="submit"
         class="px-12 py-2.5 my-8 flex mx-auto text-xs lg:text-sm font-roboto text-secondary bg-accent hover:bg-primary-dark rounded-full shadow-md shadow-accent/50 transition-colors"
@@ -58,61 +152,4 @@
   </div>
 </div>
 
-<!-- <div class="max-w-md mx-auto mt-10">
-  <form
-    (ngSubmit)="onSubmit()"
-    [formGroup]="emailForm"
-    class="bg-white p-6 rounded-lg shadow-md"
-  >
-    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Send Email</h2>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 font-medium mb-2" for="to">To</label>
-      <input
-        type="email"
-        id="to"
-        formControlName="to"
-        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-      />
-      <div
-        *ngIf="emailForm.get('to')?.invalid && emailForm.get('to')?.touched"
-        class="text-red-500 text-sm"
-      >
-        A valid email is required.
-      </div>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 font-medium mb-2" for="subject"
-        >Subject</label
-      >
-      <input
-        type="text"
-        id="subject"
-        formControlName="subject"
-        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 font-medium mb-2" for="message"
-        >Message</label
-      >
-      <textarea
-        id="message"
-        rows="5"
-        formControlName="message"
-        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-      ></textarea>
-    </div>
-
-    <button
-      type="submit"
-      [disabled]="emailForm.invalid"
-      class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
-    >
-      Send Email
-    </button>
-  </form>
-</div> -->
 <app-footer></app-footer>
