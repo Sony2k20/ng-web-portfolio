@@ -23,7 +23,7 @@
           <input
             id="firstName"
             formControlName="firstName"
-            class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            class="bg-white border border-primary font-roboto text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
             [ngClass]="{
               'border-red-700':
                 emailForm.get('firstName')?.invalid &&
@@ -56,7 +56,7 @@
           <input
             id="surname"
             formControlName="surname"
-            class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            class="bg-white border border-primary font-roboto text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
             [ngClass]="{
               'border-red-700':
                 emailForm.get('surname')?.invalid &&
@@ -91,7 +91,7 @@
           id="to"
           formControlName="to"
           type="email"
-          class="bg-white border border-primary text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+          class="bg-white border border-primary font-roboto text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
           [ngClass]="{
             'border-red-700':
               emailForm.get('to')?.invalid && emailForm.get('to')?.touched,
@@ -117,7 +117,7 @@
         <textarea
           id="message"
           formControlName="message"
-          class="bg-white border border-primary h-full min-h-[150px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+          class="bg-white border font-roboto border-primary h-full min-h-[150px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
           [ngClass]="{
             'border-red-700':
               emailForm.get('message')?.invalid &&
