@@ -13,6 +13,7 @@ import { FooterComponent } from '../../footer/footer.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { forkJoin, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
 
 @Component({
   selector: 'app-email',
@@ -32,6 +33,7 @@ export class EmailComponent implements OnInit {
   emailForm: FormGroup;
 
   private fb = inject(FormBuilder);
+  private snackbarService = inject(SnackbarService);
   private emailService = inject(EmailService);
   private emailConfirmationTemplate: string = '';
   private emailInquiryTemplate: string = '';
@@ -82,6 +84,7 @@ export class EmailComponent implements OnInit {
   }
 
   onSubmit() {
+    this.snackbarService.showSnackbar('This is a custom snackbar!', 1000);
     if (!this.emailForm.valid) {
       return;
     }

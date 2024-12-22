@@ -7,13 +7,14 @@ import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { GoogleAnalyticsService } from './shared/services/google-analytics.service';
 import { environment } from '../environments/environment';
+import { SnackbarComponent } from './shared/components/snackbar/component/snackbar.component';
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, SnackbarComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {

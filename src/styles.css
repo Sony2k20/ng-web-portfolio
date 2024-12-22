@@ -3,7 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+:root {
+  --accent-color: #8277a3; /* Replace with your accent color */
+  --accent-color-rgb: 240, 240, 240; /* RGB version for shadow */
+  --primary-dark-color: #6c5574; /* Replace with your primary dark color */
+  --secondary-color: #f4f0f7; /* Replace with your secondary text color */
+}
 
 /*  Font Faces */
 
@@ -79,7 +86,7 @@ html {
 @keyframes fadeInTextFromTop {
   from {
     opacity: 0;
-    transform: translateY(30px); /* Slight upward movement */
+    transform: translateY(30px);
     filter: blur(20px);
   }
   to {

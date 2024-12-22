@@ -5,6 +5,7 @@ import { SocialLinks } from '../../enums/social-links.enum';
   selector: 'app-social-links',
   standalone: true,
   imports: [],
+  styleUrls: ['./social-links.component.css'],
   templateUrl: './social-links.component.html',
 })
 export class SocialLinksComponent {
