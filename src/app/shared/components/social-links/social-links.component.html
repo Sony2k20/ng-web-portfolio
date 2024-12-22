@@ -1,7 +1,7 @@
 <div class="social-links">
-  <!-- Instagram -->
   <a
-    href="socialLinks.Instagram"
+    *ngIf="!isHidden(platform.Instagram)"
+    href="{{ socialLinks.Instagram }}"
     target="_blank"
     aria-label="instagram"
     class="social-link"
@@ -18,9 +18,9 @@
     </svg>
   </a>
 
-  <!-- TikTok -->
   <a
-    href="socialLinks.TikTok"
+    *ngIf="!isHidden(platform.TikTok)"
+    href="{{ socialLinks.TikTok }}"
     target="_blank"
     aria-label="tiktok"
     class="social-link"
@@ -37,9 +37,9 @@
     </svg>
   </a>
 
-  <!-- Spotify -->
   <a
-    href="socialLinks.Spotify"
+    *ngIf="!isHidden(platform.Spotify)"
+    href="{{ socialLinks.Spotify }}"
     target="_blank"
     aria-label="spotify"
     class="social-link"
@@ -56,9 +56,9 @@
     </svg>
   </a>
 
-  <!-- YouTube -->
   <a
-    href="socialLinks.YouTube"
+    *ngIf="!isHidden(platform.Youtube)"
+    href="{{ socialLinks.YouTube }}"
     target="_blank"
     aria-label="youtube"
     class="social-link"
@@ -78,9 +78,9 @@
     </svg>
   </a>
 
-  <!-- Apple -->
   <a
-    href="socialLinks.Apple"
+    *ngIf="!isHidden(platform.Apple)"
+    href="{{ socialLinks.Apple }}"
     target="_blank"
     aria-label="apple"
     class="social-link"
@@ -98,5 +98,4 @@
       />
     </svg>
   </a>
-  <!-- Repeat for other social links (TikTok, Spotify, YouTube, Apple) -->
 </div>

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+/* Button styles */
+.btn {
+  padding: 0.9rem 2.5rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--secondary-color);
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    rgba(var(--accent-color-rgb), 0.8)
+  );
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(var(--accent-color-rgb), 0.5);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  z-index: 2; /* Ensure it's above the social links */
+}
+
+/* Social links (hidden by default) */
+.social-links {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  z-index: 1; /* Below the button */
+}
+
+/* Hover effect */
+.container:hover .btn {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.container:hover .social-links {
+  transform: translateX(0);
+  opacity: 1;
+}
+/* @media (min-width: 1024px) {
+  .btn {
+    font-size: 0.875rem;
+  }
+} */

@@ -1,0 +1,9 @@
+<div class="container">
+  <button type="{{ type }}" class="btn" [ngClass]="additionalClasses">
+    {{ text }}
+  </button>
+  <app-social-links
+    class="social-links"
+    [hiddenPlatforms]="[platform.Instagram, platform.TikTok]"
+  ></app-social-links>
+</div>

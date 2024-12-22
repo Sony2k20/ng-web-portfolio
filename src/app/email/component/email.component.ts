@@ -13,7 +13,7 @@ import { FooterComponent } from '../../footer/footer.component';
 import { forkJoin } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
-import { SecondaryButtonComponent } from '../../shared/components/secondary-button/secondary-button.component';
+import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
 
 @Component({
   selector: 'app-email',
@@ -24,7 +24,7 @@ import { SecondaryButtonComponent } from '../../shared/components/secondary-butt
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
-    SecondaryButtonComponent,
+    MainButtonComponent,
   ],
   templateUrl: './email.component.html',
   providers: [EmailService],
@@ -84,6 +84,7 @@ export class EmailComponent implements OnInit {
 
   onSubmit() {
     if (!this.emailForm.valid) {
+      this.emailForm.markAllAsTouched();
       return;
     }
 

@@ -4,38 +4,22 @@
   font-size: 0.75rem;
   line-height: 1rem;
   color: var(--secondary-color);
-
-  cursor: pointer;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-
-  border-radius: 50px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    rgba(var(--accent-color-rgb), 0.8)
+  );
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(var(--accent-color-rgb), 0.5);
+  transition: 0.4s;
+  background: var(--accent-color);
 }
 
 .btn:hover {
   transform: scale(1.03);
-  background-position: 90% 0;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
-}
-
-.btn.color-1 {
-  background-image: linear-gradient(
-    to right,
-    #8277a3,
-    #8b6f94,
-    #9c788a,
-    #8277a3
-  );
-  box-shadow: 0 4px 6px rgba(var(--accent-color-rgb), 0.5);
+  transition: 0.4s;
+  background: var(--primary-light-color);
+  box-shadow: 0 6px 8px rgba(var(--accent-color-rgb), 0.7);
 }
 
 @media (min-width: 1024px) {

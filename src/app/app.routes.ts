@@ -1,22 +1,12 @@
 import { Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { Routes as RoutesEnums } from './shared/enums/routes.enum';
-import { imgLandingPageResolver } from './shared/resolvers/img-landing-page.resolver';
 
 export const routes: Routes = [
   {
     path: '',
-    component: LandingPageComponent,
-    pathMatch: 'full',
-    resolve: {
-      imagePath: imgLandingPageResolver,
-    },
-  },
-  {
-    path: 'podcast',
     loadComponent: () =>
-      import('./landing-page/podcast/podcast.component').then(
-        (mod) => mod.PodcastComponent,
+      import('./landing-page/landing-page.component').then(
+        (mod) => mod.LandingPageComponent,
       ),
   },
   {
