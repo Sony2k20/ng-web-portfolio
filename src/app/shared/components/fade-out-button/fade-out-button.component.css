@@ -1,4 +1,5 @@
 .container {
+  padding: 8px;
   display: flex;
   align-items: center; /* Vertically center */
   justify-content: center; /* Horizontally center */
