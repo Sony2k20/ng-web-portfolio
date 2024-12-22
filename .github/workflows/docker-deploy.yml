@@ -4,7 +4,49 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+        #https://github.com/npm/cli/issues/4828
+      - name: Workaround for arm - remove package-lock.json
+        run: rm package-lock.json
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular App
+        run: ng build --configuration=production
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker buildx build \
+          --platform linux/arm64,linux/amd64 \
+          --tag sony2k20/ng-web-portfolio:prod \
+          --push .
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +59,10 @@ jobs:
           script: |
             docker stop ${{ github.event.repository.name }} || true
             docker rm ${{ github.event.repository.name }} || true
-            docker pull sony2k20/${{ github.event.repository.name }}:latest
+            docker pull sony2k20/${{ github.event.repository.name }}:prod
             docker run -d \
               --name ${{ github.event.repository.name }} \
               --network my_network \
               -p 4200:80 \
               -e EMAIL_SERVER_URL=http://nestjs-email-service:3000/email/send \
-              sony2k20/${{ github.event.repository.name }}:latest
+              sony2k20/${{ github.event.repository.name }}:prod

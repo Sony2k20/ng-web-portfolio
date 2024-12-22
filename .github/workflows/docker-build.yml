@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: ng build
+        run: ng build --configuration=development
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
