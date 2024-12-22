@@ -83,7 +83,6 @@ export class EmailComponent implements OnInit {
   }
 
   onSubmit() {
-    this.snackbarService.showSnackbar('This is a custom snackbar!');
     if (!this.emailForm.valid) {
       return;
     }
