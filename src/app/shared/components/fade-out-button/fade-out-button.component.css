@@ -1,15 +1,14 @@
 .container {
   padding: 8px;
   display: flex;
-  align-items: center; /* Vertically center */
-  justify-content: center; /* Horizontally center */
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   width: 100%;
   height: auto;
 }
 
-/* Button styles */
 .btn {
   padding: 0.9rem 2.5rem;
   font-family: "Roboto", sans-serif;
@@ -26,10 +25,9 @@
   transition:
     transform 0.5s ease,
     opacity 0.5s ease;
-  z-index: 2; /* Ensure it's above the social links */
+  z-index: 2;
 }
 
-/* Social links (hidden by default) */
 .social-links {
   position: absolute;
   opacity: 0;
@@ -37,10 +35,9 @@
   transition:
     transform 0.5s ease,
     opacity 0.5s ease;
-  z-index: 1; /* Below the button */
+  z-index: 1;
 }
 
-/* Hover effect */
 .container:hover .btn {
   transform: translateX(-100%);
   opacity: 0;
@@ -50,8 +47,8 @@
   transform: translateX(0);
   opacity: 1;
 }
-/* @media (min-width: 1024px) {
+@media (min-width: 1024px) {
   .btn {
     font-size: 0.875rem;
   }
-} */
+}
