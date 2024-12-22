@@ -31,13 +31,12 @@
       <div
         class="text-center fadeInTextFromTop animDelay11 duration-500 ease-in-out"
       >
-        <button
-          (click)="scrollToSection(routes.Contact, 'header', $event)"
+        <app-secondary-button
           type="button"
-          class="px-12 py-2.5 text-xs lg:text-sm uppercase font-roboto text-secondary bg-accent hover:bg-primary-dark rounded-full shadow-md shadow-accent/50 transition-colors"
-        >
-          Zum Coaching
-        </button>
+          text="Zum Coaching"
+          additionalClasses="uppercase"
+          (click)="scrollToSection(routes.Contact, 'header', $event)"
+        ></app-secondary-button>
       </div>
     </div>
   </div>

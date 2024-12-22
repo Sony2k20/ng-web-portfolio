@@ -10,8 +10,8 @@ export class SnackbarService {
 
   constructor() {}
 
-  showSnackbar(message: string, duration: number = 3000) {
+  showSnackbar(message: string) {
     this.snackbarSubject.next(message);
-    setTimeout(() => this.snackbarSubject.next(null), duration);
+    setTimeout(() => this.snackbarSubject.next(null), 3500);
   }
 }

@@ -112,7 +112,7 @@
       </div>
 
       <!-- Message -->
-      <div class="mb-5">
+      <div class="mb-12">
         <label for="message" class="mb-2 text-sm">Nachricht</label>
         <textarea
           id="message"
@@ -141,13 +141,11 @@
         </div>
       </div>
 
-      <!-- Submit Button -->
-      <button
+      <app-secondary-button
         type="submit"
-        class="px-12 py-2.5 my-8 flex mx-auto text-xs lg:text-sm font-roboto text-secondary bg-accent hover:bg-primary-dark rounded-full shadow-md shadow-accent/50 transition-colors"
-      >
-        Absenden
-      </button>
+        text="Absenden"
+        additionalClasses="flex mx-auto"
+      ></app-secondary-button>
     </form>
   </div>
 </div>

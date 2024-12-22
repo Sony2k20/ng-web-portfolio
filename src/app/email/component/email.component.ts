@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { forkJoin, switchMap } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
+import { SecondaryButtonComponent } from '../../shared/components/secondary-button/secondary-button.component';
 
 @Component({
   selector: 'app-email',
@@ -24,7 +24,7 @@ import { SnackbarService } from '../../shared/components/snackbar/service/snackb
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
-    MatSnackBarModule,
+    SecondaryButtonComponent,
   ],
   templateUrl: './email.component.html',
   providers: [EmailService],
@@ -37,7 +37,6 @@ export class EmailComponent implements OnInit {
   private emailService = inject(EmailService);
   private emailConfirmationTemplate: string = '';
   private emailInquiryTemplate: string = '';
-  private snackBar = inject(MatSnackBar);
 
   constructor() {
     this.emailForm = this.fb.group({
@@ -84,7 +83,7 @@ export class EmailComponent implements OnInit {
   }
 
   onSubmit() {
-    this.snackbarService.showSnackbar('This is a custom snackbar!', 1000);
+    this.snackbarService.showSnackbar('This is a custom snackbar!');
     if (!this.emailForm.valid) {
       return;
     }
@@ -156,18 +155,14 @@ export class EmailComponent implements OnInit {
       this.emailService.sendEmail(inquiryEmail),
     ]).subscribe({
       next: () => {
-        this.snackBar.open('Die Kontaktanfrage war erfolgreich.', 'Schließen', {
-          duration: 5000,
-        });
+        this.snackbarService.showSnackbar(
+          'Die Kontaktanfrage war erfolgreich.',
+        );
         this.emailForm.reset();
       },
       error: () => {
-        this.snackBar.open(
-          'Die Kontaktanfrage ist fehlgeschlagen! Versuchen Sie es später erneut',
-          'Schließen',
-          {
-            duration: 5000,
-          },
+        this.snackbarService.showSnackbar(
+          'Die Kontaktanfrage ist fehlgeschlagen! Versuchen Sie es später erneut.',
         );
       },
     });
