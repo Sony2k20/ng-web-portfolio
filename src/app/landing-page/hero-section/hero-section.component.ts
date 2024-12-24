@@ -12,7 +12,4 @@ import { MainButtonComponent } from '../../shared/components/main-button/main-bu
 export class HeroSectionComponent {
   routes = Routes;
   scroller = inject(ScrollToSectionService);
-  scrollToSection(route: string, sectionId: string, event?: Event) {
-    this.scroller.scrollToSection(route, sectionId, event);
-  }
 }

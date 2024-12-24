@@ -1,17 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, ElementRef, inject } from '@angular/core';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
+import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
+import { Routes } from '../../shared/enums/routes.enum';
+import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service';
 
 @Component({
   selector: 'app-faq-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MainButtonComponent],
   templateUrl: './faq-section.component.html',
 })
 export class FaqSectionComponent implements AfterViewInit {
   // This will hold the state of the accordion items
   openIndex: number | null = null;
-
+  routes = Routes;
+  scroller = inject(ScrollToSectionService);
   private elementRef = inject(ElementRef);
   private intersectionObserverService = inject(IntersectionObserverService);
 
@@ -24,7 +28,6 @@ export class FaqSectionComponent implements AfterViewInit {
     );
   }
 
-  // Accordion items data
   accordionItems = [
     {
       question:
@@ -45,7 +48,6 @@ export class FaqSectionComponent implements AfterViewInit {
     },
   ];
 
-  // Function to toggle accordion
   toggleAccordion(index: number) {
     this.openIndex = this.openIndex === index ? null : index;
   }
