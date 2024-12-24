@@ -17,7 +17,11 @@
       </p>
 
       <h3 class="font-semibold mb-4">Kontakt</h3>
-      <p class="mb-8">{{ contact.Email }}</p>
+      <p class="mb-8">
+        <a class="hover:underline" [href]="'mailto:' + contact.Email">{{
+          contact.Email
+        }}</a>
+      </p>
 
       <h3 class="font-semibold mb-4">
         Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
@@ -69,7 +73,7 @@
         waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente
         inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
         Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden
-        von Rechtsverletzungen werde ich derartige Links umgehend entfernen."
+        von Rechtsverletzungen werde ich derartige Links umgehend entfernen.
       </p>
 
       <h3 class="font-semibold mb-4">Urheberrecht</h3>
