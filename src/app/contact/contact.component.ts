@@ -5,16 +5,16 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { EmailPayload, EmailService } from '../service/email.service';
+import { EmailPayload, EmailService } from '../shared/services/email.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from '../../header/header.component';
-import { FooterComponent } from '../../footer/footer.component';
+import { HeaderComponent } from '../shared/components/header/header.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 import { finalize, forkJoin } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
-import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
-import { LoadingDotsComponent } from '../../shared/components/loading-dots/loading-dots.component';
+import { environment } from '../../environments/environment';
+import { SnackbarService } from '../shared/components/snackbar/service/snackbar.service';
+import { MainButtonComponent } from '../shared/components/main-button/main-button.component';
+import { LoadingDotsComponent } from '../shared/components/loading-dots/loading-dots.component';
 
 @Component({
   selector: 'app-email',
@@ -28,10 +28,10 @@ import { LoadingDotsComponent } from '../../shared/components/loading-dots/loadi
     MainButtonComponent,
     LoadingDotsComponent,
   ],
-  templateUrl: './email.component.html',
+  templateUrl: './contact.component.html',
   providers: [EmailService],
 })
-export class EmailComponent implements OnInit {
+export class ContactComponent implements OnInit {
   emailForm: FormGroup;
   isLoading = false;
 

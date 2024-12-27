@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { HeaderComponent } from '../../header/header.component';
-import { FooterComponent } from '../footer.component';
-import { Contact } from '../../shared/enums/contact.enum';
+import { HeaderComponent } from '../shared/components/header/header.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
+import { Contact } from '../shared/enums/contact.enum';
 
 @Component({
   selector: 'app-imprint',

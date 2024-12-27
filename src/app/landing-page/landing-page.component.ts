@@ -4,9 +4,9 @@ import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { FaqSectionComponent } from './faq-section/faq-section.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PodcastComponent } from './podcast/podcast.component';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderComponent } from '../shared/components/header/header.component';
 import { BehaviorSubject } from 'rxjs';
-import { FooterComponent } from '../footer/footer.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-landing-page',

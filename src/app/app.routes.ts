@@ -12,22 +12,22 @@ export const routes: Routes = [
   {
     path: RoutesEnums.Imprint,
     loadComponent: () =>
-      import('./footer/imprint/imprint.component').then(
+      import('./imprint/imprint.component').then(
         (mod) => mod.ImprintComponent,
       ),
   },
   {
     path: RoutesEnums.PrivacyPolicy,
     loadComponent: () =>
-      import('./footer/privacy-policy/privacy-policy.component').then(
+      import('./privacy-policy/privacy-policy.component').then(
         (mod) => mod.PrivacyPolicyComponent,
       ),
   },
   {
     path: RoutesEnums.Contact,
     loadComponent: () =>
-      import('./email/component/email.component').then(
-        (mod) => mod.EmailComponent,
+      import('./contact/contact.component').then(
+        (mod) => mod.ContactComponent,
       ),
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },

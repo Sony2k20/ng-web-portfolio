@@ -1,11 +1,13 @@
 <nav
-  #start
   id="start"
-  [ngClass]="[isScrolled ? 'lg:bg-opacity-100' : 'lg:bg-opacity-60']"
-  [ngClass]="isMenuOpen ? 'shadow-none' : 'shadow-md'"
+  [ngClass]="[
+    isScrolled ? 'lg:bg-opacity-100' : 'lg:bg-opacity-60',
+    isMenuOpen ? 'shadow-none' : 'shadow-md'
+  ]"
   class="fixed top-0 left-0 w-full z-40 bg-secondary lg:shadow-md px-8 2xl:px-0 font-roboto h-16 max-h-16 duration-700 ease-in-out slideInFromTop"
 >
-  <div
+
+<div
     class="max-w-screen-xl flex flex-wrap items-center w-full justify-center lg:justify-between mx-auto py-4"
   >
     <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse">
