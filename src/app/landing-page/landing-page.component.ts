@@ -7,6 +7,7 @@ import { PodcastComponent } from './podcast/podcast.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { BehaviorSubject } from 'rxjs';
 import { FooterComponent } from '../shared/components/footer/footer.component';
+import { CoachingComponent } from './coaching/coaching.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -19,6 +20,7 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
     PodcastComponent,
     HeaderComponent,
     FooterComponent,
+    CoachingComponent,
   ],
   templateUrl: './landing-page.component.html',
 })

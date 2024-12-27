@@ -1,1 +1,25 @@
-<p>coaching works!</p>
+<div
+  class="mx-auto max-w-screen-lg px-5 sm:px-12 2xl:px-0 py-24 text-lg xl:text-xl leading-8 md:min-h-screen flex flex-col"
+>
+  <div>
+    <h2
+      class="text-3xl xl:text-5xl text-center uppercase leading-tight animate"
+    >
+      Mein Coachingpaket
+    </h2>
+    <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
+
+    <div class="flex flex-col items-center text-center leading-8 xl:leading-9">
+      <p class="mb-4"></p>
+
+      <p class="mb-12">To-Do</p>
+
+      <app-main-button
+        type="button"
+        text="Kontaktformular"
+        additionalClasses="uppercase"
+        (click)="scroller.scrollToSection(routes.Contact, 'header', $event)"
+      ></app-main-button>
+    </div>
+  </div>
+</div>
