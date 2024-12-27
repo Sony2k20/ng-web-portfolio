@@ -32,12 +32,13 @@ html {
 
 /*  Colors for shared components */
 :root {
-  --accent-color: #8277a3;
-  --accent-color-rgb: 130, 119, 163;
-  --primary-light-color: #9c788a;
-  --primary-dark-color: #6c5574;
-  --secondary-color: #f4f0f7;
+  --accent: #8277a3;
+  --accent-rgb: 130, 119, 163;
+  --primary-light: #9c788a;
+  --secondary: #f4f0f7;
+  --secondary-dark: #d3cfe5;
   --black: #3c382f;
+  --black-rgb: 60, 56, 47;
 }
 
 /***************************** Animations *****************************/

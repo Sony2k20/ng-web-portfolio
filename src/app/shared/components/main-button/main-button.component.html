@@ -1,3 +1,8 @@
-<button type="{{ type }}" class="btn" [ngClass]="additionalClasses">
+<button
+  type="{{ type }}"
+  [disabled]="isDisabled"
+  [class]="'btn'"
+  [ngClass]="[isDisabled ? 'disabled-class' : '', additionalClasses]"
+>
   {{ text }}
 </button>

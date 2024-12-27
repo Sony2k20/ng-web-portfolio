@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: auto;
   height: auto;
 }
 
@@ -14,14 +14,14 @@
   font-family: "Roboto", sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: var(--secondary-color);
+  color: var(--secondary);
   background: linear-gradient(
     to right,
-    var(--accent-color),
-    rgba(var(--accent-color-rgb), 0.8)
+    var(--accent),
+    rgba(var(--accent-rgb), 0.8)
   );
   border-radius: 9999px;
-  box-shadow: 0 4px 6px rgba(var(--accent-color-rgb), 0.5);
+  box-shadow: 0 4px 6px rgba(var(--accent-rgb), 0.5);
   transition:
     transform 0.5s ease,
     opacity 0.5s ease;

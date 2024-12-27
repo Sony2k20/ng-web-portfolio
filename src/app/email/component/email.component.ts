@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
-import { forkJoin } from 'rxjs';
+import { finalize, forkJoin } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
 import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
+import { LoadingDotsComponent } from '../../shared/components/loading-dots/loading-dots.component';
 
 @Component({
   selector: 'app-email',
@@ -25,12 +26,14 @@ import { MainButtonComponent } from '../../shared/components/main-button/main-bu
     HeaderComponent,
     FooterComponent,
     MainButtonComponent,
+    LoadingDotsComponent,
   ],
   templateUrl: './email.component.html',
   providers: [EmailService],
 })
 export class EmailComponent implements OnInit {
   emailForm: FormGroup;
+  isLoading = false;
 
   private fb = inject(FormBuilder);
   private snackbarService = inject(SnackbarService);
@@ -88,6 +91,8 @@ export class EmailComponent implements OnInit {
       return;
     }
 
+    this.isLoading = true;
+
     const formattedMessage = this.emailForm
       .get('message')
       ?.value.replace(/\n/g, '<br>');
@@ -126,7 +131,6 @@ export class EmailComponent implements OnInit {
       html: emailInquiryTemplate,
     };
 
-    console.log(emailInquiryTemplate);
     this.sendMail(confirmationEmail, inquiryEmail);
   }
 
@@ -153,18 +157,24 @@ export class EmailComponent implements OnInit {
     forkJoin([
       this.emailService.sendEmail(confirmationEmail),
       this.emailService.sendEmail(inquiryEmail),
-    ]).subscribe({
-      next: () => {
-        this.snackbarService.showSnackbar(
-          'Die Kontaktanfrage war erfolgreich.',
-        );
-        this.emailForm.reset();
-      },
-      error: () => {
-        this.snackbarService.showSnackbar(
-          'Die Kontaktanfrage ist fehlgeschlagen! Versuchen Sie es später erneut.',
-        );
-      },
-    });
+    ])
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        }),
+      )
+      .subscribe({
+        next: () => {
+          this.snackbarService.showSnackbar(
+            'Die Kontaktanfrage war erfolgreich.',
+          );
+          this.emailForm.reset();
+        },
+        error: () => {
+          this.snackbarService.showSnackbar(
+            'Die Kontaktanfrage ist fehlgeschlagen! Versuchen Sie es später erneut.',
+          );
+        },
+      });
   }
 }
