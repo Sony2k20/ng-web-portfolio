@@ -1,0 +1,55 @@
+.text {
+  fill: #3c382f;
+}
+
+.text .mask {
+  fill: none;
+  stroke: #f4f0f7;
+  stroke-miterlimit: 10;
+}
+
+@keyframes strokeOffset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#mask-erfolg-erfol {
+  animation: strokeOffset 1s linear forwards;
+}
+
+#mask-erfolg-g {
+  animation: strokeOffset 0.2s linear forwards 1s;
+}
+
+#mask-beginnt {
+  animation: strokeOffset 1.1s linear forwards;
+}
+
+#mask-beginnt-point {
+  animation: strokeOffset 0.1s linear forwards;
+}
+
+#mask-beginnt-in {
+  animation: strokeOffset 1.1s linear forwards;
+}
+
+#mask-in {
+  animation: strokeOffset 1.1s linear forwards;
+}
+
+#mask-in-point {
+  animation: strokeOffset 0.1s linear forwards;
+}
+
+#mask-dir-d {
+  animation: strokeOffset 0.4s linear forwards;
+}
+
+#mask-dir-ir {
+  animation: strokeOffset 1.1s linear forwards;
+}
+
+#mask-dir-point {
+  animation: strokeOffset 0.1s linear forwards;
+}
