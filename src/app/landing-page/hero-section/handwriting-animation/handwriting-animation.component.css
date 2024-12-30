@@ -59,19 +59,19 @@
 }
 
 #mask-beginnt {
-  animation: strokeOffset 0.6s linear forwards 1.2s;
+  animation: strokeOffset 0.7s linear forwards 1.2s;
 }
 
 #mask-beginnt-point {
-  animation: strokeOffset 0.05s linear forwards 1.4s;
+  animation: strokeOffset 0.05s linear forwards 1.5s;
 }
 
 #mask-in {
-  animation: strokeOffset 0.25s linear forwards 1.67s;
+  animation: strokeOffset 0.25s linear forwards 1.85s;
 }
 
 #mask-in-point {
-  animation: strokeOffset 0.05s linear forwards 1.8s;
+  animation: strokeOffset 0.05s linear forwards 1.9s;
 }
 
 #mask-dir-d {
