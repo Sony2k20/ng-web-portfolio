@@ -14,6 +14,41 @@
   }
 }
 
+#mask-erfolg-erfol {
+  animation: strokeOffset 0.8s linear forwards 0.7s;
+}
+
+#mask-erfolg-g {
+  animation: strokeOffset 0.2s linear forwards 1.55s;
+}
+
+#mask-beginnt {
+  animation: strokeOffset 1s linear forwards 1.7s;
+}
+
+#mask-beginnt-point {
+  animation: strokeOffset 0.05s linear forwards 2.2s;
+}
+#mask-in {
+  animation: strokeOffset 0.25s linear forwards 2.65s;
+}
+
+#mask-in-point {
+  animation: strokeOffset 0.05s linear forwards 2.75s;
+}
+
+#mask-dir-d {
+  animation: strokeOffset 0.3s linear forwards 2.85s;
+}
+
+#mask-dir-ir {
+  animation: strokeOffset 0.3s linear forwards 3.2s;
+}
+
+#mask-dir-point {
+  animation: strokeOffset 0.05s linear forwards 3.25s;
+}
+
 /* Sequential fast version */
 /* #mask-erfolg-erfol {
   animation: strokeOffset 0.8s linear forwards 0.7s;
@@ -31,28 +66,28 @@
   animation: strokeOffset 0.05s linear forwards 2.2s;
 }
 #mask-in {
-  animation: strokeOffset 0.25s linear forwards 2.75s;
+  animation: strokeOffset 0.25s linear forwards 2.7s;
 }
 
 #mask-in-point {
-  animation: strokeOffset 0.05s linear forwards 2.8s;
+  animation: strokeOffset 0.05s linear forwards 2.75s;
 }
 
 #mask-dir-d {
-  animation: strokeOffset 0.3s linear forwards 3s;
+  animation: strokeOffset 0.3s linear forwards 2.95s;
 }
 
 #mask-dir-ir {
-  animation: strokeOffset 0.3s linear forwards 3.35s;
+  animation: strokeOffset 0.3s linear forwards 3.3s;
 }
 
 #mask-dir-point {
-  animation: strokeOffset 0.05s linear forwards 3.41s;
+  animation: strokeOffset 0.05s linear forwards 3.36s;
 } */
 
 /* Sequential slower version */
 
-#mask-erfolg-erfol {
+/* #mask-erfolg-erfol {
   animation: strokeOffset 0.96s linear forwards 0.56s;
 }
 
@@ -86,4 +121,4 @@
 
 #mask-dir-point {
   animation: strokeOffset 0.04s linear forwards 3.78s;
-}
+} */
