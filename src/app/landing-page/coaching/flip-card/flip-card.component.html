@@ -1,0 +1,15 @@
+<div class="card-container">
+  <div *ngFor="let card of cards" class="card">
+    <div class="card-inner">
+      <!-- Front Side -->
+      <div class="card-front">
+        <h3>{{ card.modul }}</h3>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <p>{{ card.erklarung }}</p>
+      </div>
+    </div>
+  </div>
+</div>

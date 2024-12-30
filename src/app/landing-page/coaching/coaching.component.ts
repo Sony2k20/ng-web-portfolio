@@ -3,11 +3,12 @@ import { IntersectionObserverService } from '../../shared/services/intersection-
 import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
 import { Routes } from '../../shared/enums/routes.enum';
 import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service';
+import { FlipCardComponent } from './flip-card/flip-card.component';
 
 @Component({
   selector: 'app-coaching',
   standalone: true,
-  imports: [MainButtonComponent],
+  imports: [MainButtonComponent, FlipCardComponent],
   templateUrl: './coaching.component.html',
 })
 export class CoachingComponent {

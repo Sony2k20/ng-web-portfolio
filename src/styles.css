@@ -36,6 +36,7 @@ html {
 :root {
   --accent: #8277a3;
   --accent-rgb: 130, 119, 163;
+  --primary: #ded3e3;
   --primary-light: #9c788a;
   --secondary: #f4f0f7;
   --secondary-dark: #d3cfe5;
