@@ -63,7 +63,7 @@ html {
 /* toDo rename effects */
 .fadeInTextFromTop {
   opacity: 0;
-  animation: fadeInTextFromTop 0.5s 0.5s ease-in-out forwards;
+  animation: fadeInTextFromTop 0.5s ease-in-out forwards;
 }
 
 .fadeInBg {
@@ -237,4 +237,12 @@ html {
 
 .animDelay42 {
   animation-delay: 4.2s;
+}
+
+.animDelay43 {
+  animation-delay: 4.3s;
+}
+
+.animDelay44 {
+  animation-delay: 4.4s;
 }
