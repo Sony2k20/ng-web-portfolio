@@ -38,6 +38,7 @@ html {
   --accent-rgb: 130, 119, 163;
   --primary: #ded3e3;
   --primary-light: #9c788a;
+  --primary-light-rgb: 156, 120, 138;
   --secondary: #f4f0f7;
   --secondary-dark: #d3cfe5;
   --black: #3c382f;
@@ -216,10 +217,10 @@ html {
   animation-delay: 1.2s;
 }
 
-.animDelay33 {
-  animation-delay: 3.3s;
+.animDelay30 {
+  animation-delay: 3s;
 }
 
-.animDelay36 {
-  animation-delay: 3.6s;
+.animDelay33 {
+  animation-delay: 3.3s;
 }

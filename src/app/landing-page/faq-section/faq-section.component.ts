@@ -30,21 +30,41 @@ export class FaqSectionComponent implements AfterViewInit {
 
   accordionItems = [
     {
-      question:
-        'Woher weiß ich welches Coaching-Paket zu meinem Anliegen passt?',
+      question: 'Für wen ist dein Coaching geeignet?',
       answer:
-        'Wir beginnen mit einem kostenlosen Erstgespräch, in dem wir deine Ziele besprechen. In diesem Gespräch bekomme ich ein Gefühl für dein Anliegen, erkläre dir meine Coaching Pakete nochmal konkret und kann dir für dein Anliegen ein Paket empfehlen. Du selbst kannst jedoch nach diesem Gespräch entscheiden, welches Paket sich für dich richtig anfühlt.',
+        'Das Coaching richtet sich an Menschen, die in ihrem Beruf oder Alltag keine Erfüllung mehr finden und nach mehr Sinn streben. Sie spüren, dass sie für etwas Größeres bestimmt sind, wissen aber noch nicht, wie sie dieses Ziel erreichen können. Sie sind bereit, sich selbst besser kennenzulernen und ihr Leben aktiv zu verändern.',
     },
     {
-      question: 'In welchen Abständen finden unsere Termine statt?',
+      question: 'Was, wenn ich gar nicht weiß, was meine Berufung ist?',
       answer:
-        'Das gestalte ich von Coachee zu Coachee unterschiedlich, da Jeder andere Vorstellungen und Bedürfnisse hat. Daher erarbeiten wir gemeinsam einen Zeitplan der für dich passt.',
+        'Das ist völlig normal. Viele Menschen spüren, dass sie etwas ändern möchten, wissen aber nicht genau, wohin sie wollen. Genau hier setzen wir an: Gemeinsam bringen wir Klarheit in deine Wünsche und Stärken. Mit gezielten Übungen und Reflexionen findest du heraus, was dich wirklich erfüllt und was deine Berufung ist.',
+    },
+    {
+      question: 'Wie weiß ich, ob dieses Coaching das Richtige für mich ist?',
+      answer:
+        'Dieses Coaching ist ideal für dich, wenn du spürst, dass du in deinem aktuellen Leben stagnierst und bereit bist, neue Wege zu gehen. Wenn du dir eine klare Vision wünschst und endlich Schritte in Richtung Selbstverwirklichung und Erfüllung machen möchtest, begleite ich dich dabei mit einem strukturierten und individuell angepassten Ansatz.',
+    },
+    {
+      question: 'Was, wenn ich glaube, dass ich mich nicht ändern kann?',
+      answer:
+        'Wir alle haben diese Zweifel. Vor allem, wenn uns alte Glaubenssätze und Muster blockieren. Aber Veränderung ist möglich, wenn du bereit bist, dich darauf einzulassen. In meinem Coaching arbeiten wir gemeinsam daran, diese Hindernisse zu erkennen und Schritt für Schritt aufzulösen. Übernimm die Verantwortung und gestalte das erfüllte Leben, was du wirklich willst.',
     },
     {
       question:
-        'Begleitest du mich im Coaching-Prozess persönlich oder virtuell?',
+        'Ich habe wenig Zeit, wie kann ich das Coaching in meinen Alltag integrieren?',
       answer:
-        'Je nach Standort und Möglichkeit, begleite ich meine Coachees gern persönlich auf ihrem Weg. Allerdings habe ich auch schon großartige Erfahrung mit online Coaching gemacht und empfinde daher beide Möglichkeiten als kraftvoll. Oft erarbeiten wir uns eine Kombination aus Online und Präsenz. Auch hier werden wir einen gemeinsamen Plan erstellen, je nachdem was die Gegebenheiten (Entfernung / Zeit ) hergeben.',
+        'Ich verstehe, dass der Alltag oft stressig ist. Deshalb ist mein Coaching so konzipiert, dass wir uns auf das Wesentliche konzentrieren. Zwischen den Sitzungen bekommst du klare, umsetzbare Aufgaben, die sich flexibel in deinen Alltag einfügen lassen. Außerdem begleite ich dich dabei, Prioritäten zu setzen und mehr Raum für dich selbst zu schaffen.',
+    },
+    {
+      question:
+        'Was ist, wenn ich unsicher bin, ob ich die Vision umsetzen kann?',
+      answer:
+        'Das ist eine berechtigte Sorge. Große Ziele können einschüchternd wirken. Gemeinsam entwickeln wir einen Schritt-für-Schritt-Plan, der dir Sicherheit gibt. Du musst nicht alles auf einmal schaffen; kleine, kontinuierliche Schritte führen zum Erfolg.',
+    },
+    {
+      question: 'Was macht dein Coaching anders als andere Angebote?',
+      answer:
+        'Mein Coaching basiert nicht nur auf Techniken und Methoden, sondern auch auf meiner persönlichen Erfahrung. Nach einem schweren Motorradunfall musste ich mein Leben komplett neu gestalten. Heute lebe ich meine Berufung – und genau das möchte ich auch dir ermöglichen. Mit einer Mischung aus Empathie, Struktur und Praxisnähe begleite ich dich auf deinem Weg.',
     },
   ];
 

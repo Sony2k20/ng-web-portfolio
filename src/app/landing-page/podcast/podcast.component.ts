@@ -8,6 +8,7 @@ import { FadeOutButtonComponent } from '../../shared/components/fade-out-button/
   standalone: true,
   imports: [FadeOutButtonComponent],
   templateUrl: './podcast.component.html',
+  styleUrl: './podcast.component.css',
 })
 export class PodcastComponent implements AfterViewInit {
   socialLinks = SocialLinks;
