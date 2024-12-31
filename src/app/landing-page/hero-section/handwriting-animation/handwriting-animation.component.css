@@ -75,13 +75,13 @@
 }
 
 #mask-dir-d {
-  animation: strokeOffset 0.65s linear forwards 2.1s;
+  animation: strokeOffset 0.65s linear forwards 2.3s;
 }
 
 #mask-dir-ir {
-  animation: strokeOffset 0.5s linear forwards 2.65s;
+  animation: strokeOffset 0.5s linear forwards 2.85s;
 }
 
 #mask-dir-point {
-  animation: strokeOffset 0.05s linear forwards 2.85s;
+  animation: strokeOffset 0.05s linear forwards 3s;
 }
