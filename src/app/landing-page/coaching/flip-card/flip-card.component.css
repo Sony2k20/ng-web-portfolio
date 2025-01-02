@@ -46,8 +46,8 @@
   width: 50%;
   background: linear-gradient(
     var(--primary),
-    rgb(var(--primary-light-rgb), 0.4),
-    rgb(var(--accent-rgb), 0.4)
+    rgb(var(--primary-light-rgb), 0.2),
+    rgb(var(--primary-light-rgb), 0.5)
   );
   transition: transform 0.9s;
 }
