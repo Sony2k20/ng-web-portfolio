@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 
 declare const gtag: (
   command: string,
@@ -12,11 +14,27 @@ declare const gtag: (
 export class GoogleAnalyticsService {
   private measurementId = 'G-W7LN7NPFVM';
 
-  trackPage(pagePath: string): void {
+  public trackPageView(url: string): void {
     if (typeof gtag === 'function') {
-      gtag('config', this.measurementId, { page_path: pagePath });
+      gtag('config', this.measurementId, {
+        page_path: url,
+      });
     } else {
-      console.warn('gtag function is not available.');
+      console.error('gtag function is not available');
     }
+  }
+
+  // Track events
+  public trackEvent(
+    action: string,
+    category: string,
+    label: string,
+    value: number,
+  ): void {
+    gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
   }
 }

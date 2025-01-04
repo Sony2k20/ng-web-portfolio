@@ -21,8 +21,8 @@
     "@angular/router": "^19.0.5",
     "@types/node": "^22.10.2",
     "gsap": "^3.12.5",
+    "ngx-cookie-service": "^19.0.0",
     "rxjs": "~7.8.0",
-    "swiper": "^11.1.15",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

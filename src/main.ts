@@ -10,10 +10,7 @@ import {
 import { routes } from './app/app.routes';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { register as registerSwiperElements } from 'swiper/element/bundle';
 import 'zone.js';
-
-registerSwiperElements();
 
 const routesConfig: RouterConfigOptions = {
   // onSameUrlNavigation: 'reload', // not working correctly

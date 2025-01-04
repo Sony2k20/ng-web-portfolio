@@ -4,30 +4,35 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { GoogleAnalyticsService } from './shared/services/google-analytics.service';
 import { SnackbarComponent } from './shared/components/snackbar/component/snackbar.component';
-import { register } from 'swiper/element/bundle';
 import { environment } from '../environments/environment';
+import { filter } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, SnackbarComponent],
-    templateUrl: './app.component.html'
+  selector: 'app-root',
+  imports: [RouterOutlet, SnackbarComponent],
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';
-
+  private cookieService = inject(CookieService);
   private router = inject(Router);
   private googleAnalyticsService = inject(GoogleAnalyticsService);
 
   ngOnInit() {
-    // swiper function
-    // register();
     gsap.registerPlugin(ScrollTrigger);
 
     if (environment.prod) {
       this.router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          this.googleAnalyticsService.trackPage(event.urlAfterRedirects);
-        }
+        // Track initial page view
+        this.googleAnalyticsService.trackPageView(window.location.pathname);
+
+        // Track subsequent page views on route changes
+        this.router.events
+          .pipe(filter((event) => event instanceof NavigationEnd))
+          .subscribe((event: NavigationEnd) => {
+            this.googleAnalyticsService.trackPageView(event.urlAfterRedirects);
+          });
       });
     }
   }

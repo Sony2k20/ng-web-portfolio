@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "swiper/swiper-bundle.css";
-
 /*  Font Faces */
 
 @font-face {
@@ -44,10 +42,6 @@ html {
   --secondary-dark: #d3cfe5;
   --black: #3c382f;
   --black-rgb: 60, 56, 47;
-
-  --swiper-pagination-color: var(--primary-light);
-  --swiper-pagination-bullet-inactive-color: var(--primary-light);
-  --swiper-pagination-bullet-inactive-opacity: 0.3;
 }
 
 /***************************** Animations *****************************/
