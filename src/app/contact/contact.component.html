@@ -1,20 +1,27 @@
 <app-header id="header" class="bg-secondary"></app-header>
 
-<div class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary">
+<div
+  class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary text-md xl:text-xl"
+>
   <div
-    class="mx-auto w-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 max-w-screen-xl lg:text-xl lg:min-h-screen"
+    class="mx-auto w-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 max-w-screen-md lg:text-xl lg:min-h-screen leading-8 xl:leading-9"
   >
-    <h2
-      class="text-3xl lg:text-5xl text-center uppercase overflow-wrap: break-words"
-    >
-      Kontakt
-    </h2>
+    <h2 class="text-3xl lg:text-5xl text-center uppercase">Kontakt</h2>
     <hr class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto" />
+
+    <div class="text-left mx-auto mb-8">
+      <p>
+        Egal, ob Du Interesse an meinem Coaching-Angebot hast oder einfach eine
+        allgemeine Frage stellen möchtest – ich freue mich von Dir zu hören!
+        Nutze das Formular, um mir Dein Anliegen zu schildern, und ich melde
+        mich so schnell wie möglich bei Dir.
+      </p>
+    </div>
 
     <form
       (ngSubmit)="onSubmit()"
       [formGroup]="emailForm"
-      class="leading-8 lg:leading-9 max-w-screen-md mx-auto"
+      class="leading-8 lg:leading-9 mx-auto"
     >
       <div class="md:flex md:space-x-4">
         <!-- First Name -->
