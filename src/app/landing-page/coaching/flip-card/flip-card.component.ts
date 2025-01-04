@@ -18,7 +18,7 @@ export class FlipCardComponent {
       this.elementRef,
       'slideInFromBot',
       'animateB',
-      '-160px',
+      '-190px',
     );
 
     this.intersectionObserverService.observeElements(
