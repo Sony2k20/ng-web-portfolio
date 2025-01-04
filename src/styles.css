@@ -57,6 +57,21 @@ html {
   transition: all 0.5s;
 }
 
+.animateB {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.animateL {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.animateR {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
 .animate-visible {
   opacity: 1;
   transform: translateY(0);
@@ -92,6 +107,14 @@ html {
 
 .slideOutFromBot {
   animation: slideOutFromBot 0.4s ease-out forwards;
+}
+
+.slideInFromLeft {
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.slideInFromRight {
+  animation: slideInFromRight 0.6s ease-out forwards;
 }
 
 /* 7. Keyframes */
@@ -166,6 +189,28 @@ html {
   100% {
     opacity: 0;
     transform: translateY(20%);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

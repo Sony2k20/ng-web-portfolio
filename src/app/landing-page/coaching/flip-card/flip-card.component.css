@@ -1,14 +1,14 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 }
 
 .container {
   position: relative;
-  height: 350px;
-  width: 280px;
+  height: 340px;
+  width: 300px;
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
@@ -23,6 +23,7 @@
   text-align: center;
   transition: opacity 0.5s ease-in 0.4s;
   z-index: 2;
+  font-size: 1.25rem;
 }
 
 .container:hover .card-title {
@@ -83,10 +84,44 @@
   opacity: 0; /* Initially hidden */
   transition: opacity 1s; /* Smooth fade-in on hover */
   z-index: 2; /* Below flaps */
-  font-size: 1rem;
-  line-height: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.8rem;
 }
 
 .container:hover .card-content {
   opacity: 1; /* Fully visible on hover */
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 0.6rem;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .subtitle {
+    font-size: 1.25rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .card-container {
+    gap: 25px;
+  }
+
+  .container {
+    height: 380px;
+    width: 340px;
+  }
+
+  .card-title {
+    top: 120px;
+    font-size: 1.25rem;
+  }
+
+  .card-content {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
 }

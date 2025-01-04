@@ -21,7 +21,6 @@ export class PodcastComponent implements AfterViewInit {
       this.elementRef,
       'animate-visible',
       'animate',
-      1,
     );
   }
 }

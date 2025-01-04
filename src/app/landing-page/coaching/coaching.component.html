@@ -1,10 +1,10 @@
 <div
-  class="mx-auto px-8 sm:px-12 2xl:px-0 py-24 text-md xl:text-xl leading-8 md:min-h-screen max-w-screen-2xl flex flex-col"
+  class="mx-auto px-8 sm:px-12 2xl:px-0 pt-24 text-md xl:text-xl md:min-h-screen max-w-screen-xl flex flex-col leading-8 xl:leading-9"
 >
   <div>
     <div class="text-center">
       <h2
-        class="text-3xl xl:text-5xl uppercase leading-tight animate inline-block text-left sm:text-center"
+        class="text-3xl xl:text-5xl uppercase leading-tight animate inline-block text-center"
       >
         Live Your Calling
       </h2>
@@ -15,16 +15,16 @@
       <p class="text-center text-xl font-semibold mb-8">Fühlst du dich …</p>
 
       <div
-        class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-6"
+        class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-6 mx-auto"
       >
         <div class="flex-1 text-center">
           <h3 class="text-xl font-bold text-accent mb-2">Ausgelaugt?</h3>
           <p class="">Von einem Job, der dir keine Energie gibt?</p>
         </div>
 
-        <div class="hidden md:flex items-center">
+        <div class="flex items-center justify-center w-full md:w-auto">
           <div
-            class="relative w-[2px] h-36 bg-gradient-to-b from-transparent via-accent to-transparent mx-4"
+            class="relative w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-gradient-to-b"
           ></div>
         </div>
 
@@ -33,9 +33,9 @@
           <p class="">In einem Alltag, der sich monoton und sinnlos anfühlt?</p>
         </div>
 
-        <div class="hidden md:flex items-center">
+        <div class="flex items-center justify-center w-full md:w-auto">
           <div
-            class="relative w-[2px] h-36 bg-gradient-to-b from-transparent via-accent to-transparent mx-4"
+            class="relative w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-gradient-to-b"
           ></div>
         </div>
 
@@ -48,28 +48,35 @@
       </div>
     </div>
 
-    <div class="max-w-screen-lg text-left mx-auto mb-12">
+    <div class="text-left mx-auto mb-20 max-w-screen-lg">
       <p class="mb-8">
-        <strong>Live Your Calling</strong> ist ein exklusives 4-monatiges
+        <strong>Live Your Calling</strong> ist ein exklusives viermonatiges
         Coaching-Programm für Menschen, die ihre wahre Berufung finden und ein
         erfülltes Leben führen möchten.
       </p>
+      <p class="mb-8">
+        Dieses Coaching-Programm ist nicht nur ein Weg zu mehr Klarheit – es ist
+        eine transformative Reise, die dich zu deinem wahren Selbst führt.
+        Gemeinsam gehen wir die Schritte, um alte Blockaden zu lösen, deine
+        Vision zu definieren und den Mut zu finden, sie in die Realität
+        umzusetzen. Du wirst nicht nur herausfinden, was dich wirklich antreibt,
+        sondern auch konkrete Werkzeuge an die Hand bekommen, um langfristig in
+        deine volle Kraft zu kommen.
+      </p>
+
       <p>
-        Dieses Programm ist deine Chance, aus der Sackgasse auszubrechen und
-        endlich das Leben zu gestalten, das du verdienst: voller Sinn, Klarheit
-        und Freude. Der Tag, an dem du deine Berufung findest, ist der Tag, an
-        dem du dein wahres WARUM erkennst. Von diesem Moment an wirst du nie
-        wieder das Gefühl haben, zu arbeiten.
+        Meldest du dich für ein kostenloses Erstgespräch an, starten wir mit
+        einem persönlichen Telefonat, um uns kennenzulernen und über deine
+        aktuellen Herausforderungen sowie Ziele zu sprechen. Von dort aus führt
+        dich das Coaching durch die folgenden Schritte:
       </p>
     </div>
 
-    <app-flip-card></app-flip-card>
+    <div class="mx-auto">
+      <app-flip-card></app-flip-card>
+    </div>
 
-    <div class="text-left max-w-screen-lg mx-auto mb-12">
-      <p class="mt-12 mb-8">
-        Bereit, deine Berufung zu entdecken und ein erfülltes Leben zu
-        gestalten?
-      </p>
+    <div class="text-left mx-auto mt-16 px-6 py-8 rounded-lg shadow-lg">
       <p class="mb-8">
         Dieses Coaching-Programm ist mehr als nur ein Weg zu mehr Klarheit – es
         ist eine Reise zu deinem wahren Selbst. Gemeinsam gehen wir die
@@ -86,24 +93,31 @@
         das Richtige für dich ist.
       </p>
       <p class="mb-8">
-        Dieses Programm ist deine Chance, aus der Sackgasse auszubrechen und
-        endlich das Leben zu gestalten, das du verdienst: voller Sinn, Klarheit
-        und Freude. Der Tag, an dem du deine Berufung findest, ist der Tag, an
-        dem du dein wahres WARUM erkennst. Von diesem Moment an wirst du nie
-        wieder das Gefühl haben, zu arbeiten.
-      </p>
-      <p>
         Melde dich jetzt für ein kostenloses Erstgespräch an und lass uns deinen
         Weg in ein erfülltes Leben starten!
       </p>
-    </div>
-    <div class="flex mx-auto justify-center">
-      <app-main-button
-        type="button"
-        text="Zum kostenlosen Erstgespräch"
-        additionalClasses="uppercase"
-        (click)="scroller.scrollToSection(routes.Contact, 'header', $event)"
-      ></app-main-button>
+      <h2 class="text-xl font-semibold text-gray-800">
+        Was am Ende unseres Gesprächs passieren wird:
+      </h2>
+      <p class="text-gray-600">
+        Entweder stellen wir fest, dass wir perfekt zusammenpassen – und ich
+        lade dich ein, als mein(e) Klient:in mit mir zusammenzuarbeiten.
+      </p>
+      <p class="text-gray-600">
+        Oder wir merken, dass es nicht die ideale Übereinstimmung ist – und das
+        ist vollkommen in Ordnung. In diesem Fall werde ich dir andere wertvolle
+        Empfehlungen mitgeben und dir den nächsten sinnvollen Schritt aufzeigen,
+        der dich weiterbringt.
+      </p>
+
+      <div class="flex mx-auto justify-center pt-8 pb-4">
+        <app-main-button
+          type="button"
+          text="Zum kostenlosen Erstgespräch"
+          additionalClasses="uppercase"
+          (click)="scroller.scrollToSection(routes.Contact, 'header', $event)"
+        ></app-main-button>
+      </div>
     </div>
   </div>
 </div>

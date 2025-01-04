@@ -24,7 +24,6 @@ export class FaqSectionComponent implements AfterViewInit {
       this.elementRef,
       'animate-visible',
       'animate',
-      1,
     );
   }
 

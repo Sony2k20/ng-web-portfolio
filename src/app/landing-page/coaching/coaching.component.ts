@@ -23,7 +23,6 @@ export class CoachingComponent {
       this.elementRef,
       'animate-visible',
       'animate',
-      1,
     );
   }
 }

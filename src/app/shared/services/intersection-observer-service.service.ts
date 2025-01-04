@@ -10,13 +10,13 @@ export class IntersectionObserverService {
    * @param elementRef - The ElementRef of the parent container.
    * @param classNameToAdd - The class name to be added when an element is visible.
    * @param querySelectorClass - The class name used to query the elements.
-   * @param threshold - The intersection threshold (default is 0.1).
+   * @param rootMargin - The intersection shift in y-axis (e.g. '-140px').
    */
   observeElements(
     elementRef: ElementRef,
     classNameToAdd: string,
     querySelectorClass: string,
-    threshold = 0.1,
+    rootMargin = '-140px',
   ) {
     const elements = elementRef.nativeElement.querySelectorAll(
       `.${querySelectorClass}`,
@@ -38,7 +38,7 @@ export class IntersectionObserverService {
           }
         });
       },
-      { rootMargin: '-140px' },
+      { rootMargin: rootMargin },
     );
 
     elements.forEach((element: Element) => observer.observe(element));
