@@ -18,7 +18,7 @@ export class FlipCardComponent {
       this.elementRef,
       'slideInFromBot',
       'animateB',
-      '-190px',
+      '-170px',
     );
 
     this.intersectionObserverService.observeElements(
@@ -32,7 +32,7 @@ export class FlipCardComponent {
       this.elementRef,
       'slideInFromRight',
       'animateR',
-      '-180px',
+      '-170px',
     );
   }
 }

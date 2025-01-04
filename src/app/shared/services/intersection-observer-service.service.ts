@@ -10,7 +10,7 @@ export class IntersectionObserverService {
    * @param elementRef - The ElementRef of the parent container.
    * @param classNameToAdd - The class name to be added when an element is visible.
    * @param querySelectorClass - The class name used to query the elements.
-   * @param rootMargin - The intersection shift in y-axis (e.g. '-140px').
+   * @param rootMargin - The intersection shift in y-axis (min should be '-180px').
    */
   private observer: IntersectionObserver | null = null;
 
