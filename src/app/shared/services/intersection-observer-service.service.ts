@@ -12,6 +12,8 @@ export class IntersectionObserverService {
    * @param querySelectorClass - The class name used to query the elements.
    * @param rootMargin - The intersection shift in y-axis (e.g. '-140px').
    */
+  private observer: IntersectionObserver | null = null;
+
   observeElements(
     elementRef: ElementRef,
     classNameToAdd: string,
@@ -27,20 +29,24 @@ export class IntersectionObserverService {
       return;
     }
 
-    const observer = new IntersectionObserver(
+    this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add(classNameToAdd);
             }, 100);
-            observer.unobserve(entry.target); // Stop observing to optimize performance
+            this.observer?.unobserve(entry.target);
           }
         });
       },
-      { rootMargin: rootMargin },
+      { rootMargin },
     );
 
-    elements.forEach((element: Element) => observer.observe(element));
+    elements.forEach((element: Element) => this.observer!.observe(element));
+  }
+
+  ngOnDestroy() {
+    this.observer?.disconnect();
   }
 }
