@@ -18,19 +18,21 @@ export class FlipCardComponent {
       this.elementRef,
       'slideInFromBot',
       'animateB',
+      '-190px',
     );
 
     this.intersectionObserverService.observeElements(
       this.elementRef,
       'slideInFromLeft',
       'animateL',
-      '-200px',
+      '-190px',
     );
 
     this.intersectionObserverService.observeElements(
       this.elementRef,
       'slideInFromRight',
       'animateR',
+      '-190px',
     );
   }
 }
