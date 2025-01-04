@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-main-button',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './main-button.component.html',
-  styleUrl: './main-button.component.css',
+    selector: 'app-main-button',
+    imports: [CommonModule],
+    templateUrl: './main-button.component.html',
+    styleUrl: './main-button.component.css'
 })
 export class MainButtonComponent {
   @Input() type: string = '';

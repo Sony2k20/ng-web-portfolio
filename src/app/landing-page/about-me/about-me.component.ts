@@ -10,11 +10,10 @@ import { SocialLinksComponent } from '../../shared/components/social-links/socia
 import { Contact } from '../../shared/enums/contact.enum';
 
 @Component({
-  selector: 'app-about-me',
-  standalone: true,
-  imports: [SocialLinksComponent],
-  templateUrl: './about-me.component.html',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-about-me',
+    imports: [SocialLinksComponent],
+    templateUrl: './about-me.component.html',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AboutMeComponent implements AfterViewInit {
   contact = Contact;

@@ -3,11 +3,10 @@ import { Component, ElementRef, inject } from '@angular/core';
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service';
 
 @Component({
-  selector: 'app-flip-card',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './flip-card.component.html',
-  styleUrl: './flip-card.component.css',
+    selector: 'app-flip-card',
+    imports: [CommonModule],
+    templateUrl: './flip-card.component.html',
+    styleUrl: './flip-card.component.css'
 })
 export class FlipCardComponent {
   private elementRef = inject(ElementRef);

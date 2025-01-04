@@ -15,10 +15,9 @@ import { Contact } from '../../enums/contact.enum';
 import { Routes } from '../../enums/routes.enum';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [HamburgerMenuComponent, CommonModule, RouterModule],
-  templateUrl: './header.component.html',
+    selector: 'app-header',
+    imports: [HamburgerMenuComponent, CommonModule, RouterModule],
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('start', { static: false }) start!: ElementRef;

@@ -10,19 +10,18 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CoachingComponent } from './coaching/coaching.component';
 
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    HeroSectionComponent,
-    FaqSectionComponent,
-    AboutMeComponent,
-    PodcastComponent,
-    HeaderComponent,
-    FooterComponent,
-    CoachingComponent,
-  ],
-  templateUrl: './landing-page.component.html',
+    selector: 'app-landing-page',
+    imports: [
+        CommonModule,
+        HeroSectionComponent,
+        FaqSectionComponent,
+        AboutMeComponent,
+        PodcastComponent,
+        HeaderComponent,
+        FooterComponent,
+        CoachingComponent,
+    ],
+    templateUrl: './landing-page.component.html'
 })
 export class LandingPageComponent {
   isContentLoaded = false;

@@ -4,11 +4,10 @@ import { SnackbarService } from '../service/snackbar.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-snackbar',
-  templateUrl: './snackbar.component.html',
-  styleUrls: ['./snackbar.component.css'],
-  imports: [CommonModule],
-  standalone: true,
+    selector: 'app-snackbar',
+    templateUrl: './snackbar.component.html',
+    styleUrls: ['./snackbar.component.css'],
+    imports: [CommonModule]
 })
 export class SnackbarComponent implements OnInit, OnDestroy {
   message: string | null = null;

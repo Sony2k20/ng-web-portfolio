@@ -6,10 +6,9 @@ import { ScrollToSectionService } from '../../services/scroll-to-section.service
 import { Contact } from '../../enums/contact.enum';
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [SocialLinksComponent, RouterModule],
-  templateUrl: './footer.component.html',
+    selector: 'app-footer',
+    imports: [SocialLinksComponent, RouterModule],
+    templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   contact = Contact;

@@ -8,10 +8,9 @@ import { register } from 'swiper/element/bundle';
 import { environment } from '../environments/environment';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, SnackbarComponent],
-  templateUrl: './app.component.html',
+    selector: 'app-root',
+    imports: [RouterOutlet, SnackbarComponent],
+    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'ng-web-portfolio';

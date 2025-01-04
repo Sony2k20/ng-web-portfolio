@@ -5,10 +5,9 @@ import { MainButtonComponent } from '../../shared/components/main-button/main-bu
 import { HandwritingAnimationComponent } from './handwriting-animation/handwriting-animation.component';
 
 @Component({
-  selector: 'app-hero-section',
-  standalone: true,
-  imports: [MainButtonComponent, HandwritingAnimationComponent],
-  templateUrl: './hero-section.component.html',
+    selector: 'app-hero-section',
+    imports: [MainButtonComponent, HandwritingAnimationComponent],
+    templateUrl: './hero-section.component.html'
 })
 export class HeroSectionComponent {
   routes = Routes;

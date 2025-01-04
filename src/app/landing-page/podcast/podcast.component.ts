@@ -4,11 +4,10 @@ import { IntersectionObserverService } from '../../shared/services/intersection-
 import { FadeOutButtonComponent } from '../../shared/components/fade-out-button/fade-out-button.component';
 
 @Component({
-  selector: 'app-podcast',
-  standalone: true,
-  imports: [FadeOutButtonComponent],
-  templateUrl: './podcast.component.html',
-  styleUrl: './podcast.component.css',
+    selector: 'app-podcast',
+    imports: [FadeOutButtonComponent],
+    templateUrl: './podcast.component.html',
+    styleUrl: './podcast.component.css'
 })
 export class PodcastComponent implements AfterViewInit {
   socialLinks = SocialLinks;

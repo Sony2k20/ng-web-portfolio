@@ -5,10 +5,9 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { Contact } from '../shared/enums/contact.enum';
 
 @Component({
-  selector: 'app-imprint',
-  standalone: true,
-  imports: [HeaderComponent, FooterComponent],
-  templateUrl: './imprint.component.html',
+    selector: 'app-imprint',
+    imports: [HeaderComponent, FooterComponent],
+    templateUrl: './imprint.component.html'
 })
 export class ImprintComponent {
   contact = Contact;

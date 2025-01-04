@@ -6,10 +6,9 @@ import { Routes } from '../../shared/enums/routes.enum';
 import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service';
 
 @Component({
-  selector: 'app-faq-section',
-  standalone: true,
-  imports: [CommonModule, MainButtonComponent],
-  templateUrl: './faq-section.component.html',
+    selector: 'app-faq-section',
+    imports: [CommonModule, MainButtonComponent],
+    templateUrl: './faq-section.component.html'
 })
 export class FaqSectionComponent implements AfterViewInit {
   // This will hold the state of the accordion items

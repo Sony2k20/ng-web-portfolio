@@ -6,10 +6,9 @@ import { ScrollToSectionService } from '../../shared/services/scroll-to-section.
 import { FlipCardComponent } from './flip-card/flip-card.component';
 
 @Component({
-  selector: 'app-coaching',
-  standalone: true,
-  imports: [MainButtonComponent, FlipCardComponent],
-  templateUrl: './coaching.component.html',
+    selector: 'app-coaching',
+    imports: [MainButtonComponent, FlipCardComponent],
+    templateUrl: './coaching.component.html'
 })
 export class CoachingComponent {
   private elementRef = inject(ElementRef);

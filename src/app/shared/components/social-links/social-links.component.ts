@@ -11,11 +11,10 @@ export enum SocialPlatform {
 }
 
 @Component({
-  selector: 'app-social-links',
-  standalone: true,
-  imports: [CommonModule],
-  styleUrls: ['./social-links.component.css'],
-  templateUrl: './social-links.component.html',
+    selector: 'app-social-links',
+    imports: [CommonModule],
+    styleUrls: ['./social-links.component.css'],
+    templateUrl: './social-links.component.html'
 })
 export class SocialLinksComponent {
   @Input() hiddenPlatforms: SocialPlatform[] = [];
