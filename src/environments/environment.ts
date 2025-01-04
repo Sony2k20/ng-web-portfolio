@@ -1,4 +1,5 @@
 export const environment = {
+  prod: false,
   emailServerUrl:
     process.env['EMAIL_SERVER_URL'] ||
     'https://katy.csnguyen.de/api/email/send',

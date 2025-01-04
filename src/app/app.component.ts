@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { GoogleAnalyticsService } from './shared/services/google-analytics.service';
 import { SnackbarComponent } from './shared/components/snackbar/component/snackbar.component';
 import { register } from 'swiper/element/bundle';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +21,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // swiper function
-    register();
+    // register();
     gsap.registerPlugin(ScrollTrigger);
 
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.googleAnalyticsService.trackPage(event.urlAfterRedirects);
-      }
-    });
+    if (environment.prod) {
+      this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          this.googleAnalyticsService.trackPage(event.urlAfterRedirects);
+        }
+      });
+    }
   }
 }
