@@ -1,39 +1,35 @@
-import { Component, inject, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { EmailPayload, EmailService } from '../shared/services/email.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from '../shared/components/header/header.component';
-import { FooterComponent } from '../shared/components/footer/footer.component';
-import { finalize, forkJoin } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { SnackbarService } from '../shared/components/snackbar/service/snackbar.service';
-import { MainButtonComponent } from '../shared/components/main-button/main-button.component';
-import { LoadingDotsComponent } from '../shared/components/loading-dots/loading-dots.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
+import { Component, inject } from '@angular/core';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { forkJoin, finalize } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
+import {
+  EmailService,
+  EmailPayload,
+} from '../../shared/services/email.service';
+import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
+import { LoadingDotsComponent } from '../../shared/components/loading-dots/loading-dots.component';
 
 @Component({
-  selector: 'app-email',
+  selector: 'app-contact-form',
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     MainButtonComponent,
     LoadingDotsComponent,
-    CommonModule,
-    HttpClientModule,
-    HeaderComponent,
-    FooterComponent,
-
-    ContactFormComponent,
   ],
-  templateUrl: './contact.component.html',
-  providers: [EmailService],
+  templateUrl: './contact-form.component.html',
+  styleUrl: './contact-form.component.css',
 })
-export class ContactComponent implements OnInit {
+export class ContactFormComponent {
+  activeTab: string = 'tab1';
+
   emailForm: FormGroup;
   isLoading = false;
 
@@ -178,5 +174,9 @@ export class ContactComponent implements OnInit {
           );
         },
       });
+  }
+
+  switchTab(tab: string) {
+    this.activeTab = tab;
   }
 }
