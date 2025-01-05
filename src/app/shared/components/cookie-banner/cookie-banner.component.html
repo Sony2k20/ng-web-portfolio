@@ -3,8 +3,15 @@
   class="cookie-banner slideInFromBot"
 >
   <p class="cookie-text">
-    Ich nutze Cookies, um deine Erfahrung zu verbessern. <br class="br" />
-    Mit der Nutzung stimmst du der Verwendung zu.
+    Ich nutze Cookies, um deine Erfahrung zu verbessern. Mit der Nutzung stimmst
+    du der Verwendung zu.
+    <button
+      (click)="
+        scroller.scrollToSection(routes.PrivacyPolicy, 'cookies', $event)
+      "
+    >
+      Lerne mehr
+    </button>
   </p>
   <div class="button-container">
     <button (click)="declineCookies()" class="decline-btn">Ablehnen</button>

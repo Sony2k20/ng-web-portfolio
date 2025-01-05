@@ -22,6 +22,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.customCookieService.initializeCookieService();
+    setTimeout(() => this.customCookieService.initializeCookieService(), 5500);
   }
 }

@@ -37,6 +37,7 @@ html {
   --primary: #ded3e3;
   --primary-light: #9c788a;
   --primary-light-rgb: 156, 120, 138;
+  --primary-dark: #cdc9e6;
   --secondary: #f4f0f7;
   --secondary-rgb: 244, 240, 247;
   --secondary-dark: #d3cfe5;
@@ -263,4 +264,8 @@ html {
 
 .animDelay35 {
   animation-delay: 3.5s;
+}
+
+.animDelay55 {
+  animation-delay: 5.5s;
 }
