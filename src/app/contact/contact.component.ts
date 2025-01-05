@@ -117,7 +117,7 @@ export class ContactComponent implements OnInit {
     const confirmationEmail: EmailPayload = {
       fromName: 'Katharina Niesche',
       to: this.emailForm.get('to')?.value,
-      subject: 'Bestätigung der Kontaktanfrage an Katharina Niesche',
+      subject: 'Bestätigung der Kontaktanfrage an Katharina',
       text: '',
       html: emailConfirmationTemplate,
     };
