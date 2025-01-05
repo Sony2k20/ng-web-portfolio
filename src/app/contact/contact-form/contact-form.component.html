@@ -1,37 +1,37 @@
 <div
-  class="max-w-screen-md mx-auto shadow-lg shadow-black/20 overflow-hidden bg-secondary/40 leading-8 lg:leading-9"
+  class="max-w-screen-md mx-auto shadow-lg shadow-black/20 overflow-hidden from-secondary/60 via-primary/70 to-secondary leading-8 lg:leading-9"
 >
   <div class="flex">
     <button
-      (click)="switchTab('tab1')"
-      [class.active]="activeTab === 'tab1'"
+      (click)="switchTab('coaching')"
+      [class.active]="activeTab === 'coaching'"
       class="flex-1 px-4 py-3 transition-colors duration-500 fadeInNav"
       [ngClass]="
-        activeTab === 'tab1'
+        activeTab === 'coaching'
           ? 'bg-transparent hover:bg-transparent cursor-default'
           : 'bg-primary-dark hover:bg-accent-light cursor-pointer'
       "
     >
       Live Your Calling
       <div
-        *ngIf="activeTab === 'tab1'"
+        *ngIf="activeTab === 'coaching'"
         class="fadeInNav"
         class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent"
       ></div>
     </button>
     <button
-      (click)="switchTab('tab2')"
-      [class.active]="activeTab === 'tab2'"
+      (click)="switchTab('general')"
+      [class.active]="activeTab === 'general'"
       class="flex-1 px-4 py-3 transition-colors duration-500 fadeInNav"
       [ngClass]="
-        activeTab === 'tab2'
+        activeTab === 'general'
           ? 'bg-transparent hover:bg-transparent cursor-default'
           : 'bg-primary-dark hover:bg-accent-light cursor-pointer'
       "
     >
       Allgemeine Anfrage
       <div
-        *ngIf="activeTab === 'tab2'"
+        *ngIf="activeTab === 'general'"
         class="fadeInNav"
         class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent"
       ></div>
@@ -39,7 +39,7 @@
   </div>
   <div class="p-5 pb-8">
     <form (ngSubmit)="onSubmit()" [formGroup]="emailForm" class="mx-auto">
-      <div *ngIf="activeTab === 'tab1'" class="fadeInNav">
+      <div *ngIf="activeTab === 'coaching'" class="fadeInNav">
         <div class="md:flex md:space-x-4">
           <!-- First Name -->
           <div class="flex-1 mb-5">
@@ -177,7 +177,7 @@
         ></app-main-button>
       </div>
 
-      <div *ngIf="activeTab === 'tab2'" class="fadeInNav">
+      <div *ngIf="activeTab === 'general'" class="fadeInNav">
         <div class="md:flex md:space-x-4">
           <!-- First Name -->
           <div class="flex-1 mb-5">

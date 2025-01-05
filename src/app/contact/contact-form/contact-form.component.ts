@@ -28,7 +28,7 @@ import { LoadingDotsComponent } from '../../shared/components/loading-dots/loadi
   styleUrl: './contact-form.component.css',
 })
 export class ContactFormComponent {
-  activeTab: string = 'tab1';
+  activeTab: string = 'coaching';
 
   emailForm: FormGroup;
   isLoading = false;
