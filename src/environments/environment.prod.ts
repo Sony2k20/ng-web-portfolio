@@ -1,5 +1,5 @@
 export const environment = {
-  cookies: true,
+  cookies: 'true',
   emailServerUrl: 'https://katharinaniesche.de/api/email/send',
   emailAdress: 'coaching@katharinaniesche.de',
 };
