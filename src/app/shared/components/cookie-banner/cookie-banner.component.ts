@@ -18,34 +18,10 @@ export class CookieBannerComponent {
   customCookieService = inject(CustomCookieService);
 
   acceptCookies() {
-    const buttonElement = document.querySelector(
-      '.cookie-banner',
-    ) as HTMLElement;
-    if (buttonElement) {
-      buttonElement.classList.add('slideOutFromBot');
-    }
-
-    setTimeout(() => {
-      this.customCookieService.acceptCookies();
-      if (buttonElement) {
-        buttonElement.classList.remove('slideOutFromBot');
-      }
-    }, 400);
+    this.customCookieService.acceptCookies();
   }
 
   declineCookies() {
-    const buttonElement = document.querySelector(
-      '.cookie-banner',
-    ) as HTMLElement;
-    if (buttonElement) {
-      buttonElement.classList.add('slideOutFromBot');
-    }
-
-    setTimeout(() => {
-      this.customCookieService.declineCookies();
-      if (buttonElement) {
-        buttonElement.classList.remove('slideOutFromBot');
-      }
-    }, 400);
+    this.customCookieService.declineCookies();
   }
 }

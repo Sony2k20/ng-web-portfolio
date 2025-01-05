@@ -6,9 +6,9 @@ import { Routes } from '../../shared/enums/routes.enum';
 import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service';
 
 @Component({
-    selector: 'app-faq-section',
-    imports: [CommonModule, MainButtonComponent],
-    templateUrl: './faq-section.component.html'
+  selector: 'app-faq-section',
+  imports: [CommonModule, MainButtonComponent],
+  templateUrl: './faq-section.component.html',
 })
 export class FaqSectionComponent implements AfterViewInit {
   // This will hold the state of the accordion items
@@ -28,11 +28,6 @@ export class FaqSectionComponent implements AfterViewInit {
 
   accordionItems = [
     {
-      question: 'Für wen ist dein Coaching geeignet?',
-      answer:
-        'Das Coaching richtet sich an Menschen, die in ihrem Beruf oder Alltag keine Erfüllung mehr finden und nach mehr Sinn streben. Sie spüren, dass sie für etwas Größeres bestimmt sind, wissen aber noch nicht, wie sie dieses Ziel erreichen können. Sie sind bereit, sich selbst besser kennenzulernen und ihr Leben aktiv zu verändern.',
-    },
-    {
       question: 'Was, wenn ich gar nicht weiß, was meine Berufung ist?',
       answer:
         'Das ist völlig normal. Viele Menschen spüren, dass sie etwas ändern möchten, wissen aber nicht genau, wohin sie wollen. Genau hier setzen wir an: Gemeinsam bringen wir Klarheit in deine Wünsche und Stärken. Mit gezielten Übungen und Reflexionen findest du heraus, was dich wirklich erfüllt und was deine Berufung ist.',
@@ -41,11 +36,6 @@ export class FaqSectionComponent implements AfterViewInit {
       question: 'Wie weiß ich, ob dieses Coaching das Richtige für mich ist?',
       answer:
         'Dieses Coaching ist ideal für dich, wenn du spürst, dass du in deinem aktuellen Leben stagnierst und bereit bist, neue Wege zu gehen. Wenn du dir eine klare Vision wünschst und endlich Schritte in Richtung Selbstverwirklichung und Erfüllung machen möchtest, begleite ich dich dabei mit einem strukturierten und individuell angepassten Ansatz.',
-    },
-    {
-      question: 'Was, wenn ich glaube, dass ich mich nicht ändern kann?',
-      answer:
-        'Wir alle haben diese Zweifel. Vor allem, wenn uns alte Glaubenssätze und Muster blockieren. Aber Veränderung ist möglich, wenn du bereit bist, dich darauf einzulassen. In meinem Coaching arbeiten wir gemeinsam daran, diese Hindernisse zu erkennen und Schritt für Schritt aufzulösen. Übernimm die Verantwortung und gestalte das erfüllte Leben, was du wirklich willst.',
     },
     {
       question:

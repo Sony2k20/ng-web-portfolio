@@ -33,11 +33,45 @@ export class CustomCookieService {
 
   acceptCookies() {
     this.cookieService.set('cookieConsent', 'true');
-    this.$showCookieBanner.next(false);
+    this.googleAnalyticsService.loadAnalyticsScript();
+
+    const buttonElement = document.querySelector(
+      '.cookie-banner',
+    ) as HTMLElement;
+    if (buttonElement) {
+      buttonElement.classList.add('slideOutFromBot');
+    }
+
+    setTimeout(() => {
+      if (buttonElement) {
+        buttonElement.classList.remove('slideOutFromBot');
+        this.$showCookieBanner.next(false);
+      }
+    }, 400);
   }
 
   declineCookies() {
     this.cookieService.set('cookieConsent', 'false');
-    this.$showCookieBanner.next(false);
+
+    const cookies = this.cookieService.getAll();
+    Object.keys(cookies).forEach((value) => {
+      if (value.includes('_ga')) {
+        this.cookieService.delete(value);
+      }
+    });
+
+    const buttonElement = document.querySelector(
+      '.cookie-banner',
+    ) as HTMLElement;
+    if (buttonElement) {
+      buttonElement.classList.add('slideOutFromBot');
+    }
+
+    setTimeout(() => {
+      if (buttonElement) {
+        buttonElement.classList.remove('slideOutFromBot');
+        this.$showCookieBanner.next(false);
+      }
+    }, 400);
   }
 }
