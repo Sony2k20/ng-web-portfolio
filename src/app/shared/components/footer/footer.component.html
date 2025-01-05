@@ -2,48 +2,60 @@
   class="w-full bg-gradient-to-tr from-primary/80 via-primary to-primary/70 px-5 2xl:px-0 xl:text-xl py-12"
 >
   <div class="mx-auto max-w-screen-xl">
-    <!--Grid-->
+    <!-- Grid -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 py-0 sm:py-4 text-center md:text-left font-roboto"
+      class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 py-0 sm:py-4 text-center md:text-left font-roboto gap-y-4"
     >
-      <div class="flex justify-center md:justify-start mb-2 sm:mb-0">
+      <!-- Logo -->
+      <div class="flex justify-center md:justify-start mb-4 sm:mb-0">
         <img
           src="../../../../assets/images/logo.png"
           alt="Landing Page Background"
           class="w-56"
         />
       </div>
+
+      <!-- Responsive Links -->
       <div
-        class="flex justify-center sm:col-start-3 lg:col-start-4 xl:justify-end items-end mb-3"
+        class="flex flex-col sm:flex-row sm:justify-end sm:col-span-3 lg:col-span-4 gap-x-6 gap-y-2 items-center sm:items-end mb-3"
       >
+        <a
+          (click)="customCookieService.$showCookieBanner.next(true)"
+          role="presentation"
+          class="hover:text-accent-dark duration-500 ease-in-out cursor-pointer"
+        >
+          Cookie Einstellungen
+        </a>
         <a
           (click)="scroller.scrollToSection(routes.Imprint, 'header', $event)"
           role="presentation"
           class="hover:text-accent-dark duration-500 ease-in-out cursor-pointer"
-          >Impressum</a
         >
-      </div>
-      <div class="flex justify-center md:justify-end items-end mb-3">
+          Impressum
+        </a>
         <a
           (click)="
             scroller.scrollToSection(routes.PrivacyPolicy, 'header', $event)
           "
           role="presentation"
           class="hover:text-accent-dark duration-500 ease-in-out cursor-pointer"
-          >Datenschutzerklärung</a
         >
+          Datenschutzerklärung
+        </a>
       </div>
     </div>
 
-    <!--Grid-->
+    <!-- Divider -->
     <hr class="[height:1.5px] border-0 w-full bg-accent/40 mx-auto" />
-    <div class="">
+
+    <!-- Footer Bottom -->
+    <div>
       <div
         class="flex items-center justify-center flex-col lg:justify-between lg:flex-row"
       >
-        <span class="text-sm py-4 font-roboto"
-          >© {{ contact.Name }} 2024. All Rights Reserved.</span
-        >
+        <span class="text-sm py-4 font-roboto">
+          © {{ contact.Name }} 2024. All Rights Reserved.
+        </span>
         <app-social-links class="lg:pt-4"></app-social-links>
       </div>
     </div>

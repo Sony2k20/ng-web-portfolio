@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -13,8 +13,27 @@ declare const gtag: (
 })
 export class GoogleAnalyticsService {
   private measurementId = 'G-W7LN7NPFVM';
+  private router = inject(Router);
 
-  public trackPageView(url: string): void {
+  loadAnalyticsScript(): void {
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W7LN7NPFVM';
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      // Initialize gtag after the script has loaded
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).gtag = function () {
+        (window as any).dataLayer.push(arguments);
+      };
+      (window as any).gtag('js', new Date());
+      (window as any).gtag('config', 'G-W7LN7NPFVM');
+      this.initializeAnalyticsTracking();
+    };
+  }
+
+  trackPageView(url: string): void {
     if (typeof gtag === 'function') {
       gtag('config', this.measurementId, {
         page_path: url,
@@ -24,8 +43,7 @@ export class GoogleAnalyticsService {
     }
   }
 
-  // Track events
-  public trackEvent(
+  trackEvent(
     action: string,
     category: string,
     label: string,
@@ -36,5 +54,16 @@ export class GoogleAnalyticsService {
       event_label: label,
       value: value,
     });
+  }
+
+  private initializeAnalyticsTracking() {
+    // Track initial page view
+    this.trackPageView(window.location.pathname);
+    // Track subsequent page views on route changes
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.trackPageView(event.urlAfterRedirects);
+      });
   }
 }

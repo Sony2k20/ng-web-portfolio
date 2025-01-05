@@ -4,7 +4,7 @@
   alt="background"
   style="display: none"
 />
-<div *ngIf="isReadyToRender$ | async">
+<div *ngIf="readyToRenderService.heroImageRdy$ | async">
   <app-header id="header" class="bg-secondary"></app-header>
 
   <app-hero-section></app-hero-section>
@@ -16,21 +16,6 @@
   <div id="coaching" class="bg-gradient-to-r from-primary to-secondary">
     <app-coaching></app-coaching>
   </div>
-
-  <!-- <div>
-    <img
-      src="../../assets/images/podcast.jpg"
-      alt="background-podcast"
-      class="w-full h-full object-cover"
-    />
-  </div> -->
-
-  <!-- <div
-    id="podcast"
-    class="bg-gradient-to-t from-accent/50 via-primary-dark/65 to-primary-dark/90"
-  >
-    <app-podcast></app-podcast>
-  </div> -->
 
   <div id="podcast" class="bg-gradient-to-r from-primary to-secondary">
     <app-podcast></app-podcast>

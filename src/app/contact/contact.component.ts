@@ -17,18 +17,18 @@ import { MainButtonComponent } from '../shared/components/main-button/main-butto
 import { LoadingDotsComponent } from '../shared/components/loading-dots/loading-dots.component';
 
 @Component({
-    selector: 'app-email',
-    imports: [
-        ReactiveFormsModule,
-        CommonModule,
-        HttpClientModule,
-        HeaderComponent,
-        FooterComponent,
-        MainButtonComponent,
-        LoadingDotsComponent,
-    ],
-    templateUrl: './contact.component.html',
-    providers: [EmailService]
+  selector: 'app-email',
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule,
+    HeaderComponent,
+    FooterComponent,
+    MainButtonComponent,
+    LoadingDotsComponent,
+  ],
+  templateUrl: './contact.component.html',
+  providers: [EmailService],
 })
 export class ContactComponent implements OnInit {
   emailForm: FormGroup;

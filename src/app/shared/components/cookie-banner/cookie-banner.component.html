@@ -1,0 +1,13 @@
+<div
+  *ngIf="customCookieService.$showCookieBanner | async"
+  class="cookie-banner slideInFromBot"
+>
+  <p class="cookie-text">
+    Ich nutze Cookies, um deine Erfahrung zu verbessern. <br class="br" />
+    Mit der Nutzung stimmst du der Verwendung zu.
+  </p>
+  <div class="button-container">
+    <button (click)="declineCookies()" class="decline-btn">Ablehnen</button>
+    <button (click)="acceptCookies()" class="accept-btn">Zustimmen</button>
+  </div>
+</div>
