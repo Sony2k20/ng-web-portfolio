@@ -1,31 +1,60 @@
-import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { DestroyRef, inject, Injectable, Renderer2 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, Subject, Subscription, switchMap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScrollToSectionService {
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
 
-  scrollToSection(route: string, sectionId: string, event?: Event) {
+  private navigationEndSubscription$?: Subscription;
+  viewInitDone$ = new Subject<boolean>();
+
+  navigateAndWait(sectionId: string): void {
+    this.navigationEndSubscription$ = this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        switchMap(() => this.viewInitDone$.pipe(take(1))),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        this.scrollToSectionUtil(sectionId, 50);
+      });
+  }
+
+  scrollToSection(route: string, sectionId: string, event?: Event): void {
     if (event) {
       event.preventDefault();
     }
 
-    if (this.router.url !== route) {
-      this.router.navigate([route]);
-      this.scrollToSectionUtil(sectionId, 400);
+    if (
+      //removes backslash
+      this.router.url.replace(/^\/|\/$/g, '') === route.replace(/^\/|\/$/g, '')
+    ) {
+      this.scrollToSectionUtil(sectionId, 100);
     } else {
-      this.scrollToSectionUtil(sectionId, 50);
+      this.navigateAndWait(sectionId);
+      this.router.navigate([route]);
     }
   }
 
-  private scrollToSectionUtil(sectionId: string, waitTime: number) {
+  private scrollToSectionUtil(sectionId: string, waitTime: number): void {
     setTimeout(() => {
-      document.querySelector('#' + sectionId)!.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start', // Aligns the top of the element to the top of the viewport
-      });
+      const sectionElement = document.querySelector(`#${sectionId}`);
+
+      if (sectionElement) {
+        sectionElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+
+      this.viewInitDone$.next(false);
+      if (this.navigationEndSubscription$)
+        this.navigationEndSubscription$?.unsubscribe();
     }, waitTime);
   }
 }

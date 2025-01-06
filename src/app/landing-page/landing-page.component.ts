@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { FaqSectionComponent } from './faq-section/faq-section.component';
 import { AboutMeComponent } from './about-me/about-me.component';
@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CoachingComponent } from './coaching/coaching.component';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
+import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,8 +25,13 @@ import { ReadyToRenderService } from '../shared/services/ready-to-render.service
   ],
   templateUrl: './landing-page.component.html',
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements AfterViewInit {
   readyToRenderService = inject(ReadyToRenderService);
+  private scrollToSectionService = inject(ScrollToSectionService);
+
+  ngAfterViewInit(): void {
+    this.scrollToSectionService.viewInitDone$.next(true);
+  }
 
   //toDo refactor preloading
   onImageLoad(): void {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -14,6 +14,7 @@ import { finalize, forkJoin } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { SnackbarService } from '../shared/components/snackbar/service/snackbar.service';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 
 @Component({
   selector: 'app-email',
@@ -29,4 +30,10 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   templateUrl: './contact.component.html',
   providers: [EmailService],
 })
-export class ContactComponent {}
+export class ContactComponent implements AfterViewInit {
+  private scrollToSectionService = inject(ScrollToSectionService);
+
+  ngAfterViewInit(): void {
+    this.scrollToSectionService.viewInitDone$.next(true);
+  }
+}
