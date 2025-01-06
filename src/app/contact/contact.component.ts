@@ -15,6 +15,8 @@ import { environment } from '../../environments/environment';
 import { SnackbarService } from '../shared/components/snackbar/service/snackbar.service';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
+import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
+import { LoadingDotsComponent } from "../shared/components/loading-dots/loading-dots.component";
 
 @Component({
   selector: 'app-email',
@@ -24,13 +26,15 @@ import { ScrollToSectionService } from '../shared/services/scroll-to-section.ser
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
-
     ContactFormComponent,
-  ],
+    LoadingDotsComponent
+],
   templateUrl: './contact.component.html',
   providers: [EmailService],
 })
 export class ContactComponent implements AfterViewInit {
+  readyToRenderService = inject(ReadyToRenderService);
+
   private scrollToSectionService = inject(ScrollToSectionService);
 
   ngAfterViewInit(): void {

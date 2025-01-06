@@ -4,7 +4,25 @@
   alt="background"
   style="display: none"
 />
-<div *ngIf="readyToRenderService.heroImageRdy$ | async">
+
+<div
+  *ngIf="
+    !(
+      (readyToRenderService.heroImageRdy$ | async) &&
+      (readyToRenderService.fontRdy$ | async)
+    )
+  "
+  class="bg-gradient-to-r from-primary to-secondary h-screen w-screen flex items-center justify-center"
+>
+  <app-loading-dots class="md:scale-125"></app-loading-dots>
+</div>
+
+<div
+  *ngIf="
+    (readyToRenderService.heroImageRdy$ | async) &&
+    (readyToRenderService.fontRdy$ | async)
+  "
+>
   <app-header id="header" class="bg-secondary"></app-header>
 
   <app-hero-section></app-hero-section>

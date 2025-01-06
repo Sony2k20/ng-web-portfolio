@@ -1,26 +1,35 @@
-<app-header id="header" class="bg-secondary"></app-header>
-
 <div
-  class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary text-md xl:text-xl"
+  *ngIf="(readyToRenderService.fontRdy$ | async) === false"
+  class="bg-gradient-to-r from-primary to-secondary h-screen w-screen flex items-center justify-center"
 >
-  <div
-    class="mx-auto w-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 lg:min-h-screen leading-8 xl:leading-9"
-  >
-    <h2 class="text-3xl lg:text-5xl text-center uppercase">Kontakt</h2>
-    <hr class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto" />
-
-    <div class="mx-auto mb-8 text-justify max-w-screen-md">
-      <p>
-        Du interessierst dich für mein Coaching Programm oder hast eine
-        allgemeine Frage? Ich freue mich, von dir zu hören! Nutze eines der
-        Formulare, um mir dein Anliegen mitzuteilen, und ich melde mich so
-        schnell wie möglich bei dir. Ich bin gespannt, dich kennenzulernen und
-        dich auf deinem Weg zu begleiten.
-      </p>
-    </div>
-
-    <app-contact-form></app-contact-form>
-  </div>
+  <app-loading-dots class="md:scale-125"></app-loading-dots>
 </div>
 
-<app-footer></app-footer>
+<div *ngIf="readyToRenderService.fontRdy$ | async">
+  <app-header id="header" class="bg-secondary"></app-header>
+
+  <div
+    class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary text-md xl:text-xl"
+  >
+    <div
+      class="mx-auto w-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 lg:min-h-screen leading-8 xl:leading-9"
+    >
+      <h2 class="text-3xl lg:text-5xl text-center uppercase">Kontakt</h2>
+      <hr class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto" />
+
+      <div class="mx-auto mb-8 text-justify max-w-screen-md">
+        <p>
+          Du interessierst dich für mein Coaching Programm oder hast eine
+          allgemeine Frage? Ich freue mich, von dir zu hören! Nutze eines der
+          Formulare, um mir dein Anliegen mitzuteilen, und ich melde mich so
+          schnell wie möglich bei dir. Ich bin gespannt, dich kennenzulernen und
+          dich auf deinem Weg zu begleiten.
+        </p>
+      </div>
+
+      <app-contact-form></app-contact-form>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

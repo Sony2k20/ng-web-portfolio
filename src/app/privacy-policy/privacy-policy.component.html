@@ -1,158 +1,168 @@
-<app-header id="header" class="bg-secondary"></app-header>
-
-<div class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary">
-  <div
-    class="mx-auto w-full h-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 max-w-screen-xl lg:text-xl"
-  >
-    <h2
-      class="text-3xl lg:text-5xl text-center uppercase overflow-wrap: break-words"
-    >
-      Datenschutz<br class="sm:hidden" />erklärung
-    </h2>
-    <hr class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto" />
-
-    <div class="leading-8 lg:leading-9">
-      <h3 class="font-semibold mb-4">Grundlegendes</h3>
-      <p class="mb-4">
-        Diese Datenschutzerklärung informiert dich darüber, welche
-        personenbezogenen Daten auf dieser Website erhoben und wie sie
-        verarbeitet werden. Der Schutz deiner personenbezogenen Daten ist mir
-        sehr wichtig. Ich behandle deine Daten daher vertraulich und
-        entsprechend den gesetzlichen Vorschriften.
-      </p>
-      <p class="mb-8">
-        Da sich Technologien und Inhalte auf dieser Website weiterentwickeln,
-        kann es notwendig sein, diese Datenschutzerklärung anzupassen. Ich
-        empfehle dir daher, sie regelmäßig zu überprüfen.
-      </p>
-
-      <h3 class="font-semibold mb-4">Verantwortliche/r</h3>
-      <p class="mb-8">
-        {{ contact.Name }} <br />
-        {{ contact.Street }} <br />
-        {{ contact.City }} <br />
-        {{ contact.Country }} <br />
-        E-Mail:
-        <a class="hover:underline" [href]="'mailto:' + contact.Email">{{
-          contact.Email
-        }}</a>
-        <br />
-        Website:
-        <a class="hover:underline" [href]="contact.Website"
-          >{{ contact.Website }}
-        </a>
-      </p>
-
-      <h3 class="font-semibold mb-4">Erhebung und Verarbeitung von Daten</h3>
-      <p class="mb-4">
-        Auf meiner Webseite hast du die Möglichkeit, über ein bereitgestelltes
-        Formular mit mir in Kontakt zu treten. Die Informationen, die du in den
-        Pflichtfeldern angibst, brauche ich, um deine Anfrage bearbeiten zu
-        können. Zusätzlich kannst du freiwillig weitere Angaben machen, die du
-        für die Bearbeitung deiner Kontaktanfrage wichtig findest. Wenn du das
-        Kontaktformular nutzt, werden deine personenbezogenen Daten nicht an
-        Dritte weitergegeben.
-      </p>
-      <p class="mb-8">
-        Ich setze technische und organisatorische Maßnahmen ein, um deine Daten
-        vor Verlust, Missbrauch und unbefugtem Zugriff zu schützen. Die
-        Übertragung von Daten über das Kontaktformular erfolgt verschlüsselt.
-      </p>
-
-      <h3 class="font-semibold mb-4">Server Logs</h3>
-      <p class="mb-2">
-        Bei jedem Besuch meiner Website werden automatisch Daten auf dem Server
-        protokolliert. Diese beinhalten:
-      </p>
-      <ul class="list-disc pl-12 mb-2">
-        <li>Deine IP-Adresse</li>
-        <li>Den Zeitpunkt deines Zugriffs</li>
-        <li>Die aufgerufene Seite</li>
-        <li>Den User-Agent (Browsertyp)</li>
-        <li>Die Referrer-URL (die Seite, von der du gekommen bist)</li>
-      </ul>
-      <p class="">
-        Diese Daten werden ausschließlich zur Sicherstellung des Betriebs und
-        der Sicherheit der Website verwendet. Die Log-Daten werden nach 14 Tagen
-        automatisch gelöscht.
-      </p>
-
-      <h3 id="cookies" class="font-semibold pt-8 mb-4">
-        Verwendung von Cookies
-      </h3>
-      <p class="mb-8">
-        Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die
-        auf Ihrem Endgerät gespeichert werden und bestimmte Informationen
-        enthalten. Sie dienen dazu, mein Angebot benutzerfreundlicher,
-        effektiver und sicherer zu machen.
-      </p>
-
-      <h3 class="font-semibold mb-4">Google Analytics</h3>
-      <p class="mb-8">
-        Diese Website nutzt Google Analytics, einen Webanalysedienst von Google
-        LLC, um die Nutzung der Website auszuwerten und Berichte über
-        Website-Aktivitäten zu erstellen. Google Analytics verwendet Cookies, um
-        Informationen über deine Nutzung der Website zu sammeln. Deine
-        IP-Adresse wird vor der Übermittlung anonymisiert. Die Verarbeitung der
-        Daten erfolgt auf Grundlage deiner Einwilligung gemäß Art. 6 Abs. 1 lit.
-        a DSGVO. Du kannst deine Einwilligung jederzeit widerrufen, indem du die
-
-        <a
-          (click)="customCookieService.$showCookieBanner.next(true)"
-          role="presentation"
-          class="underline cursor-pointer text-nowrap"
-          >Cookie-Einstellungen</a
-        >
-
-        änderst oder das
-
-        <a
-          href="https://tools.google.com/dlpage/gaoptout"
-          class="underline text-nowrap"
-          target="_blank"
-          >Browser-Add-on</a
-        >
-
-        zur Deaktivierung von Google Analytics verwendest. Google verarbeitet
-        die gesammelten Daten auch in den USA. Google ist dem EU-US Data Privacy
-        Framework beigetreten, um ein angemessenes Datenschutzniveau
-        sicherzustellen. Die erhobenen Daten werden für einen Zeitraum von 14
-        Monaten gespeichert und danach automatisch gelöscht.
-      </p>
-
-      <h3 class="font-semibold mb-4">Rechte des Nutzers</h3>
-      <p class="mb-8">
-        Du hast das Recht, auf Anfrage kostenlos Auskunft darüber zu erhalten,
-        welche personenbezogenen Daten ich über dich gespeichert habe. Außerdem
-        hast du das Recht, falsche Daten berichtigen zu lassen und die
-        Verarbeitung deiner personenbezogenen Daten einzuschränken oder deren
-        Löschung zu verlangen.
-      </p>
-
-      <h3 class="font-semibold mb-4">Löschung von Daten</h3>
-      <p class="mb-4">
-        Wenn dein Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung
-        von Daten (z. B. durch Vorschriften zur Vorratsdatenspeicherung)
-        kollidiert, hast du ein Anrecht darauf, dass deine Daten gelöscht
-        werden. Von mir gespeicherte Daten werden gelöscht, sobald sie für ihre
-        Zweckbestimmung nicht mehr erforderlich sind und keine gesetzlichen
-        Aufbewahrungsfristen bestehen.
-      </p>
-      <p class="mb-8">
-        Falls eine Löschung nicht möglich ist, weil die Daten für zulässige
-        gesetzliche Zwecke erforderlich sind, wird die Verarbeitung deiner Daten
-        eingeschränkt. In diesem Fall werden deine Daten gesperrt und nicht für
-        andere Zwecke verarbeitet.
-      </p>
-
-      <h3 class="font-semibold mb-4">Änderungen der Datenschutzerklärung</h3>
-      <p class="mb-8">
-        Ich behalte mir vor, diese Datenschutzerklärung anzupassen, um sie an
-        geänderte gesetzliche Vorgaben oder Änderungen auf der Website
-        anzupassen. Die aktuelle Version findest du immer hier.
-      </p>
-    </div>
-  </div>
+<div
+  *ngIf="(readyToRenderService.fontRdy$ | async) === false"
+  class="bg-gradient-to-r from-primary to-secondary h-screen w-screen flex items-center justify-center"
+>
+  <app-loading-dots class="md:scale-125"></app-loading-dots>
 </div>
 
-<app-footer></app-footer>
+<div *ngIf="readyToRenderService.fontRdy$ | async">
+  <app-header id="header" class="bg-secondary"></app-header>
+
+  <div class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary">
+    <div
+      class="mx-auto w-full h-full px-6 sm:px-16 2xl:px-0 pt-28 lg:pt-32 pb-24 max-w-screen-xl lg:text-xl"
+    >
+      <h2
+        class="text-3xl lg:text-5xl text-center uppercase overflow-wrap: break-words"
+      >
+        Datenschutz<br class="sm:hidden" />erklärung
+      </h2>
+      <hr class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto" />
+
+      <div class="leading-8 lg:leading-9">
+        <h3 class="font-semibold mb-4">Grundlegendes</h3>
+        <p class="mb-4">
+          Diese Datenschutzerklärung informiert dich darüber, welche
+          personenbezogenen Daten auf dieser Website erhoben und wie sie
+          verarbeitet werden. Der Schutz deiner personenbezogenen Daten ist mir
+          sehr wichtig. Ich behandle deine Daten daher vertraulich und
+          entsprechend den gesetzlichen Vorschriften.
+        </p>
+        <p class="mb-8">
+          Da sich Technologien und Inhalte auf dieser Website weiterentwickeln,
+          kann es notwendig sein, diese Datenschutzerklärung anzupassen. Ich
+          empfehle dir daher, sie regelmäßig zu überprüfen.
+        </p>
+
+        <h3 class="font-semibold mb-4">Verantwortliche/r</h3>
+        <p class="mb-8">
+          {{ contact.Name }} <br />
+          {{ contact.Street }} <br />
+          {{ contact.City }} <br />
+          {{ contact.Country }} <br />
+          E-Mail:
+          <a class="hover:underline" [href]="'mailto:' + contact.Email">{{
+            contact.Email
+          }}</a>
+          <br />
+          Website:
+          <a class="hover:underline" [href]="contact.Website"
+            >{{ contact.Website }}
+          </a>
+        </p>
+
+        <h3 class="font-semibold mb-4">Erhebung und Verarbeitung von Daten</h3>
+        <p class="mb-4">
+          Auf meiner Webseite hast du die Möglichkeit, über ein bereitgestelltes
+          Formular mit mir in Kontakt zu treten. Die Informationen, die du in
+          den Pflichtfeldern angibst, brauche ich, um deine Anfrage bearbeiten
+          zu können. Zusätzlich kannst du freiwillig weitere Angaben machen, die
+          du für die Bearbeitung deiner Kontaktanfrage wichtig findest. Wenn du
+          das Kontaktformular nutzt, werden deine personenbezogenen Daten nicht
+          an Dritte weitergegeben.
+        </p>
+        <p class="mb-8">
+          Ich setze technische und organisatorische Maßnahmen ein, um deine
+          Daten vor Verlust, Missbrauch und unbefugtem Zugriff zu schützen. Die
+          Übertragung von Daten über das Kontaktformular erfolgt verschlüsselt.
+        </p>
+
+        <h3 class="font-semibold mb-4">Server Logs</h3>
+        <p class="mb-2">
+          Bei jedem Besuch meiner Website werden automatisch Daten auf dem
+          Server protokolliert. Diese beinhalten:
+        </p>
+        <ul class="list-disc pl-12 mb-2">
+          <li>Deine IP-Adresse</li>
+          <li>Den Zeitpunkt deines Zugriffs</li>
+          <li>Die aufgerufene Seite</li>
+          <li>Den User-Agent (Browsertyp)</li>
+          <li>Die Referrer-URL (die Seite, von der du gekommen bist)</li>
+        </ul>
+        <p class="">
+          Diese Daten werden ausschließlich zur Sicherstellung des Betriebs und
+          der Sicherheit der Website verwendet. Die Log-Daten werden nach 14
+          Tagen automatisch gelöscht.
+        </p>
+
+        <h3 id="cookies" class="font-semibold pt-8 mb-4">
+          Verwendung von Cookies
+        </h3>
+        <p class="mb-8">
+          Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die
+          auf Ihrem Endgerät gespeichert werden und bestimmte Informationen
+          enthalten. Sie dienen dazu, mein Angebot benutzerfreundlicher,
+          effektiver und sicherer zu machen.
+        </p>
+
+        <h3 class="font-semibold mb-4">Google Analytics</h3>
+        <p class="mb-8">
+          Diese Website nutzt Google Analytics, einen Webanalysedienst von
+          Google LLC, um die Nutzung der Website auszuwerten und Berichte über
+          Website-Aktivitäten zu erstellen. Google Analytics verwendet Cookies,
+          um Informationen über deine Nutzung der Website zu sammeln. Deine
+          IP-Adresse wird vor der Übermittlung anonymisiert. Die Verarbeitung
+          der Daten erfolgt auf Grundlage deiner Einwilligung gemäß Art. 6 Abs.
+          1 lit. a DSGVO. Du kannst deine Einwilligung jederzeit widerrufen,
+          indem du die
+
+          <a
+            (click)="customCookieService.$showCookieBanner.next(true)"
+            role="presentation"
+            class="underline cursor-pointer text-nowrap"
+            >Cookie-Einstellungen</a
+          >
+
+          änderst oder das
+
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            class="underline text-nowrap"
+            target="_blank"
+            >Browser-Add-on</a
+          >
+
+          zur Deaktivierung von Google Analytics verwendest. Google verarbeitet
+          die gesammelten Daten auch in den USA. Google ist dem EU-US Data
+          Privacy Framework beigetreten, um ein angemessenes Datenschutzniveau
+          sicherzustellen. Die erhobenen Daten werden für einen Zeitraum von 14
+          Monaten gespeichert und danach automatisch gelöscht.
+        </p>
+
+        <h3 class="font-semibold mb-4">Rechte des Nutzers</h3>
+        <p class="mb-8">
+          Du hast das Recht, auf Anfrage kostenlos Auskunft darüber zu erhalten,
+          welche personenbezogenen Daten ich über dich gespeichert habe.
+          Außerdem hast du das Recht, falsche Daten berichtigen zu lassen und
+          die Verarbeitung deiner personenbezogenen Daten einzuschränken oder
+          deren Löschung zu verlangen.
+        </p>
+
+        <h3 class="font-semibold mb-4">Löschung von Daten</h3>
+        <p class="mb-4">
+          Wenn dein Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung
+          von Daten (z. B. durch Vorschriften zur Vorratsdatenspeicherung)
+          kollidiert, hast du ein Anrecht darauf, dass deine Daten gelöscht
+          werden. Von mir gespeicherte Daten werden gelöscht, sobald sie für
+          ihre Zweckbestimmung nicht mehr erforderlich sind und keine
+          gesetzlichen Aufbewahrungsfristen bestehen.
+        </p>
+        <p class="mb-8">
+          Falls eine Löschung nicht möglich ist, weil die Daten für zulässige
+          gesetzliche Zwecke erforderlich sind, wird die Verarbeitung deiner
+          Daten eingeschränkt. In diesem Fall werden deine Daten gesperrt und
+          nicht für andere Zwecke verarbeitet.
+        </p>
+
+        <h3 class="font-semibold mb-4">Änderungen der Datenschutzerklärung</h3>
+        <p class="mb-8">
+          Ich behalte mir vor, diese Datenschutzerklärung anzupassen, um sie an
+          geänderte gesetzliche Vorgaben oder Änderungen auf der Website
+          anzupassen. Die aktuelle Version findest du immer hier.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
