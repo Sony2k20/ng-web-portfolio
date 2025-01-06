@@ -193,6 +193,7 @@ export class ContactFormComponent {
       this.toggleRequired('challenge', false);
       this.toggleRequired('blockage', false);
     }
+    this.emailForm.markAsUntouched();
   }
 
   toggleRequired(formControlName: string, isRequired: boolean) {
@@ -203,6 +204,5 @@ export class ContactFormComponent {
       nameControl?.clearValidators();
     }
     nameControl?.updateValueAndValidity();
-    nameControl?.markAsUntouched();
   }
 }

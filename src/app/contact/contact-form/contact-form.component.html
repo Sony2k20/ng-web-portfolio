@@ -1,5 +1,5 @@
 <div
-  class="max-w-screen-md mx-auto shadow-lg shadow-black/20 overflow-hidden from-secondary/60 via-primary/70 to-secondary leading-8 lg:leading-9"
+  class="max-w-screen-md mx-auto shadow-lg overflow-hidden bg-gradient-to-r from-secondary/70 to-secondary/80 leading-8 lg:leading-9"
 >
   <div class="flex">
     <button
@@ -144,23 +144,23 @@
             <span class="text-red-700">*</span></label
           >
           <textarea
-            id="challenge"
-            formControlName="challenge"
+            id="blockage"
+            formControlName="blockage"
             class="bg-white border font-roboto border-primary h-full min-h-[85px] md:min-h-[70px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
             [ngClass]="{
               'border-red-700':
-                emailForm.get('challenge')?.invalid &&
-                emailForm.get('challenge')?.touched,
+                emailForm.get('blockage')?.invalid &&
+                emailForm.get('blockage')?.touched,
             }"
           ></textarea>
           <div
             *ngIf="
-              emailForm.get('challenge')?.touched &&
-              emailForm.get('challenge')?.invalid
+              emailForm.get('blockage')?.touched &&
+              emailForm.get('blockage')?.invalid
             "
             class="text-red-700 text-xs mt-1"
           >
-            <div *ngIf="emailForm.get('challenge')?.errors?.['required']">
+            <div *ngIf="emailForm.get('blockage')?.errors?.['required']">
               Bitte beantworte diese Frage.
             </div>
           </div>
