@@ -9,7 +9,7 @@
       [ngClass]="
         activeTab === 'coaching'
           ? 'bg-transparent hover:bg-transparent cursor-default'
-          : 'bg-primary-dark hover:bg-accent-light cursor-pointer'
+          : 'bg-accent-light/25 hover:bg-accent-light cursor-pointer'
       "
     >
       Live Your Calling
@@ -26,7 +26,7 @@
       [ngClass]="
         activeTab === 'general'
           ? 'bg-transparent hover:bg-transparent cursor-default'
-          : 'bg-primary-dark hover:bg-accent-light cursor-pointer'
+          : 'bg-accent-light/25 hover:bg-accent-light cursor-pointer'
       "
     >
       Allgemeine Anfrage
@@ -43,7 +43,9 @@
         <div class="md:flex md:space-x-4">
           <!-- First Name -->
           <div class="flex-1 mb-5">
-            <label for="firstName" class="mb-2 text-sm">Vorname</label>
+            <label for="firstName" class="mb-2 text-sm"
+              >Vorname <span class="text-red-700">*</span></label
+            >
             <input
               id="firstName"
               formControlName="firstName"
@@ -53,7 +55,6 @@
                   emailForm.get('firstName')?.invalid &&
                   emailForm.get('firstName')?.touched,
               }"
-              required
             />
             <div
               *ngIf="
@@ -69,14 +70,16 @@
                 Nur Buchstaben sind erlaubt.
               </div>
               <div *ngIf="emailForm.get('firstName')?.errors?.['maxLength']">
-                Der Name darf maximal 20 Zeichen lang sein.
+                Der Name darf maximal 30 Zeichen lang sein.
               </div>
             </div>
           </div>
 
           <!-- Surname -->
           <div class="flex-1 mb-5">
-            <label for="surname" class="mb-2 text-sm">Nachname</label>
+            <label for="surname" class="mb-2 text-sm"
+              >Nachname <span class="text-red-700">*</span></label
+            >
             <input
               id="surname"
               formControlName="surname"
@@ -86,7 +89,6 @@
                   emailForm.get('surname')?.invalid &&
                   emailForm.get('surname')?.touched,
               }"
-              required
             />
             <div
               *ngIf="
@@ -102,7 +104,7 @@
                 Nur Buchstaben sind erlaubt.
               </div>
               <div *ngIf="emailForm.get('surname')?.errors?.['maxLength']">
-                Der Name darf maximal 20 Zeichen lang sein.
+                Der Name darf maximal 30 Zeichen lang sein.
               </div>
             </div>
           </div>
@@ -110,7 +112,9 @@
 
         <!-- Email -->
         <div class="mb-5">
-          <label for="to" class="mb-2 text-sm">E-Mail Adresse</label>
+          <label for="to" class="mb-2 text-sm"
+            >E-Mail Adresse <span class="text-red-700">*</span></label
+          >
           <input
             id="to"
             formControlName="to"
@@ -120,7 +124,6 @@
               'border-red-700':
                 emailForm.get('to')?.invalid && emailForm.get('to')?.touched,
             }"
-            required
           />
           <div
             *ngIf="emailForm.get('to')?.touched && emailForm.get('to')?.invalid"
@@ -135,19 +138,74 @@
           </div>
         </div>
 
+        <div class="mb-6">
+          <label for="challenge" class="mb-2 text-sm"
+            >Was ist die größte Herausforderung in deinem Leben zurzeit?
+            <span class="text-red-700">*</span></label
+          >
+          <textarea
+            id="challenge"
+            formControlName="challenge"
+            class="bg-white border font-roboto border-primary h-full min-h-[85px] md:min-h-[70px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            [ngClass]="{
+              'border-red-700':
+                emailForm.get('challenge')?.invalid &&
+                emailForm.get('challenge')?.touched,
+            }"
+          ></textarea>
+          <div
+            *ngIf="
+              emailForm.get('challenge')?.touched &&
+              emailForm.get('challenge')?.invalid
+            "
+            class="text-red-700 text-xs mt-1"
+          >
+            <div *ngIf="emailForm.get('challenge')?.errors?.['required']">
+              Bitte beantworte diese Frage.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label for="challenge" class="mb-2 text-sm"
+            >Wo möchtest du gerne sein in 4 Monaten?
+            <span class="text-red-700">*</span></label
+          >
+          <textarea
+            id="challenge"
+            formControlName="challenge"
+            class="bg-white border font-roboto border-primary h-full min-h-[85px] md:min-h-[70px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            [ngClass]="{
+              'border-red-700':
+                emailForm.get('challenge')?.invalid &&
+                emailForm.get('challenge')?.touched,
+            }"
+          ></textarea>
+          <div
+            *ngIf="
+              emailForm.get('challenge')?.touched &&
+              emailForm.get('challenge')?.invalid
+            "
+            class="text-red-700 text-xs mt-1"
+          >
+            <div *ngIf="emailForm.get('challenge')?.errors?.['required']">
+              Bitte beantworte diese Frage.
+            </div>
+          </div>
+        </div>
+
         <!-- Message -->
         <div class="mb-6">
-          <label for="message" class="mb-2 text-sm">Nachricht</label>
+          <label for="message" class="mb-2 text-sm">Optionale Nachricht</label>
           <textarea
             id="message"
             formControlName="message"
-            class="bg-white border font-roboto border-primary h-full min-h-[150px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            class="bg-white border font-roboto border-primary h-full min-h-[85px] md:min-h-[70px] text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
             [ngClass]="{
               'border-red-700':
                 emailForm.get('message')?.invalid &&
                 emailForm.get('message')?.touched,
             }"
-            required
           ></textarea>
           <div
             *ngIf="
@@ -158,9 +216,6 @@
           >
             <div *ngIf="emailForm.get('message')?.errors?.['required']">
               Eine Nachricht ist erforderlich.
-            </div>
-            <div *ngIf="emailForm.get('message')?.errors?.['minlength']">
-              Die Nachricht muss mindestens 10 Zeichen lang sein.
             </div>
           </div>
         </div>
@@ -181,7 +236,9 @@
         <div class="md:flex md:space-x-4">
           <!-- First Name -->
           <div class="flex-1 mb-5">
-            <label for="firstName" class="mb-2 text-sm">Vorname</label>
+            <label for="firstName" class="mb-2 text-sm"
+              >Vorname <span class="text-red-700">*</span></label
+            >
             <input
               id="firstName"
               formControlName="firstName"
@@ -191,7 +248,6 @@
                   emailForm.get('firstName')?.invalid &&
                   emailForm.get('firstName')?.touched,
               }"
-              required
             />
             <div
               *ngIf="
@@ -207,14 +263,16 @@
                 Nur Buchstaben sind erlaubt.
               </div>
               <div *ngIf="emailForm.get('firstName')?.errors?.['maxLength']">
-                Der Name darf maximal 20 Zeichen lang sein.
+                Der Name darf maximal 30 Zeichen lang sein.
               </div>
             </div>
           </div>
 
           <!-- Surname -->
           <div class="flex-1 mb-5">
-            <label for="surname" class="mb-2 text-sm">Nachname</label>
+            <label for="surname" class="mb-2 text-sm"
+              >Nachname <span class="text-red-700">*</span></label
+            >
             <input
               id="surname"
               formControlName="surname"
@@ -224,7 +282,6 @@
                   emailForm.get('surname')?.invalid &&
                   emailForm.get('surname')?.touched,
               }"
-              required
             />
             <div
               *ngIf="
@@ -240,7 +297,7 @@
                 Nur Buchstaben sind erlaubt.
               </div>
               <div *ngIf="emailForm.get('surname')?.errors?.['maxLength']">
-                Der Name darf maximal 20 Zeichen lang sein.
+                Der Name darf maximal 30 Zeichen lang sein.
               </div>
             </div>
           </div>
@@ -248,7 +305,9 @@
 
         <!-- Email -->
         <div class="mb-5">
-          <label for="to" class="mb-2 text-sm">E-Mail Adresse</label>
+          <label for="to" class="mb-2 text-sm"
+            >E-Mail Adresse <span class="text-red-700">*</span></label
+          >
           <input
             id="to"
             formControlName="to"
@@ -258,7 +317,6 @@
               'border-red-700':
                 emailForm.get('to')?.invalid && emailForm.get('to')?.touched,
             }"
-            required
           />
           <div
             *ngIf="emailForm.get('to')?.touched && emailForm.get('to')?.invalid"
@@ -275,7 +333,9 @@
 
         <!-- Message -->
         <div class="mb-6">
-          <label for="message" class="mb-2 text-sm">Nachricht</label>
+          <label for="message" class="mb-2 text-sm"
+            >Nachricht <span class="text-red-700">*</span></label
+          >
           <textarea
             id="message"
             formControlName="message"
@@ -285,7 +345,6 @@
                 emailForm.get('message')?.invalid &&
                 emailForm.get('message')?.touched,
             }"
-            required
           ></textarea>
           <div
             *ngIf="
@@ -296,9 +355,6 @@
           >
             <div *ngIf="emailForm.get('message')?.errors?.['required']">
               Eine Nachricht ist erforderlich.
-            </div>
-            <div *ngIf="emailForm.get('message')?.errors?.['minlength']">
-              Die Nachricht muss mindestens 10 Zeichen lang sein.
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -25,7 +25,7 @@ import { LoadingDotsComponent } from '../../shared/components/loading-dots/loadi
     LoadingDotsComponent,
   ],
   templateUrl: './contact-form.component.html',
-  styleUrl: './contact-form.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactFormComponent {
   activeTab: string = 'coaching';
@@ -46,7 +46,7 @@ export class ContactFormComponent {
         [
           Validators.required,
           Validators.pattern('^[a-zA-Z ]*$'),
-          Validators.maxLength(20),
+          Validators.maxLength(30),
         ],
       ],
       surname: [
@@ -54,11 +54,13 @@ export class ContactFormComponent {
         [
           Validators.required,
           Validators.pattern('^[a-zA-Z ]*$'),
-          Validators.maxLength(20),
+          Validators.maxLength(30),
         ],
       ],
       to: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]],
+      message: [''],
+      challenge: ['', Validators.required],
+      blockage: ['', Validators.required],
     });
   }
 
@@ -84,6 +86,8 @@ export class ContactFormComponent {
   }
 
   onSubmit() {
+    console.log(this.emailForm.controls['message']);
+
     if (!this.emailForm.valid) {
       this.emailForm.markAllAsTouched();
       return;
@@ -178,5 +182,27 @@ export class ContactFormComponent {
 
   switchTab(tab: string) {
     this.activeTab = tab;
+
+    if (this.activeTab === 'coaching') {
+      this.toggleRequired('message', false);
+      this.toggleRequired('challenge', true);
+      this.toggleRequired('blockage', true);
+    }
+    if (this.activeTab === 'general') {
+      this.toggleRequired('message', true);
+      this.toggleRequired('challenge', false);
+      this.toggleRequired('blockage', false);
+    }
+  }
+
+  toggleRequired(formControlName: string, isRequired: boolean) {
+    const nameControl = this.emailForm.get(formControlName);
+    if (isRequired) {
+      nameControl?.setValidators(Validators.required);
+    } else {
+      nameControl?.clearValidators();
+    }
+    nameControl?.updateValueAndValidity();
+    nameControl?.markAsUntouched();
   }
 }
