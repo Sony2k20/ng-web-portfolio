@@ -1,0 +1,18 @@
+<button class="relative" (click)="toggleMute()">
+  <video
+    #videoElement
+    [muted]="isMuted"
+    autoplay
+    playsinline
+    loop
+    class="max-h-96 clip-video"
+  >
+    <source src="../../../../assets/videos/reel.mp4" type="video/mp4" />
+  </video>
+
+  <img
+    src="../../../../assets/images/test.png"
+    alt="about image"
+    class="h-96 absolute top-0 left-0"
+  />
+</button>

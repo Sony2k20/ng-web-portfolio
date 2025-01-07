@@ -1,0 +1,4 @@
+.clip-video {
+  clip-path: inset(8.5px 10%);
+  transform: translateX(-7.5%);
+}
