@@ -1,8 +1,8 @@
 .container {
-  transform: translateX(7%);
+  transform: translateX(16px);
 }
 
 .clip-video {
-  clip-path: inset(8.5px 10%);
-  transform: translateX(-7%);
+  clip-path: inset(8.7px 23px);
+  transform: translateX(-16px);
 }
