@@ -7,7 +7,6 @@ import { ReadyToRenderService } from '../../services/ready-to-render.service';
   selector: 'app-loading-screen',
   imports: [LoadingDotsComponent, CommonModule],
   templateUrl: './loading-screen.component.html',
-  styleUrl: './loading-screen.component.css',
 })
 export class LoadingScreenComponent {
   readyToRenderService = inject(ReadyToRenderService);
