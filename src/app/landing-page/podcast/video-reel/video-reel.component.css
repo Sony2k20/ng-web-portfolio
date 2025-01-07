@@ -1,8 +1,66 @@
+.volume-control,
 .container {
   transform: translateX(16px);
 }
 
-.clip-video {
+.video {
   clip-path: inset(8.7px 23px);
   transform: translateX(-16px);
+}
+
+.volume-control,
+.play-pause-button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.container:hover .play-pause-button,
+.container:hover .volume-control {
+  opacity: 1;
+}
+
+/* Container style */
+.volume-control {
+  position: absolute;
+  bottom: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Slider Track */
+input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+  appearance: none;
+  width: 100%; /* Full width of the container */
+  height: 5px; /* Track height */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: rgb(var(--secondary-rgb), 0.4);
+}
+
+/* Slider Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: rgb(var(--secondary-rgb), 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Slider Thumb - Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: rgb(var(--secondary-rgb), 0.8);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Change the track color when user interacts */
+input[type="range"]:active {
+  background: rgb(var(--secondary-rgb), 0.8);
 }
