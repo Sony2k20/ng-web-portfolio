@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { SocialLinksComponent } from '../social-links/social-links.component';
+import { SocialLinksComponent } from '../../component-library/social-links/social-links.component';
 import { RouterModule } from '@angular/router';
 import { Routes } from '../../enums/routes.enum';
 import { ScrollToSectionService } from '../../services/scroll-to-section.service';

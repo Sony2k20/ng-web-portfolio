@@ -5,12 +5,11 @@ import { FaqSectionComponent } from './faq-section/faq-section.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PodcastComponent } from './podcast/podcast.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
-import { BehaviorSubject } from 'rxjs';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CoachingComponent } from './coaching/coaching.component';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
-import { LoadingDotsComponent } from '../shared/components/loading-dots/loading-dots.component';
+import { LoadingScreenComponent } from '../shared/components/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -23,7 +22,7 @@ import { LoadingDotsComponent } from '../shared/components/loading-dots/loading-
     HeaderComponent,
     FooterComponent,
     CoachingComponent,
-    LoadingDotsComponent,
+    LoadingScreenComponent,
   ],
   templateUrl: './landing-page.component.html',
 })

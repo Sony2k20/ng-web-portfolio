@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HamburgerMenuComponent } from '../hamburger-menu/hamburger-menu.component';
+import { HamburgerMenuComponent } from '../../component-library/hamburger-menu/hamburger-menu.component';
 import { RouterModule } from '@angular/router';
 import { ScrollToSectionService } from '../../services/scroll-to-section.service';
 import { ScrollTriggerHeaderService } from '../../services/scroll-trigger-header.service';

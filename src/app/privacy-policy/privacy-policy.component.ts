@@ -7,10 +7,15 @@ import { CustomCookieService } from '../shared/services/custom-cookie.service';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 import { CommonModule } from '@angular/common';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
-import { LoadingDotsComponent } from "../shared/components/loading-dots/loading-dots.component";
+import { LoadingScreenComponent } from '../shared/components/loading-screen/loading-screen.component';
 @Component({
   selector: 'app-privacy-policy',
-  imports: [HeaderComponent, FooterComponent, CommonModule, LoadingDotsComponent],
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    CommonModule,
+    LoadingScreenComponent,
+  ],
   templateUrl: './privacy-policy.component.html',
 })
 export class PrivacyPolicyComponent implements AfterViewInit {

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { SnackbarComponent } from './shared/components/snackbar/component/snackbar.component';
+import { SnackbarComponent } from './shared/component-library/snackbar/component/snackbar.component';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { CustomCookieService } from './shared/services/custom-cookie.service';
 import { ReadyToRenderService } from './shared/services/ready-to-render.service';

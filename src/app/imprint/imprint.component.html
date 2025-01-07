@@ -1,8 +1,5 @@
-<div
-  *ngIf="(readyToRenderService.fontRdy$ | async) === false"
-  class="bg-gradient-to-r from-primary to-secondary h-screen w-screen flex items-center justify-center"
->
-  <app-loading-dots class="md:scale-125"></app-loading-dots>
+<div *ngIf="(readyToRenderService.fontRdy$ | async) === false">
+  <app-loading-screen></app-loading-screen>
 </div>
 
 <div *ngIf="readyToRenderService.fontRdy$ | async">

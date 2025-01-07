@@ -8,13 +8,13 @@ import {
 } from '@angular/forms';
 import { forkJoin, finalize } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { SnackbarService } from '../../shared/components/snackbar/service/snackbar.service';
+import { SnackbarService } from '../../shared/component-library/snackbar/service/snackbar.service';
 import {
   EmailService,
   EmailPayload,
 } from '../../shared/services/email.service';
-import { MainButtonComponent } from '../../shared/components/main-button/main-button.component';
-import { LoadingDotsComponent } from '../../shared/components/loading-dots/loading-dots.component';
+import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component';
+import { LoadingDotsComponent } from '../../shared/component-library/loading-dots/loading-dots.component';
 
 @Component({
   selector: 'app-contact-form',

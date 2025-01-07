@@ -6,7 +6,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core';
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
-import { SocialLinksComponent } from '../../shared/components/social-links/social-links.component';
+import { SocialLinksComponent } from '../../shared/component-library/social-links/social-links.component';
 import { Contact } from '../../shared/enums/contact.enum';
 
 @Component({
