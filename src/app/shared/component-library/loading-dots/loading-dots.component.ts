@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-loading-dots',
-    imports: [],
-    templateUrl: './loading-dots.component.html',
-    styleUrl: './loading-dots.component.css'
+  selector: 'app-loading-dots',
+  imports: [CommonModule],
+  templateUrl: './loading-dots.component.html',
+  styleUrl: './loading-dots.component.css',
 })
 export class LoadingDotsComponent {
-
+  @Input() additionalClasses: string = '';
 }
