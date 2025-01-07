@@ -1,11 +1,15 @@
-<button class="relative" (click)="toggleMute()">
+<button
+  class="relative w-56 h-96 container"
+  (mouseenter)="toggleMute(true)"
+  (mouseleave)="toggleMute(false)"
+>
   <video
     #videoElement
     [muted]="isMuted"
     autoplay
     playsinline
     loop
-    class="max-h-96 clip-video"
+    class="absolute inset-0 max-h-96 object-cover clip-video"
   >
     <source src="../../../../assets/videos/reel.mp4" type="video/mp4" />
   </video>
@@ -13,6 +17,23 @@
   <img
     src="../../../../assets/images/test.png"
     alt="about image"
-    class="h-96 absolute top-0 left-0"
+    class="absolute inset-0 max-h-96 object-cover"
   />
 </button>
+
+<!-- <button class="relative w-96 h-96">
+  <video
+    [muted]="isMuted"
+    autoplay
+    playsinline
+    loop
+    class="absolute inset-0 m-auto w-full h-full object-cover"
+  >
+    <source src="assets/videos/reel.mp4" type="video/mp4" />
+  </video>
+  <img
+    src="assets/images/test.png"
+    alt="about image"
+    class="absolute inset-0 m-auto w-full h-full object-cover"
+  />
+</button> -->

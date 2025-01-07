@@ -9,7 +9,9 @@ import { Component } from '@angular/core';
 export class VideoReelComponent {
   isMuted: boolean = true;
 
-  toggleMute() {
-    this.isMuted = !this.isMuted;
+  toggleMute(hover: boolean) {
+    setTimeout(() => {
+      this.isMuted = !hover;
+    }, 300);
   }
 }
