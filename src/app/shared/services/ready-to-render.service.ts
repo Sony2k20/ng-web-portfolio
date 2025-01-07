@@ -17,7 +17,7 @@ export class ReadyToRenderService {
     eyesomeFont
       .load()
       .then(() => {
-        this.fontRdy$.next(false);
+        this.fontRdy$.next(true);
       })
       .catch((error) => {
         console.error('Font failed to load', error);
