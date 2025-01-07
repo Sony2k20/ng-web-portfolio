@@ -14,10 +14,8 @@ export class VideoReelComponent {
   isMuted: boolean = true;
   isPlaying = true;
 
-  toggleMute(hover: boolean) {
-    setTimeout(() => {
-      this.isMuted = !hover;
-    }, 300);
+  toggleMute() {
+    this.isMuted = !this.isMuted;
   }
 
   setVolume(volume: number) {
