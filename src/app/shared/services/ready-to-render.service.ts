@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, filter, of, switchMap, take } from 'rxjs';
 import FontFaceObserver from 'fontfaceobserver';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { CustomCookieService } from './custom-cookie.service';
 
 @Injectable({
@@ -23,6 +23,12 @@ export class ReadyToRenderService {
       .pipe(
         filter((value) => value === true),
         take(1),
+        switchMap(() => {
+          return this.router.events.pipe(
+            filter((event) => event instanceof NavigationEnd),
+            take(1),
+          );
+        }),
         switchMap(() => {
           if (this.router.url === '/') {
             return this.heroImageRdy$;
@@ -48,7 +54,7 @@ export class ReadyToRenderService {
     });
 
     eyesomeFont
-      .load()
+      .load(null, 5000)
       .then(() => {
         this.fontRdy$.next(true);
       })
