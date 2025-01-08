@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReadyToRenderService } from '../../../shared/services/ready-to-render.service';
 
 @Component({
   selector: 'app-video-reel',
@@ -10,36 +11,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class VideoReelComponent {
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
-  volume: number = 0.5;
   isMuted: boolean = true;
-  isPlaying = true;
+  iconClicked = false;
+  readyToRenderService = inject(ReadyToRenderService);
 
   toggleMute() {
     this.isMuted = !this.isMuted;
-  }
-
-  setVolume(volume: number) {
-    if (this.videoElement) {
-      this.videoElement.nativeElement.volume = volume;
-    }
-  }
-
-  togglePlayPause() {
-    if (this.videoElement) {
-      if (this.isPlaying) {
-        this.videoElement.nativeElement.pause();
-      } else {
-        this.videoElement.nativeElement.play();
-      }
-      this.isPlaying = !this.isPlaying;
-    }
-  }
-
-  onPlay() {
-    this.isPlaying = true;
-  }
-
-  onPause() {
-    this.isPlaying = false;
+    this.iconClicked = true;
   }
 }

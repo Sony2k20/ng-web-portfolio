@@ -10,6 +10,7 @@ import { CustomCookieService } from './custom-cookie.service';
 export class ReadyToRenderService {
   heroImageRdy$ = new BehaviorSubject<boolean>(false);
   fontRdy$ = new BehaviorSubject<boolean>(false);
+  isVideoReelLoaded$ = new BehaviorSubject<boolean>(false);
   private router = inject(Router);
   private customCookieService = inject(CustomCookieService);
 

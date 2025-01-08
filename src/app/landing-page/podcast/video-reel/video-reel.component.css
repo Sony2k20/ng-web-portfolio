@@ -1,65 +1,53 @@
-.container {
-  transform: translateX(16px);
-}
-
-.video {
-  clip-path: inset(8.7px 23px);
-  transform: translateX(-16px);
-}
-
-.volume-control,
-.play-pause-button {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.container:hover .play-pause-button,
-.container:hover .volume-control {
-  opacity: 1;
-}
-
-/* Container style */
-.volume-control {
+.mute-icon,
+.unmute-icon {
   position: absolute;
-  bottom: 2rem;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
+  top: 120px;
+  left: 96.5px;
+  opacity: 0;
+  transition: all 300ms;
 }
 
-/* Slider Track */
-input[type="range"] {
-  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
-  appearance: none;
-  width: 100%; /* Full width of the container */
-  height: 5px; /* Track height */
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s;
-  background: rgb(var(--secondary-rgb), 0.4);
+.container:hover .mute-icon,
+.container:hover .unmute-icon {
+  opacity: 0.4;
 }
 
-/* Slider Thumb */
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background: rgb(var(--secondary-rgb), 0.9);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.2s;
+@media (min-width: 1280px) {
+  .mute-icon,
+  .unmute-icon {
+    top: 135px;
+    left: 105px;
+  }
 }
 
-/* Slider Thumb - Firefox */
-input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: rgb(var(--secondary-rgb), 0.8);
-  border-radius: 50%;
-  cursor: pointer;
+.mute-icon.animate-in,
+.unmute-icon.animate-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Change the track color when user interacts */
-input[type="range"]:active {
-  background: rgb(var(--secondary-rgb), 0.8);
+.mute-icon.animate-out,
+.unmute-icon.animate-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }

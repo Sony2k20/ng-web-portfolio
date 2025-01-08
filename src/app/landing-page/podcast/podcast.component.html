@@ -7,11 +7,7 @@
 
   <!-- Left Section (Image) -->
   <div class="flex mx-auto items-center justify-center">
-    <img
-      src="../../assets/images/smartphone.png"
-      alt="about image"
-      class="object-cover h-96 md:h-3/4 xl:h-3/4 lg:ml-28 xl:ml-72"
-    />
+    <app-video-reel class="lg:ml-28 xl:ml-72"></app-video-reel>
   </div>
 
   <!-- Right Section (Text Content) -->
@@ -39,7 +35,4 @@
       ></app-fade-out-button>
     </div>
   </div>
-</div>
-<div *ngIf="isVideoReelLoaded" class="flex mx-auto justify-center items-center">
-  <app-video-reel></app-video-reel>
 </div>
