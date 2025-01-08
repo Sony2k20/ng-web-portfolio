@@ -15,9 +15,9 @@ import { Contact } from '../../enums/contact.enum';
 import { Routes } from '../../enums/routes.enum';
 
 @Component({
-    selector: 'app-header',
-    imports: [HamburgerMenuComponent, CommonModule, RouterModule],
-    templateUrl: './header.component.html'
+  selector: 'app-header',
+  imports: [HamburgerMenuComponent, CommonModule, RouterModule],
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('start', { static: false }) start!: ElementRef;
@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
     this.checkScreenSize();
 
     setTimeout(() => {
+      //to-Do refactor without set timeout
       document.querySelector('#start')!.classList.remove('slideInFromTop');
       this.scrollTriggerHeaderService.initScrollTriggers();
     }, 1000);

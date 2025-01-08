@@ -1,7 +1,3 @@
-<div *ngIf="(readyToRenderService.fontRdy$ | async) === false">
-  <app-loading-screen></app-loading-screen>
-</div>
-
 <div *ngIf="readyToRenderService.fontRdy$ | async">
   <app-header id="header" class="bg-secondary"></app-header>
 

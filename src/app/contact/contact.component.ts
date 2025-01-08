@@ -8,7 +8,6 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
-import { LoadingScreenComponent } from '../shared/components/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-email',
@@ -19,7 +18,6 @@ import { LoadingScreenComponent } from '../shared/components/loading-screen/load
     HeaderComponent,
     FooterComponent,
     ContactFormComponent,
-    LoadingScreenComponent,
   ],
   templateUrl: './contact.component.html',
   providers: [EmailService],

@@ -82,15 +82,15 @@ html {
 }
 
 .fadeInBg {
-  animation: fadeInBg 0.7s ease-in-out;
+  animation: fadeInBg 0.7s ease-in-out forwards;
 }
 
 .fadeInNav {
-  animation: fadeInNav 0.5s ease-in-out;
+  animation: fadeInNav 0.5s ease-in-out forwards;
 }
 
 .fadeOutNav {
-  animation: fadeOutNav 0.5s ease-in-out;
+  animation: fadeOutNav 0.5s ease-in-out forwards;
 }
 
 .slideInFromTop {

@@ -9,7 +9,6 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CoachingComponent } from './coaching/coaching.component';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
-import { LoadingScreenComponent } from '../shared/components/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -22,7 +21,6 @@ import { LoadingScreenComponent } from '../shared/components/loading-screen/load
     HeaderComponent,
     FooterComponent,
     CoachingComponent,
-    LoadingScreenComponent,
   ],
   templateUrl: './landing-page.component.html',
 })

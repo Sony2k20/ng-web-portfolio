@@ -44,7 +44,6 @@ export class CustomCookieService {
 
     setTimeout(() => {
       if (buttonElement) {
-        buttonElement.classList.remove('slideOutFromBot');
         this.$showCookieBanner.next(false);
       }
     }, 400);
@@ -69,7 +68,6 @@ export class CustomCookieService {
 
     setTimeout(() => {
       if (buttonElement) {
-        buttonElement.classList.remove('slideOutFromBot');
         this.$showCookieBanner.next(false);
       }
     }, 400);

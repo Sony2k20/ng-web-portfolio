@@ -7,17 +7,6 @@
 
 <div
   *ngIf="
-    !(
-      (readyToRenderService.heroImageRdy$ | async) &&
-      (readyToRenderService.fontRdy$ | async)
-    )
-  "
->
-  <app-loading-screen></app-loading-screen>
-</div>
-
-<div
-  *ngIf="
     (readyToRenderService.heroImageRdy$ | async) &&
     (readyToRenderService.fontRdy$ | async)
   "

@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, filter, of, switchMap, take } from 'rxjs';
 import FontFaceObserver from 'fontfaceobserver';
+import { Router } from '@angular/router';
+import { CustomCookieService } from './custom-cookie.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +10,39 @@ import FontFaceObserver from 'fontfaceobserver';
 export class ReadyToRenderService {
   heroImageRdy$ = new BehaviorSubject<boolean>(false);
   fontRdy$ = new BehaviorSubject<boolean>(false);
+  private router = inject(Router);
+  private customCookieService = inject(CustomCookieService);
 
-  loadFont() {
+  initialize() {
+    this.watchLoadingSubjects();
+    this.loadFont();
+  }
+
+  private watchLoadingSubjects() {
+    this.fontRdy$
+      .pipe(
+        filter((value) => value === true),
+        take(1),
+        switchMap(() => {
+          if (this.router.url === '/') {
+            return this.heroImageRdy$;
+          }
+          return of(true);
+        }),
+        filter((value) => value === true),
+        take(1),
+      )
+      .subscribe(() => {
+        document
+          .querySelector('#loading-screen')!
+          .classList.add('loading-sc-hidden');
+        setTimeout(() => {
+          this.customCookieService.initializeCookieService();
+        }, 5500);
+      });
+  }
+
+  private loadFont() {
     const eyesomeFont = new FontFaceObserver('Eyesome', {
       weight: 100,
     });
