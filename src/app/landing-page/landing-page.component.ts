@@ -42,7 +42,6 @@ export class LandingPageComponent implements AfterViewInit {
     });
   }
 
-  //toDo refactor preloading
   onImageLoad(): void {
     this.readyToRenderService.heroImageRdy$.next(true);
   }
