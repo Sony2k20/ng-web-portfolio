@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmailService } from '../shared/services/email.service';
 import { CommonModule } from '@angular/common';

@@ -1,16 +1,15 @@
 import {
   AfterViewInit,
   Component,
-  OnInit,
   QueryList,
   ViewChildren,
 } from '@angular/core';
 
 @Component({
-    selector: 'app-handwriting-animation',
-    imports: [],
-    templateUrl: './handwriting-animation.component.html',
-    styleUrl: './handwriting-animation.component.css'
+  selector: 'app-handwriting-animation',
+  imports: [],
+  templateUrl: './handwriting-animation.component.html',
+  styleUrl: './handwriting-animation.component.css',
 })
 export class HandwritingAnimationComponent implements AfterViewInit {
   @ViewChildren('maskPath') maskPaths?: QueryList<SVGPathElement>;

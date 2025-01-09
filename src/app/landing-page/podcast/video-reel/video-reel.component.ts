@@ -3,7 +3,6 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReadyToRenderService } from '../../../shared/services/ready-to-render.service';
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service';
-import { catchError, filter, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-video-reel',

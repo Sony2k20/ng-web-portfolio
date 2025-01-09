@@ -9,7 +9,6 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CoachingComponent } from './coaching/coaching.component';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
-import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',

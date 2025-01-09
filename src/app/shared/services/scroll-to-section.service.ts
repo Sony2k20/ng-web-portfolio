@@ -1,4 +1,4 @@
-import { DestroyRef, inject, Injectable, Renderer2 } from '@angular/core';
+import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subject, Subscription, switchMap, take } from 'rxjs';
