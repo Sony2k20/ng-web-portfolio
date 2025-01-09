@@ -31,6 +31,7 @@ export class LandingPageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true);
+    this.readyToRenderService.isVideoReelLoaded$.next(true);
   }
 
   onImageLoad(): void {

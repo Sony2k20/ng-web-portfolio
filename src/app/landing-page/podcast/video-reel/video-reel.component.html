@@ -5,7 +5,8 @@
   <div
     *ngIf="
       (readyToRenderService.fontRdy$ | async) &&
-      (readyToRenderService.heroImageRdy$ | async)
+      (readyToRenderService.heroImageRdy$ | async) &&
+      (readyToRenderService.isVideoReelLoaded$ | async)
     "
     class="relative w-[176px] xl:w-[180px] h-full mx-auto overflow-hidden animate rounded-3xl"
   >
