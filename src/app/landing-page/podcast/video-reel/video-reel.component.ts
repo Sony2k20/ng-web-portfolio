@@ -3,6 +3,7 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReadyToRenderService } from '../../../shared/services/ready-to-render.service';
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service';
+import { catchError, filter, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-video-reel',
@@ -15,6 +16,7 @@ export class VideoReelComponent {
   isMuted: boolean = true;
   iconClicked = false;
   readyToRenderService = inject(ReadyToRenderService);
+  private _cleanupFns: Array<() => void> = [];
   private elementRef = inject(ElementRef);
   private intersectionObserverService = inject(IntersectionObserverService);
 
@@ -24,20 +26,46 @@ export class VideoReelComponent {
   }
 
   ngAfterViewInit() {
-    this.intersectionObserverService.observeElements(
-      this.elementRef,
-      'animate-visible',
-      'animate',
-      '-170px',
-      900,
-    );
+    this.onVideoReelLoaded();
+  }
 
+  private onVideoReelLoaded() {
+    const video: HTMLVideoElement = this.videoElement.nativeElement;
+
+    // Ensure the 'canplay' event is triggered before performing other actions
+    video.addEventListener('canplay', this.onVideoCanPlay.bind(this));
+
+    // Optionally, we can cleanup after 'ngOnDestroy' to prevent memory leaks.
+    this._cleanupOnDestroy(() => {
+      video.removeEventListener('canplay', this.onVideoCanPlay);
+    });
+  }
+
+  private onVideoCanPlay() {
+    this.observeElementWithAnimation('animate-visible', 'animate');
+    this.observeElementWithAnimation('animate-invisible', 'animateOut');
+  }
+
+  private observeElementWithAnimation(
+    visibleClass: string,
+    animationClass: string,
+  ) {
     this.intersectionObserverService.observeElements(
       this.elementRef,
-      'animate-invisible',
-      'animateOut',
+      visibleClass,
+      animationClass,
       '-170px',
       900,
     );
+  }
+
+  private _cleanupOnDestroy(cleanupFn: () => void) {
+    this._cleanupFns.push(cleanupFn);
+  }
+
+  ngOnDestroy() {
+    // Clean up all registered event listeners and subscriptions.
+    this._cleanupFns.forEach((fn) => fn());
+    this._cleanupFns = [];
   }
 }

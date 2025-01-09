@@ -3,7 +3,10 @@
   (click)="toggleMute()"
 >
   <div
-    *ngIf="readyToRenderService.isVideoReelLoaded$ | async"
+    *ngIf="
+      (readyToRenderService.fontRdy$ | async) &&
+      (readyToRenderService.heroImageRdy$ | async)
+    "
     class="relative w-[176px] xl:w-[180px] h-full mx-auto overflow-hidden animate rounded-3xl"
   >
     <video

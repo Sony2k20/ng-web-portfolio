@@ -31,15 +31,6 @@ export class LandingPageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true);
-
-    combineLatest([
-      this.readyToRenderService.fontRdy$,
-      this.readyToRenderService.heroImageRdy$,
-    ]).subscribe(([fontRdy, heroImageRdy]) => {
-      if (fontRdy && heroImageRdy) {
-        this.readyToRenderService.isVideoReelLoaded$.next(true);
-      }
-    });
   }
 
   onImageLoad(): void {
