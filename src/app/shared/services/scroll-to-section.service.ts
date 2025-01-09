@@ -21,7 +21,7 @@ export class ScrollToSectionService {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => {
-        this.scrollToSectionUtil(sectionId, 50);
+        this.scrollToSectionUtil(sectionId, 200);
       });
   }
 

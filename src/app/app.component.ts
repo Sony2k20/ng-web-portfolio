@@ -12,6 +12,7 @@ import { SnackbarComponent } from './shared/component-library/snackbar/component
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { ReadyToRenderService } from './shared/services/ready-to-render.service';
 import Lenis from 'lenis';
+import { LenisService } from './shared/services/lenis.service';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,7 @@ import Lenis from 'lenis';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   private readyToRenderService = inject(ReadyToRenderService);
-  lenis: Lenis | undefined;
-
-  constructor(private ngZone: NgZone) {}
+  private lenisService = inject(LenisService);
 
   ngOnInit() {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,19 +29,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.readyToRenderService.initialize();
-    this.initLenis();
-  }
-
-  initLenis(): void {
-    this.ngZone.runOutsideAngular(() => {
-      this.lenis = new Lenis();
-
-      const raf = (time: number) => {
-        this.lenis?.raf(time);
-        requestAnimationFrame(raf);
-      };
-
-      requestAnimationFrame(raf);
-    });
+    this.lenisService.initLenis();
   }
 }
