@@ -1,5 +1,5 @@
 <div
-  class="max-w-screen-md mx-auto shadow-lg overflow-hidden bg-gradient-to-r from-secondary/70 to-secondary/80 leading-8 lg:leading-9"
+  class="max-w-screen-md mx-auto shadow-lg overflow-hidden bg-secondary leading-8 lg:leading-9"
 >
   <div class="flex">
     <button
@@ -15,8 +15,7 @@
       Live Your Calling
       <div
         *ngIf="activeTab === 'coaching'"
-        class="fadeInNav"
-        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent"
+        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
       ></div>
     </button>
     <button
@@ -32,16 +31,20 @@
       Allgemeine Anfrage
       <div
         *ngIf="activeTab === 'general'"
-        class="fadeInNav"
-        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent"
+        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
       ></div>
     </button>
   </div>
-  <div class="p-5 pb-9">
-    <div *ngIf="activeTab === 'coaching'" class="fadeInNav"></div>
-
-    <div *ngIf="activeTab === 'general'" class="fadeInNav">
-      <app-contact-form></app-contact-form>
-    </div>
+  <div
+    class="fadeInNav"
+    [ngClass]="activeTab === 'coaching' ? 'visible' : 'hidden'"
+  >
+    <app-contact-calendly></app-contact-calendly>
+  </div>
+  <div
+    class="fadeInNav p-5 pb-9"
+    [ngClass]="activeTab === 'general' ? 'visible' : 'hidden'"
+  >
+    <app-contact-form></app-contact-form>
   </div>
 </div>
