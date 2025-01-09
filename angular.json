@@ -88,7 +88,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css", "lenis/dist/lenis.css"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         },

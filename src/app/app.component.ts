@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  NgZone,
+  OnInit,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -16,6 +22,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   private readyToRenderService = inject(ReadyToRenderService);
   lenis: Lenis | undefined;
 
+  constructor(private ngZone: NgZone) {}
+
   ngOnInit() {
     gsap.registerPlugin(ScrollTrigger);
   }
@@ -26,13 +34,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   initLenis(): void {
-    this.lenis = new Lenis({});
+    this.ngZone.runOutsideAngular(() => {
+      this.lenis = new Lenis();
 
-    const raf = (time: number) => {
-      this.lenis!.raf(time);
+      const raf = (time: number) => {
+        this.lenis?.raf(time);
+        requestAnimationFrame(raf);
+      };
+
       requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
+    });
   }
 }
