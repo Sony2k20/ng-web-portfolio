@@ -15,20 +15,22 @@
 
   <app-hero-section></app-hero-section>
 
-  <div id="about" class="bg-secondary">
-    <app-about-me></app-about-me>
-  </div>
+  <div *ngIf="readyToRenderService.isVideoReelLoaded$ | async">
+    <div id="about" class="bg-secondary">
+      <app-about-me></app-about-me>
+    </div>
 
-  <div id="coaching" class="bg-gradient-to-r from-primary to-secondary">
-    <app-coaching></app-coaching>
-  </div>
+    <div id="coaching" class="bg-gradient-to-r from-primary to-secondary">
+      <app-coaching></app-coaching>
+    </div>
 
-  <div id="podcast" class="bg-gradient-to-r from-primary to-secondary">
-    <app-podcast></app-podcast>
-  </div>
+    <div id="podcast" class="bg-gradient-to-r from-primary to-secondary">
+      <app-podcast></app-podcast>
+    </div>
 
-  <div id="faq" class="bg-secondary">
-    <app-faq-section></app-faq-section>
+    <div id="faq" class="bg-secondary">
+      <app-faq-section></app-faq-section>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
 </div>
