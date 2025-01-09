@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service';
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service';
+import { ContactTabsComponent } from './contact-tabs/contact-tabs.component';
 
 @Component({
   selector: 'app-email',
@@ -17,7 +17,7 @@ import { ReadyToRenderService } from '../shared/services/ready-to-render.service
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
-    ContactFormComponent,
+    ContactTabsComponent,
   ],
   templateUrl: './contact.component.html',
   providers: [EmailService],

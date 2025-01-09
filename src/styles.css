@@ -32,6 +32,8 @@ html {
 
 /*  Colors for shared components */
 :root {
+  --accent-light: #9c788a;
+  --accent-light-rgb: 156, 120, 138;
   --accent: #8277a3;
   --accent-rgb: 130, 119, 163;
   --primary: #ded3e3;
