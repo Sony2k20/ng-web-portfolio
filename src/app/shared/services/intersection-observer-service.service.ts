@@ -11,6 +11,7 @@ export class IntersectionObserverService {
    * @param classNameToAdd - The class name to be added when an element is visible.
    * @param querySelectorClass - The class name used to query the elements.
    * @param rootMargin - The intersection shift in y-axis (min should be '-180px').
+   * @param delay - Delay for animation.
    */
   private observer: IntersectionObserver | null = null;
 
@@ -19,6 +20,7 @@ export class IntersectionObserverService {
     classNameToAdd: string,
     querySelectorClass: string,
     rootMargin = '-140px',
+    delay = 100,
   ) {
     const elements = elementRef.nativeElement.querySelectorAll(
       `.${querySelectorClass}`,
@@ -35,7 +37,7 @@ export class IntersectionObserverService {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add(classNameToAdd);
-            }, 100);
+            }, delay);
             this.observer?.unobserve(entry.target);
           }
         });

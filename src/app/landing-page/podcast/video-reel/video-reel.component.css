@@ -1,8 +1,8 @@
 .mute-icon,
 .unmute-icon {
   position: absolute;
-  top: 120px;
-  left: 96.5px;
+  top: 125px;
+  left: 112px;
   opacity: 0;
   transition: all 300ms;
 }
@@ -16,7 +16,7 @@
   .mute-icon,
   .unmute-icon {
     top: 135px;
-    left: 105px;
+    left: 108px;
   }
 }
 
