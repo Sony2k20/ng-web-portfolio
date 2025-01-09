@@ -4,7 +4,7 @@
 >
   <div
     *ngIf="readyToRenderService.isVideoReelLoaded$ | async"
-    class="relative w-[175px] xl:w-[180px] h-full mx-auto overflow-hidden animate"
+    class="relative w-[176px] xl:w-[180px] h-full mx-auto overflow-hidden animate rounded-3xl"
   >
     <video
       #videoElement
@@ -12,16 +12,16 @@
       autoplay
       playsinline
       loop
-      class="h-[383px] xl:h-[378px] ml-[2px] xl:ml-0 mt-2 xl:mt-3 object-cover"
+      class="h-[386px] xl:h-[377px] ml-[2px] xl:ml-0 mt-1 xl:mt-3 object-cover"
     >
       <source src="../../../../assets/videos/reel.mp4" type="video/mp4" />
     </video>
   </div>
-  <img
+  <!-- <img
     src="../../../../assets/images/podcast-cover.png"
     alt="about image"
     class="absolute top-[0] left-[34.5px] xl:left-[29px] w-[188px] h-[400px] xl:h-[380px] xl:top-[13px] xl:w-[190px] object-cover rounded-3xl scale-95 xl:scale-100 animateOut"
-  />
+  /> -->
 
   <img
     src="../../../../assets/images/smartphone.png"
