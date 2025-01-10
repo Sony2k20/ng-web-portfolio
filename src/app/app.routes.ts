@@ -12,9 +12,7 @@ export const routes: Routes = [
   {
     path: RoutesEnums.Imprint,
     loadComponent: () =>
-      import('./imprint/imprint.component').then(
-        (mod) => mod.ImprintComponent,
-      ),
+      import('./imprint/imprint.component').then((mod) => mod.ImprintComponent),
   },
   {
     path: RoutesEnums.PrivacyPolicy,
@@ -26,9 +24,12 @@ export const routes: Routes = [
   {
     path: RoutesEnums.Contact,
     loadComponent: () =>
-      import('./contact/contact.component').then(
-        (mod) => mod.ContactComponent,
-      ),
+      import('./contact/contact.component').then((mod) => mod.ContactComponent),
+  },
+  {
+    path: RoutesEnums.About,
+    loadComponent: () =>
+      import('./about/about.component').then((mod) => mod.AboutComponent),
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

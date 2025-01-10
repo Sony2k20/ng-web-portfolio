@@ -14,7 +14,7 @@
 
       <h2
         #headline
-        class="text-3xl xl:text-5xl uppercase animate leading-tight text-center"
+        class="text-3xl xl:text-5xl uppercase animate leading-tight"
       >
         Hello Gorgeous
       </h2>
@@ -28,7 +28,7 @@
         wir daran, deine Vision zu klären, innere Blockaden aufzulösen und
         mutige Schritte in Richtung deines neuen Kapitels zu gehen.
       </p>
-      <p>
+      <p class="mb-4">
         Warum ich weiß, wie wichtig das ist? Weil ich selbst an einem Wendepunkt
         stand. Nach einem schweren Motorradunfall musste ich mein Leben komplett
         neu ordnen. Ich war 1,5 Jahre zuhause, lernte wieder zu laufen und
@@ -37,6 +37,13 @@
         Menschen wie dir, genau das zu tun: deinen inneren Kompass zu finden und
         ein Leben voller Sinn, Freude und Erfüllung zu gestalten.
       </p>
+
+      <button
+        (click)="scroller.scrollToSection(routes.About, 'header', $event)"
+        class="w-full text-right pr-3"
+      >
+        &rarr; mehr über mich
+      </button>
     </div>
   </div>
 

@@ -64,8 +64,7 @@
         <strong>Realität umzusetzen</strong>. Du wirst nicht nur herausfinden,
         <strong>was dich wirklich antreibt</strong>, sondern auch
         <strong>konkrete Werkzeuge</strong> an die Hand bekommen, um
-        <strong>langfristig</strong> in deine <strong>volle Kraft</strong> zu
-        kommen.
+        <strong>langfristig</strong> in deine volle Kraft zu kommen.
       </p>
 
       <p>
@@ -83,39 +82,27 @@
       <app-flip-card></app-flip-card>
     </div>
 
-    <div class="text-left mx-auto mt-16 px-6 py-8 rounded-lg shadow-lg">
-      <ul class="list-disc mb-8">
-        <li>16 Wochen intensive Arbeit</li>
-        <li>12 gemeinsame Calls a 90 min</li>
-        <li>
-          Worksheets und Aufgaben die dir helfen, Klarheit zu bekommen und die
-          dich in diesem Prozess unterstützen
-        </li>
-        <li>
-          Gemeinsam schauen wir welche Gedanken dich dazu beschäftigen und was
-          dich zurück hält.
-        </li>
-        <li>
-          Wir stärken dein Mindset damit du sie selbst erlaubst dein** erfülltes
-          Leben zu gestalten**
-        </li>
-        <li>
-          Wir erstellen einen konkreten Plan und gehen gemeinsam die **Schritte
-          **in deine berufliche Erfüllung.
-        </li>
+    <div class="text-left mx-auto mt-16 px-6 py-8 rounded-xl shadow-lg">
+      <p class="text-center font-semibold mb-12">
+        Die wichtigsten Fakten von Live Your Calling im Überblick:
+      </p>
 
-        <li>
-          Wir integrieren Routinen, damit du in deinem Leben **nachhaltig
-          erfüllt **bleibst.
-        </li>
-        <li>
-          Während der 16 Wochen bekommst du vollen WhatsApp Support, falls du
-          Unterstützung zwischen den Calls brauchst oder Zweifel aufkommen
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-y-8 mb-12 xl:text-lg"
+      >
+        <li
+          *ngFor="let item of items"
+          class="block items-start justify-center text-center"
+        >
+          {{ item.text }}
+          <div
+            class="mt-3 w-8/12 md:w-72 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+          ></div>
         </li>
       </ul>
 
-      <p c>
-        Melde dich gerne zu einem kostenlosen Erstgespräch an, und wir finden
+      <p class="md:px-12">
+        Melde dich gerne zu einem kostenlosen Coffee Talk an, und wir finden
         gemeinsam heraus, ob wir zueinander passen. Sollte es nicht der richtige
         Weg für dich sein, ist das vollkommen in Ordnung. Ich werde dennoch mein
         Bestes tun, um dir hilfreiche Impulse mitzugeben und dich in die

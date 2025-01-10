@@ -3,4 +3,5 @@ export enum Routes {
   Imprint = 'impressum',
   PrivacyPolicy = 'datenschutz',
   Contact = 'kontakt',
+  About = 'about',
 }

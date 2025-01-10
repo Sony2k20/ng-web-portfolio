@@ -17,27 +17,33 @@ export class ReadyToRenderService {
   initialize() {
     this.watchLoadingSubjects();
     this.loadFont();
+    this.fontRdy$.subscribe((value) => {
+      console.log('Font ready status:', value);
+    });
   }
 
   private watchLoadingSubjects() {
-    this.fontRdy$
+    this.router.events
       .pipe(
-        filter((value) => value === true),
-        take(1),
+        filter((event) => event instanceof NavigationEnd), // Wait for a navigation end event
+        take(1), // Only take the first navigation end event
         switchMap(() => {
-          return this.router.events.pipe(
-            filter((event) => event instanceof NavigationEnd),
-            take(1),
+          console.log('Navigation ended, checking font readiness...');
+          return this.fontRdy$.pipe(
+            filter((value) => value === true), // Wait for font readiness
+            take(1), // Only take the first time font is ready
           );
         }),
         switchMap(() => {
+          console.log('Router URL after navigation:', this.router.url);
+          if (!this.router.url) return of(true);
           if (this.router.url === '/') {
-            return this.heroImageRdy$;
+            return this.heroImageRdy$; // Wait for hero image readiness if on home page
           }
-          return of(true);
+          return of(true); // Otherwise, proceed immediately
         }),
-        filter((value) => value === true),
-        take(1),
+        filter((value) => value === true), // Proceed when ready
+        take(1), // Complete the whole chain after the first successful result
       )
       .subscribe(() => {
         document

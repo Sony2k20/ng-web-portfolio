@@ -1,0 +1,54 @@
+<div *ngIf="readyToRenderService.fontRdy$ | async" class="bg-secondary">
+  <app-header id="header" class="bg-secondary"></app-header>
+
+  <div class="flex flex-col xl:flex-row items-center">
+    <div class="flex-shrink-0 xl:order-2 pt-8 xl:pt-0">
+      <img
+        src="../../assets/images/about-bg.jpg"
+        alt="Beschreibung des Bildes"
+        class="xl:h-screen w-full object-cotain xl:object-cover"
+      />
+    </div>
+
+    <div
+      class="0 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-12 xl:order-1 bg-secondary"
+    >
+      <p class="font-semibold pt-8 pb-4">
+        "Mach etwas, das man immer braucht.“
+      </p>
+      <p class="pb-4">
+        Mit diesem Rat meiner Mutter begann ich meine Ausbildung zur
+        Bankkauffrau. Ich war gut in meinem Job, übernahm Verantwortung und
+        unterstützte andere. Aber ehrlich gesagt: Ich war oft müde, ausgelaugt
+        und habe mich gefragt, ob das wirklich alles sein soll.
+      </p>
+      <p class="pb-4">
+        Dann kam der Wendepunkt. Im Mai 2021 hatte ich einen schweren
+        Motorradunfall. Ich war wochenlang ans Bett gefesselt, auf Hilfe
+        angewiesen, und die Ärzte sagten meiner Familie, dass ich vielleicht nie
+        wieder laufen könnte. Diese Zeit war eine der schwersten meines Lebens.
+        Ich war allein mit meinen Gedanken – und stellte mir die Fragen, die ich
+        vorher immer weggeschoben hatte: Warum bin ich hier? Was will ich
+        wirklich? Wie soll mein Leben aussehen, wenn ich eine zweite Chance
+        bekomme?
+      </p>
+      <p class="pb-4">
+        In den Monaten danach habe ich gelernt, wieder zu laufen – und mehr
+        noch, wieder zu leben. Ich habe verstanden, wie kostbar das Leben ist
+        und wie wichtig es ist, es mit Sinn zu füllen. Es hat mir gezeigt, dass
+        wir nicht einfach weitermachen sollten, nur weil es sicher oder bequem
+        ist.
+      </p>
+      <p class="pb-4 xl:pb-0">
+        Heute weiß ich: Wir haben alle die Möglichkeit, unser Leben so zu
+        gestalten, dass es uns wirklich erfüllt. Und genau dabei möchte ich dich
+        begleiten. Gemeinsam finden wir heraus, was dich antreibt, was dir
+        Freude bringt und wie du deine Berufung leben kannst. Denn dein Leben
+        ist zu wertvoll, um es in einem Job zu verbringen, der dich leer
+        zurücklässt.
+      </p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
