@@ -1,6 +1,11 @@
 <img
-  src="../../assets/images/hero-bg.jpg"
-  (load)="onImageLoad()"
+  srcset="
+    ../../assets/images/sm-hero-bg.webp   768w,
+    ../../assets/images/md-hero-bg.webp  1300w,
+    ../../assets/images/big-hero-bg.webp 1500w
+  "
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+  (load)="onImageLoad($event)"
   alt="background"
   style="display: none"
 />

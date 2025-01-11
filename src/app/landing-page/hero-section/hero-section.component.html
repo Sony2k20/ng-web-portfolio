@@ -1,6 +1,11 @@
 <div class="relative h-fit lg:h-screen text-md xl:text-xl bg-secondary">
   <img
-    src="../../assets/images/hero-bg.jpg"
+    srcset="
+      ../../assets/images/sm-hero-bg.webp   768w,
+      ../../assets/images/md-hero-bg.webp  1300w,
+      ../../assets/images/big-hero-bg.webp 1500w
+    "
+    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
     alt="Background"
     class="absolute object-cover object-[21%] md:object-[30%] xl:object-center inset-0 [height:64vh] lg:h-full w-full z-0 mt-8 lg:mt-0 fadeInBg"
   />

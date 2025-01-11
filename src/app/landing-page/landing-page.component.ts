@@ -33,7 +33,10 @@ export class LandingPageComponent implements AfterViewInit {
     this.readyToRenderService.isVideoReelLoaded$.next(true);
   }
 
-  onImageLoad(): void {
+  onImageLoad(event: Event): void {
+    const imageElement = event.target as HTMLImageElement;
+    console.log('Loaded image width:', imageElement.naturalWidth);
+    console.log('Loaded image source:', imageElement.currentSrc);
     this.readyToRenderService.heroImageRdy$.next(true);
   }
 }
