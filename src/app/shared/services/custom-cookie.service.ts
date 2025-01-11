@@ -32,7 +32,7 @@ export class CustomCookieService {
   }
 
   acceptCookies() {
-    this.cookieService.set('cookieConsent', 'true');
+    this.cookieService.set('cookieConsent', 'true', 90);
     this.googleAnalyticsService.loadAnalyticsScript();
 
     const buttonElement = document.querySelector(
