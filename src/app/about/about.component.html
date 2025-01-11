@@ -1,8 +1,8 @@
 <div *ngIf="readyToRenderService.fontRdy$ | async" class="bg-secondary">
   <app-header id="header" class="bg-secondary"></app-header>
 
-  <div class="flex flex-col xl:flex-row items-center fadeInBg">
-    <div class="flex-shrink-0 xl:order-2 pt-8 xl:pt-0">
+  <div class="flex flex-col xl:flex-row items-center">
+    <div class="flex-shrink-0 xl:order-2 pt-8 xl:pt-0 fadeInBg">
       <img
         src="../../assets/images/big-about-bg.webp"
         srcset="
@@ -17,7 +17,7 @@
     </div>
 
     <div
-      class="sm:-mt-44 md:-mt-80 lg:-mt-96 xl:-mt-0 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-12 xl:order-1 bg-secondary"
+      class="sm:-mt-44 md:-mt-80 lg:-mt-96 xl:-mt-0 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-12 xl:order-1 bg-secondary opacity-0 fadeInTextFromTop animDelay04"
     >
       <p class="font-semibold pt-8 pb-4">
         "Mach etwas, das man immer braucht.“
@@ -28,7 +28,7 @@
         unterstützte andere. Aber ehrlich gesagt: Ich war oft müde, ausgelaugt
         und habe mich gefragt, ob das wirklich alles sein soll.
       </p>
-      <p class="pb-4">
+      <p class="pb-4 animDelay06">
         Dann kam der Wendepunkt. Im Mai 2021 hatte ich einen schweren
         Motorradunfall. Ich war wochenlang ans Bett gefesselt, auf Hilfe
         angewiesen, und die Ärzte sagten meiner Familie, dass ich vielleicht nie
