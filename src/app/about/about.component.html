@@ -4,14 +4,20 @@
   <div class="flex flex-col xl:flex-row items-center">
     <div class="flex-shrink-0 xl:order-2 pt-8 xl:pt-0">
       <img
-        src="../../assets/images/about-bg.webp"
+        src="../../assets/images/big-about-bg.webp"
+        srcset="
+          ../../assets/images/sm-about-bg.webp   768w,
+          ../../assets/images/md-about-bg.webp  1300w,
+          ../../assets/images/big-about-bg.webp 1500w
+        "
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
         alt="Beschreibung des Bildes"
         class="xl:h-screen w-full object-cotain xl:object-cover"
       />
     </div>
 
     <div
-      class="0 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-12 xl:order-1 bg-secondary"
+      class="sm:-mt-44 md:-mt-80 lg:-mt-96 xl:-mt-0 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-12 xl:order-1 bg-secondary"
     >
       <p class="font-semibold pt-8 pb-4">
         "Mach etwas, das man immer braucht.“
