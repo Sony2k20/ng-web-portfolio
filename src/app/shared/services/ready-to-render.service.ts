@@ -1,8 +1,9 @@
-import { inject, Injectable } from '@angular/core';
+import { DestroyRef, inject, Injectable } from '@angular/core';
 import { BehaviorSubject, filter, of, switchMap, take } from 'rxjs';
 import FontFaceObserver from 'fontfaceobserver';
 import { NavigationEnd, Router } from '@angular/router';
 import { CustomCookieService } from './custom-cookie.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class ReadyToRenderService {
   isVideoReelLoaded$ = new BehaviorSubject<boolean>(false);
   private router = inject(Router);
   private customCookieService = inject(CustomCookieService);
+  private destroyRef = inject(DestroyRef);
 
   initialize() {
     this.watchLoadingSubjects();
@@ -40,10 +42,11 @@ export class ReadyToRenderService {
           if (this.router.url === '/') {
             return this.heroImageRdy$; // Wait for hero image readiness if on home page
           }
-          return of(true); // Otherwise, proceed immediately
+          return of(true);
         }),
-        filter((value) => value === true), // Proceed when ready
-        take(1), // Complete the whole chain after the first successful result
+        filter((value) => value === true),
+        take(1),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => {
         document

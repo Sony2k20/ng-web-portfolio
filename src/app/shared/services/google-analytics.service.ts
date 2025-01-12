@@ -1,4 +1,5 @@
-import { inject, Injectable } from '@angular/core';
+import { DestroyRef, inject, Injectable } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -14,6 +15,7 @@ declare const gtag: (
 export class GoogleAnalyticsService {
   private measurementId = 'G-W7LN7NPFVM';
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
 
   loadAnalyticsScript(): void {
     const script = document.createElement('script');
@@ -61,7 +63,10 @@ export class GoogleAnalyticsService {
     this.trackPageView(window.location.pathname);
     // Track subsequent page views on route changes
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe((event: NavigationEnd) => {
         this.trackPageView(event.urlAfterRedirects);
       });

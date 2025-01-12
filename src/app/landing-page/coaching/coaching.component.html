@@ -91,7 +91,7 @@
         class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-y-8 mb-12 xl:text-lg"
       >
         <li
-          *ngFor="let item of items"
+          *ngFor="let item of items; trackBy: trackByIndex"
           class="block items-start justify-center text-center"
         >
           {{ item.text }}

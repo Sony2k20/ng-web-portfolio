@@ -36,4 +36,8 @@ export class CoachingComponent {
       'animate',
     );
   }
+
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
 }

@@ -11,7 +11,11 @@
 
     <div id="faq">
       <div
-        *ngFor="let item of accordionItems; let i = index"
+        *ngFor="
+          let item of accordionItems;
+          let i = index;
+          trackBy: trackByIndex
+        "
         [ngClass]="{
           'border-b border-primary': i < accordionItems.length - 1,
         }"

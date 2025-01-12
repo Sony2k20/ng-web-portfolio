@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -15,6 +15,7 @@ import {
   EmailService,
   EmailPayload,
 } from '../../shared/services/email.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-contact-form',
@@ -29,6 +30,7 @@ import {
 export class ContactFormComponent {
   emailForm: FormGroup;
   isLoading = false;
+  private destroyRef = inject(DestroyRef);
 
   private fb = inject(FormBuilder);
   private snackbarService = inject(SnackbarService);
@@ -62,6 +64,7 @@ export class ContactFormComponent {
   ngOnInit(): void {
     this.emailService
       .getTemplate('email-confirmation-template.html')
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (content) => {
           this.emailConfirmationTemplate = content;
@@ -70,18 +73,20 @@ export class ContactFormComponent {
           console.log('Error loading email template');
         },
       });
-    this.emailService.getTemplate('email-inquiry-template.html').subscribe({
-      next: (content) => {
-        this.emailInquiryTemplate = content;
-      },
-      error: () => {
-        console.log('Error loading email template');
-      },
-    });
+    this.emailService
+      .getTemplate('email-inquiry-template.html')
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (content) => {
+          this.emailInquiryTemplate = content;
+        },
+        error: () => {
+          console.log('Error loading email template');
+        },
+      });
   }
 
   onSubmit() {
-    console.log('test');
     if (!this.emailForm.valid) {
       this.emailForm.markAllAsTouched();
 
@@ -159,6 +164,7 @@ export class ContactFormComponent {
         finalize(() => {
           this.isLoading = false;
         }),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
         next: () => {
