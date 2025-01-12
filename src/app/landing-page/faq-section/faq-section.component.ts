@@ -28,14 +28,14 @@ export class FaqSectionComponent implements AfterViewInit {
 
   accordionItems = [
     {
-      question: 'Was, wenn ich gar nicht weiß, was meine Berufung ist?',
+      question: 'Was wenn ich gar nicht weiß, was meine Berufung ist?',
       answer:
-        'Das ist völlig normal. Viele Menschen spüren, dass sie etwas ändern möchten, wissen aber nicht genau, wohin sie wollen. Genau hier setzen wir an: Gemeinsam bringen wir Klarheit in deine Wünsche und Stärken. Mit gezielten Übungen und Reflexionen findest du heraus, was dich wirklich erfüllt und was deine Berufung ist.',
+        'Das ist völlig normal. Viele Menschen spüren, dass sie etwas ändern möchten, wissen aber nicht genau wohin sie wollen. Genau hier setzen wir an: Gemeinsam bringen wir Klarheit in deine Wünsche und Stärken. Mit gezielten Übungen und Reflexionen findest du heraus, was dich wirklich erfüllt und was deine Berufung ist.',
     },
     {
       question: 'Wie weiß ich, ob dieses Coaching das Richtige für mich ist?',
       answer:
-        'Dieses Coaching ist ideal für dich, wenn du spürst, dass du in deinem aktuellen Leben stagnierst und bereit bist, neue Wege zu gehen. Wenn du dir eine klare Vision wünschst und endlich Schritte in Richtung Selbstverwirklichung und Erfüllung machen möchtest, begleite ich dich dabei mit einem strukturierten und individuell angepassten Ansatz.',
+        'Dieses Coaching ist ideal für dich wenn du spürst, dass du in deinem aktuellen Leben stagnierst und bereit bist neue Wege zu gehen. Wenn du dir eine klare Vision wünschst und endlich Schritte in Richtung Selbstverwirklichung und Erfüllung machen möchtest, begleite ich dich dabei mit einem strukturierten und individuell angepassten Ansatz.',
     },
     {
       question:
@@ -45,9 +45,9 @@ export class FaqSectionComponent implements AfterViewInit {
     },
     {
       question:
-        'Was ist, wenn ich unsicher bin, ob ich die Vision umsetzen kann?',
+        'Was ist wenn ich unsicher bin, ob ich die Vision umsetzen kann?',
       answer:
-        'Das ist eine berechtigte Sorge. Große Ziele können einschüchternd wirken. Gemeinsam entwickeln wir einen Schritt-für-Schritt-Plan, der dir Sicherheit gibt. Du musst nicht alles auf einmal schaffen; kleine, kontinuierliche Schritte führen zum Erfolg.',
+        'Das ist eine berechtigte Sorge. Große Ziele können einschüchternd wirken. Gemeinsam entwickeln wir einen Schritt-für-Schritt-Plan, der dir Sicherheit gibt. Du musst nicht alles auf einmal schaffen. Kleine, kontinuierliche Schritte führen zum Erfolg.',
     },
     {
       question: 'Was macht dein Coaching anders als andere Angebote?',
