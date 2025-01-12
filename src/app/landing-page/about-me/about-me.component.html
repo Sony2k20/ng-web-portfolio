@@ -1,55 +1,51 @@
 <div class="md:flex lg:min-h-screen mx-auto bg-secondary text-md xl:text-xl">
   <div
-    class="flex items-center justify-center md:w-3/5 lg:min-h-screen py-24 md:py-0 px-8 lg:px-20 2xl:px-32 text-center"
+    class="flex items-center justify-center md:w-3/5 lg:min-h-screen py-24 md:py-12 text-center"
   >
     <div
       class="w-full leading-8 xl:leading-9 flex flex-col items-center md:items-start text-md xl:text-xl text-left"
     >
-      <!-- <h1
-        class="mt-8 sm:mt-12 lg:mt-0 pb-8 sm:pb-10 [font-size:2.1rem] sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold font-eyesome text-black text-center fadeInTextFromTop"
-      >
-        Hello Gorgeous
-      </h1>
-      <hr class="[height:1.5px] border-0 w-60 mb-8 bg-accent mx-auto md:mx-0" /> -->
-
       <h2
         #headline
-        class="text-3xl xl:text-5xl uppercase animate leading-tight italic tracking-wider"
+        class="text-3xl xl:text-5xl uppercase animate leading-tight italic tracking-wider sm:px-8 lg:px-20 2xl:px-32"
       >
         Hello
         <span class="text-accent"> Georgous </span>
       </h2>
+      <div class="px-8 lg:px-20 2xl:px-32">
+        <hr
+          class="[height:1.5px] border-0 w-44 my-8 bg-accent mx-auto md:mx-0"
+        />
+        <p class="mb-4">
+          Mein Name ist Katharina, und als dein
+          <b>Transformations- und Erfolgscoach</b>
+          helfe ich dir dabei, deine berufliche Erfüllung wieder in dein Leben
+          zu holen. Wir finden heraus, <b>was dir Freude bereitet</b>, was dich
+          antreibt, und wie du deine <b>Stärken</b> und <b>Fähigkeiten</b> in
+          deinem <b>Beruf authentisch lebst</b>. Gemeinsam
+          <b>schaffen wir Klarheit</b>,<b> lösen Hindernisse</b> und geben dir
+          den <b>Mut</b>, deinen <b>individuellen Weg</b> zu gehen – weit über
+          Geld und Urlaubstage hinaus.
+        </p>
+        <p class="mb-4">
+          Warum ich weiß, wie wichtig das ist? Weil ich selbst erlebt habe. Nach
+          einem <b>schweren Motorradunfall</b> im Mai 2021 stand ich an einem
+          Wendepunkt. Ich musste mein Leben komplett neu ordnen und habe dabei
+          gelernt, <b>Verantwortung</b> für mein Leben zu übernehmen. Dieser
+          <b>schwierige Prozess</b> lehrte mich, wie wichtig es ist, meine
+          <b>kostbare Lebenszeit</b> nicht zu verschwenden. Heute ist es meine
+          <b>Herzensaufgabe</b>, Menschen wie dich dabei zu unterstützen, ihren
+          <b>inneren Kompass</b> zu finden und ihre <b>wahre Berufung</b>
+          zu entdecken. Lass uns diesen Weg gemeinsam gehen.
+        </p>
 
-      <hr class="[height:1.5px] border-0 w-44 my-8 bg-accent mx-auto md:mx-0" />
-      <p class="mb-4">
-        Mein Name ist Katharina, und als dein
-        <b>Transformations- und Erfolgscoach</b>
-        helfe ich dir dabei, deine berufliche Erfüllung wieder in dein Leben zu
-        holen. Wir finden heraus, <b>was dir Freude bereitet</b>, was dich
-        antreibt, und wie du deine <b>Stärken</b> und <b>Fähigkeiten</b> in
-        deinem <b>Beruf authentisch lebst</b>. Gemeinsam
-        <b>schaffen wir Klarheit</b>,<b> lösen Hindernisse</b> und geben dir den
-        <b>Mut</b>, deinen <b>individuellen Weg</b> zu gehen – weit über Geld
-        und Urlaubstage hinaus.
-      </p>
-      <p class="mb-4">
-        Warum ich weiß, wie wichtig das ist? Weil ich selbst erlebt habe. Nach
-        einem <b>schweren Motorradunfall</b> im Mai 2021 stand ich an einem
-        Wendepunkt. Ich musste mein Leben komplett neu ordnen und habe dabei
-        gelernt, <b>Verantwortung</b> für mein Leben zu übernehmen. Dieser
-        <b>schwierige Prozess</b> lehrte mich, wie wichtig es ist, meine
-        <b>kostbare Lebenszeit</b> nicht zu verschwenden. Heute ist es meine
-        <b>Herzensaufgabe</b>, Menschen wie dich dabei zu unterstützen, ihren
-        <b>inneren Kompass</b> zu finden und ihre <b>wahre Berufung</b>
-        zu entdecken. Lass uns diesen Weg gemeinsam gehen.
-      </p>
-
-      <button
-        (click)="scroller.scrollToSection(routes.About, 'header', $event)"
-        class="w-full text-right pr-3"
-      >
-        &rarr; mehr zu meiner Journey
-      </button>
+        <button
+          (click)="scroller.scrollToSection(routes.About, 'header', $event)"
+          class="w-full text-right pr-3"
+        >
+          &rarr; mehr zu meiner Journey
+        </button>
+      </div>
     </div>
   </div>
 
