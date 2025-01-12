@@ -12,10 +12,11 @@ export class LenisService {
 
   initLenis(): void {
     this.ngZone.runOutsideAngular(() => {
-      this.lenis = new Lenis();
+      this.lenis = new Lenis({});
 
       const raf = (time: number) => {
         if (this.lenis) {
+          ScrollTrigger.update();
           this.lenis.raf(time);
           this.animationFrameId = requestAnimationFrame(raf);
         }
