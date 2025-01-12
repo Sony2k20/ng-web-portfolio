@@ -19,11 +19,9 @@ export class CoachingComponent {
   scroller = inject(ScrollToSectionService);
 
   items = [
-    { text: '16 Wochen intensive Zusammenarbeit' },
+    { text: '16 Wochen intensive 1:1 Zusammenarbeit' },
     { text: '12 gemeinsame 90-minütige Calls' },
     { text: 'Worksheets und Aufgaben für Klarheit und Unterstützung' },
-    { text: 'Erkennen und Lösen blockierender Gedanken' },
-    { text: 'Mindset-Stärkung für dein erfülltes Leben' },
     { text: 'Konkreter Plan und Schritte zur beruflichen Erfüllung' },
     { text: 'Nachhaltige Routinen für langfristige Zufriedenheit' },
     { text: '16 Wochen voller WhatsApp-Support zwischen den Calls' },

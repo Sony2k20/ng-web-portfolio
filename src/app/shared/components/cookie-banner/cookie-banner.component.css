@@ -10,7 +10,7 @@
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   font-size: 14px;
-  font-family: roboto;
+  font-family: Aileron;
   color: var(--black);
   transition: opacity 0.4s ease-out;
 }

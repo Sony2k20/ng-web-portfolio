@@ -9,14 +9,21 @@
 
 @font-face {
   font-family: "Eyesome";
-  src: url("assets/fonts/Eyesome/EyesomeScript.woff2") format("truetype");
+  src: url("assets/fonts/EyesomeScript.woff2") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Droid";
-  src: url("assets/fonts/droid-serif/Droid-Serif.ttf.woff") format("truetype");
+  src: url("assets/fonts/Droid-Serif.woff2") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("assets/fonts/Aileron-Regular.woff2") format("truetype");
   font-weight: 100;
   font-style: normal;
 }

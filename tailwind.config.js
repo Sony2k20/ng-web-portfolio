@@ -19,8 +19,7 @@ module.exports = {
         'primary-dark-gradient': 'linear-gradient(to right top, rgba(205, 201, 230, 0.8), rgba(190, 185, 217, 0.6), rgba(176, 170, 205, 0.6), rgba(162, 154, 192, 0.6), rgba(148, 139, 180, 0.4), rgba(148, 139, 180, 0.4), rgba(148, 139, 180, 0.4), rgba(148, 139, 180, 0.4), rgba(162, 154, 192, 0.4), rgba(176, 170, 205, 0.6), rgba(190, 185, 217, 0.6), rgba(205, 201, 230, 0.8))',
       },
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-        times: ['"Times New Roman"', "serif"],
+        aileron: ["Aileron"],
         eyesome: ["Eyesome", "serif"],
         sans: ["Droid", "sans-serif"],
       },

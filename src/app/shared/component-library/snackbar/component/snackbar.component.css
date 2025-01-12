@@ -12,7 +12,7 @@
   animation:
     slideInFromBot 0.5s ease-in-out,
     fadeOut 0.5s 3s forwards;
-  font-family: Roboto;
+  font-family: Aileron;
   color: var(--secondary);
   text-align: center;
   display: flex;
