@@ -32,7 +32,7 @@ export class CustomCookieService {
   }
 
   acceptCookies() {
-    this.cookieService.set('cookieConsent', 'true', 90);
+    this.cookieService.set('cookieConsent', 'true', 365);
     this.googleAnalyticsService.loadAnalyticsScript();
 
     const buttonElement = document.querySelector(
@@ -50,7 +50,7 @@ export class CustomCookieService {
   }
 
   declineCookies() {
-    this.cookieService.set('cookieConsent', 'false');
+    this.cookieService.set('cookieConsent', 'false', 365);
 
     const cookies = this.cookieService.getAll();
     Object.keys(cookies).forEach((value) => {
