@@ -19,9 +19,6 @@ export class ReadyToRenderService {
   initialize() {
     this.watchLoadingSubjects();
     this.loadFont();
-    this.fontRdy$.subscribe((value) => {
-      console.log('Font ready status:', value);
-    });
   }
 
   private watchLoadingSubjects() {
