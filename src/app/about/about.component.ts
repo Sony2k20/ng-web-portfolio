@@ -20,4 +20,8 @@ export class AboutComponent {
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true);
   }
+
+  onImageLoad(event: Event): void {
+    this.readyToRenderService.aboutImageRdy$.next(true);
+  }
 }

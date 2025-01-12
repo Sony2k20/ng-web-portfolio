@@ -1,4 +1,22 @@
-<div *ngIf="readyToRenderService.fontRdy$ | async" class="bg-secondary">
+<img
+  srcset="
+    ../../assets/images/sm-about-bg.webp   768w,
+    ../../assets/images/md-about-bg.webp  1300w,
+    ../../assets/images/big-about-bg.webp 1500w
+  "
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+  (load)="onImageLoad($event)"
+  alt="background"
+  style="display: none"
+/>
+
+<div
+  *ngIf="
+    (readyToRenderService.aboutImageRdy$ | async) &&
+    (readyToRenderService.fontRdy$ | async)
+  "
+  class="bg-secondary"
+>
   <app-header id="header" class="bg-secondary"></app-header>
 
   <div class="flex flex-col xl:flex-row items-center">

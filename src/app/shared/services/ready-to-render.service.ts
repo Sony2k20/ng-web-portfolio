@@ -10,6 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class ReadyToRenderService {
   heroImageRdy$ = new BehaviorSubject<boolean>(false);
+  aboutImageRdy$ = new BehaviorSubject<boolean>(false);
   fontRdy$ = new BehaviorSubject<boolean>(false);
   isVideoReelLoaded$ = new BehaviorSubject<boolean>(false);
   private router = inject(Router);
@@ -22,22 +23,25 @@ export class ReadyToRenderService {
   }
 
   private watchLoadingSubjects() {
+    //sub for cookie service to for everything else
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd), // Wait for a navigation end event
-        take(1), // Only take the first navigation end event
+        filter((event) => event instanceof NavigationEnd),
+        take(1),
         switchMap(() => {
           console.log('Navigation ended, checking font readiness...');
           return this.fontRdy$.pipe(
-            filter((value) => value === true), // Wait for font readiness
-            take(1), // Only take the first time font is ready
+            filter((value) => value === true),
+            take(1),
           );
         }),
         switchMap(() => {
-          console.log('Router URL after navigation:', this.router.url);
           if (!this.router.url) return of(true);
           if (this.router.url === '/') {
-            return this.heroImageRdy$; // Wait for hero image readiness if on home page
+            return this.heroImageRdy$;
+          }
+          if (this.router.url === '/about') {
+            return this.aboutImageRdy$;
           }
           return of(true);
         }),
