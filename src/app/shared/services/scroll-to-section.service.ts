@@ -13,18 +13,6 @@ export class ScrollToSectionService {
   private navigationEndSubscription$?: Subscription;
   viewInitDone$ = new Subject<boolean>();
 
-  navigateAndWait(sectionId: string): void {
-    this.navigationEndSubscription$ = this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        switchMap(() => this.viewInitDone$.pipe(take(1))),
-        takeUntilDestroyed(this.destroyRef),
-      )
-      .subscribe(() => {
-        this.scrollToSectionUtil(sectionId, 300);
-      });
-  }
-
   scrollToSection(route: string, sectionId: string, event?: Event): void {
     if (event) {
       event.preventDefault();
@@ -41,37 +29,30 @@ export class ScrollToSectionService {
     }
   }
 
+  private navigateAndWait(sectionId: string): void {
+    this.navigationEndSubscription$ = this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        switchMap(() => this.viewInitDone$.pipe(take(1))),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        this.scrollToSectionUtil(sectionId, 200);
+      });
+  }
+
   private scrollToSectionUtil(sectionId: string, waitTime: number): void {
     setTimeout(() => {
-      // let sectionElement = document.querySelector(`#${sectionId}`);
+      let sectionElement = document.querySelector(`#${sectionId}`);
 
-      // if (sectionElement) {
-      //   sectionElement.scrollIntoView({
-      //     behavior: 'smooth',
-      //     block: 'start',
-      //   });
-      // }
-
-      let attempts = 0;
-      const interval = 100;
-      const maxAttempts = 3;
-
-      const checkAndScroll = setInterval(() => {
-        const sectionElement = document.querySelector(`#${sectionId}`);
-
-        if (sectionElement) {
-          clearInterval(checkAndScroll); // Stop checking when element is found
-          sectionElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        } else if (++attempts >= maxAttempts) {
-          clearInterval(checkAndScroll); // Stop checking after maxAttempts
-          console.warn(
-            `Element with ID "${sectionId}" was not found after ${maxAttempts} attempts.`,
-          );
-        }
-      }, interval);
+      if (sectionElement) {
+        const topOffset =
+          sectionElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: topOffset,
+          behavior: 'smooth',
+        });
+      }
 
       this.viewInitDone$.next(false);
       if (this.navigationEndSubscription$)
