@@ -35,6 +35,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*  Colors for shared components */
 :root {
   --accent-light: #9c788a;

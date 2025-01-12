@@ -16,7 +16,6 @@ export class LenisService {
 
       const raf = (time: number) => {
         if (this.lenis) {
-          ScrollTrigger.update();
           this.lenis.raf(time);
           this.animationFrameId = requestAnimationFrame(raf);
         }

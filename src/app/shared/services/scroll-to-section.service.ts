@@ -21,7 +21,7 @@ export class ScrollToSectionService {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => {
-        this.scrollToSectionUtil(sectionId, 200);
+        this.scrollToSectionUtil(sectionId, 300);
       });
   }
 
@@ -43,14 +43,35 @@ export class ScrollToSectionService {
 
   private scrollToSectionUtil(sectionId: string, waitTime: number): void {
     setTimeout(() => {
-      const sectionElement = document.querySelector(`#${sectionId}`);
+      // let sectionElement = document.querySelector(`#${sectionId}`);
 
-      if (sectionElement) {
-        sectionElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
+      // if (sectionElement) {
+      //   sectionElement.scrollIntoView({
+      //     behavior: 'smooth',
+      //     block: 'start',
+      //   });
+      // }
+
+      let attempts = 0;
+      const interval = 100;
+      const maxAttempts = 3;
+
+      const checkAndScroll = setInterval(() => {
+        const sectionElement = document.querySelector(`#${sectionId}`);
+
+        if (sectionElement) {
+          clearInterval(checkAndScroll); // Stop checking when element is found
+          sectionElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        } else if (++attempts >= maxAttempts) {
+          clearInterval(checkAndScroll); // Stop checking after maxAttempts
+          console.warn(
+            `Element with ID "${sectionId}" was not found after ${maxAttempts} attempts.`,
+          );
+        }
+      }, interval);
 
       this.viewInitDone$.next(false);
       if (this.navigationEndSubscription$)
