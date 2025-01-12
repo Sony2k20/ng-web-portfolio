@@ -31,7 +31,7 @@
         <p class="mb-8">
           {{ contact.Name }} <br />
           {{ contact.Street }} <br />
-          {{ contact.City }} <br />
+          {{ contact.PostalCode }} {{ contact.City }} <br />
           {{ contact.Country }} <br />
           E-Mail:
           <a class="hover:underline" [href]="'mailto:' + contact.Email">{{
