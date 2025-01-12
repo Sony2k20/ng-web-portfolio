@@ -1,8 +1,8 @@
 export enum Contact {
   Name = 'Katharina Niesche',
-  Street = 'Straße',
+  Street = 'Striesener Straße 30',
   City = 'Dresden',
-  PostalCode = 'Code',
+  PostalCode = '01307',
   Country = 'Deutschland',
   Email = 'coaching@katharinaniesche.de',
   Website = 'https://katharinaniesche.de',
