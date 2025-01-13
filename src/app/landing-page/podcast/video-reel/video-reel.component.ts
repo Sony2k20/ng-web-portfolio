@@ -54,7 +54,7 @@ export class VideoReelComponent {
       visibleClass,
       animationClass,
       '-170px',
-      900,
+      1500,
     );
   }
 
