@@ -29,6 +29,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.readyToRenderService.initialize();
-    // this.lenisService.initLenis();
+    this.lenisService.initLenis();
   }
 }
