@@ -1,44 +1,28 @@
-<img
-  srcset="
+<img srcset="
     ../../assets/images/sm-about-bg.webp   768w,
     ../../assets/images/md-about-bg.webp  1300w,
     ../../assets/images/big-about-bg.webp 1500w
-  "
-  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-  (load)="onImageLoad($event)"
-  alt="background"
-  style="display: none"
-/>
+  " sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw" (load)="onImageLoad($event)" alt="background"
+  style="display: none" />
 
-<div
-  *ngIf="
+<div *ngIf="
     (readyToRenderService.aboutImageRdy$ | async) &&
     (readyToRenderService.fontRdy$ | async)
-  "
-  class="bg-secondary"
->
+  " class="bg-secondary">
   <app-header id="header" class="bg-secondary"></app-header>
 
   <div class="flex flex-col xl:flex-row items-center">
-    <div
-      class="flex-shrink-0 xl:order-2 xl:w-4/12 2xl:w-5/12 fadeInBg pt-8 md:pt-0"
-    >
-      <img
-        src="../../assets/images/big-about-bg.webp"
-        srcset="
+    <div class="flex-shrink-0 xl:order-2 xl:w-4/12 2xl:w-5/12 fadeInBg pt-8 md:pt-0">
+      <img src="../../assets/images/big-about-bg.webp" srcset="
           ../../assets/images/sm-about-bg.webp   768w,
           ../../assets/images/md-about-bg.webp  1300w,
           ../../assets/images/big-about-bg.webp 1500w
-        "
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-        alt="Beschreibung des Bildes"
-        class="xl:h-screen w-full object-cotain xl:object-cover"
-      />
+        " sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw" alt="Beschreibung des Bildes"
+        class="xl:h-screen w-full object-cotain xl:object-cover" />
     </div>
 
     <div
-      class="sm:-mt-44 md:-mt-80 lg:-mt-96 xl:mt-16 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-14 2xl:px-16 xl:order-1 bg-secondary opacity-0 fadeInTextFromTop animDelay04"
-    >
+      class="sm:-mt-44 md:-mt-80 lg:-mt-96 xl:mt-16 flex-1 justify-center items-center leading-8 lg:leading-9 px-8 xl:px-14 2xl:px-16 xl:order-1 bg-secondary opacity-0 fadeInTextFromTop animDelay04">
       <p class="font-semibold pb-4 pt-10 xl:pt-0">
         "Mach etwas, das man immer braucht.“
       </p>
@@ -51,26 +35,24 @@
       <p class="pb-4 animDelay06">
         Dann kam der Wendepunkt. Im Mai 2021 hatte ich einen schweren
         Motorradunfall. Ich war wochenlang ans Bett gefesselt, auf Hilfe
-        angewiesen, und die Ärzte sagten meiner Familie, dass ich vielleicht nie
+        angewiesen und die Ärzte sagten meiner Familie, dass ich vielleicht nie
         wieder laufen könnte. Diese Zeit war eine der schwersten meines Lebens.
-        Ich war allein mit meinen Gedanken – und stellte mir die Fragen, die ich
+        Ich war allein mit meinen Gedanken und stellte mir die Fragen, die ich
         vorher immer weggeschoben hatte: Warum bin ich hier? Was will ich
-        wirklich? Wie soll mein Leben aussehen, wenn ich eine zweite Chance
+        wirklich? Wie soll mein Leben aussehen wenn ich eine zweite Chance
         bekomme?
       </p>
       <p class="pb-4">
-        In den Monaten danach habe ich gelernt, wieder zu laufen – und mehr
-        noch, wieder zu leben. Ich habe verstanden, wie kostbar das Leben ist
-        und wie wichtig es ist, es mit Sinn zu füllen. Es hat mir gezeigt, dass
-        wir nicht einfach weitermachen sollten, nur weil es sicher oder bequem
-        ist.
+        In den folgenden Monaten lernte ich nicht nur wieder zu gehen, sondern auch wieder richtig zu leben. Ich habe
+        verstanden wie kostbar das Leben ist und wie wichtig es ist, es mit Sinn zu füllen. Es hat mir gezeigt, dass wir
+        nicht einfach weitermachen sollten, nur weil es sicher oder bequem ist.
       </p>
       <p class="pb-10">
-        Heute weiß ich: Wir haben alle die Möglichkeit, unser Leben so zu
+        Heute weiß ich: Wir haben alle die Möglichkeit unser Leben so zu
         gestalten, dass es uns wirklich erfüllt. Und genau dabei möchte ich dich
-        begleiten. Gemeinsam finden wir heraus, was dich antreibt, was dir
+        begleiten. Gemeinsam finden wir heraus was dich antreibt, was dir
         Freude bringt und wie du deine Berufung leben kannst. Denn dein Leben
-        ist zu wertvoll, um es in einem Job zu verbringen, der dich leer
+        ist zu wertvoll, um es in einem Job zu verbringen der dich leer
         zurücklässt.
       </p>
     </div>
