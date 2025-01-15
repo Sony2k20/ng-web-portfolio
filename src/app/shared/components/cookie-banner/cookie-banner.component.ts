@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CustomCookieService } from '../../services/custom-cookie.service';
-import { Routes } from '../../enums/routes.enum';
-import { ScrollToSectionService } from '../../services/scroll-to-section.service';
+import { CommonModule } from '@angular/common'
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
+import { CustomCookieService } from '../../services/custom-cookie.service'
+import { Routes } from '../../enums/routes.enum'
+import { ScrollToSectionService } from '../../services/scroll-to-section.service'
 
 @Component({
   selector: 'app-cookie-banner',
@@ -12,16 +12,16 @@ import { ScrollToSectionService } from '../../services/scroll-to-section.service
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CookieBannerComponent {
-  routes = Routes;
-  scroller = inject(ScrollToSectionService);
+  routes = Routes
+  scroller = inject(ScrollToSectionService)
 
-  customCookieService = inject(CustomCookieService);
+  customCookieService = inject(CustomCookieService)
 
   acceptCookies() {
-    this.customCookieService.acceptCookies();
+    this.customCookieService.acceptCookies()
   }
 
   declineCookies() {
-    this.customCookieService.declineCookies();
+    this.customCookieService.declineCookies()
   }
 }

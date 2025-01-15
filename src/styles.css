@@ -1,4 +1,4 @@
-@import "lenis/dist/lenis.css";
+@import 'lenis/dist/lenis.css';
 
 /*  Tailwind base, components, and utilities */
 @tailwind base;
@@ -8,22 +8,22 @@
 /*  Font Faces */
 
 @font-face {
-  font-family: "Eyesome";
-  src: url("assets/fonts/EyesomeScript.woff2") format("truetype");
+  font-family: 'Eyesome';
+  src: url('assets/fonts/EyesomeScript.woff2') format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Droid";
-  src: url("assets/fonts/Droid-Serif.woff2") format("truetype");
+  font-family: 'Droid';
+  src: url('assets/fonts/Droid-Serif.woff2') format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Aileron";
-  src: url("assets/fonts/Aileron-Regular.woff2") format("truetype");
+  font-family: 'Aileron';
+  src: url('assets/fonts/Aileron-Regular.woff2') format('truetype');
   font-weight: 100;
   font-style: normal;
 }

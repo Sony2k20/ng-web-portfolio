@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
+import { Injectable } from '@angular/core'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from 'gsap'
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class ScrollTriggerHeaderService {
         },
         { yPercent: 0, paused: true, duration: 0.2, opacity: 1.0 },
       )
-      .progress(1);
+      .progress(1)
 
     ScrollTrigger.create({
       start: 'top top',
@@ -25,11 +25,11 @@ export class ScrollTriggerHeaderService {
       markers: false,
       onUpdate: (self) => {
         if (self.direction === -1) {
-          showAnim.play();
+          showAnim.play()
         } else {
-          showAnim.reverse();
+          showAnim.reverse()
         }
       },
-    });
+    })
   }
 }

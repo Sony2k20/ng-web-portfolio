@@ -3,7 +3,7 @@ import {
   Component,
   QueryList,
   ViewChildren,
-} from '@angular/core';
+} from '@angular/core'
 
 @Component({
   selector: 'app-handwriting-animation',
@@ -12,7 +12,7 @@ import {
   styleUrl: './handwriting-animation.component.css',
 })
 export class HandwritingAnimationComponent implements AfterViewInit {
-  @ViewChildren('maskPath') maskPaths?: QueryList<SVGPathElement>;
+  @ViewChildren('maskPath') maskPaths?: QueryList<SVGPathElement>
   masks = [
     'erfolg-erfol',
     'erfolg-g',
@@ -23,18 +23,18 @@ export class HandwritingAnimationComponent implements AfterViewInit {
     'dir-d',
     'dir-ir',
     'dir-point',
-  ];
+  ]
 
   ngAfterViewInit(): void {
     this.masks.forEach((mask) => {
-      const id = `#mask-${mask}`;
-      const path = document.querySelector(id) as SVGPathElement;
+      const id = `#mask-${mask}`
+      const path = document.querySelector(id) as SVGPathElement
 
       if (path) {
-        const length = path.getTotalLength();
-        path.style.strokeDasharray = length.toString();
-        path.style.strokeDashoffset = length.toString();
+        const length = path.getTotalLength()
+        path.style.strokeDasharray = length.toString()
+        path.style.strokeDashoffset = length.toString()
       }
-    });
+    })
   }
 }

@@ -43,7 +43,7 @@
 .flap::before,
 .flap::after {
   position: absolute;
-  content: "";
+  content: '';
   height: 100%;
   width: 50%;
   background: linear-gradient(

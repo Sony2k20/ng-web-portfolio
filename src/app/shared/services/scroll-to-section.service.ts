@@ -1,31 +1,31 @@
-import { DestroyRef, inject, Injectable } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter, Subject, Subscription, switchMap, take } from 'rxjs';
+import { DestroyRef, inject, Injectable } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { NavigationEnd, Router } from '@angular/router'
+import { filter, Subject, Subscription, switchMap, take } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScrollToSectionService {
-  private router = inject(Router);
-  private destroyRef = inject(DestroyRef);
+  private router = inject(Router)
+  private destroyRef = inject(DestroyRef)
 
-  private navigationEndSubscription$?: Subscription;
-  viewInitDone$ = new Subject<boolean>();
+  private navigationEndSubscription$?: Subscription
+  viewInitDone$ = new Subject<boolean>()
 
   scrollToSection(route: string, sectionId: string, event?: Event): void {
     if (event) {
-      event.preventDefault();
+      event.preventDefault()
     }
 
     if (
       //removes backslash
       this.router.url.replace(/^\/|\/$/g, '') === route.replace(/^\/|\/$/g, '')
     ) {
-      this.scrollToSectionUtil(sectionId, 100);
+      this.scrollToSectionUtil(sectionId, 100)
     } else {
-      this.navigateAndWait(sectionId);
-      this.router.navigate([route]);
+      this.navigateAndWait(sectionId)
+      this.router.navigate([route])
     }
   }
 
@@ -37,26 +37,26 @@ export class ScrollToSectionService {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => {
-        this.scrollToSectionUtil(sectionId, 200);
-      });
+        this.scrollToSectionUtil(sectionId, 200)
+      })
   }
 
   private scrollToSectionUtil(sectionId: string, waitTime: number): void {
     setTimeout(() => {
-      let sectionElement = document.querySelector(`#${sectionId}`);
+      let sectionElement = document.querySelector(`#${sectionId}`)
 
       if (sectionElement) {
         const topOffset =
-          sectionElement.getBoundingClientRect().top + window.pageYOffset;
+          sectionElement.getBoundingClientRect().top + window.pageYOffset
         window.scrollTo({
           top: topOffset,
           behavior: 'smooth',
-        });
+        })
       }
 
-      this.viewInitDone$.next(false);
+      this.viewInitDone$.next(false)
       if (this.navigationEndSubscription$)
-        this.navigationEndSubscription$?.unsubscribe();
-    }, waitTime);
+        this.navigationEndSubscription$?.unsubscribe()
+    }, waitTime)
   }
 }

@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, ElementRef, inject } from '@angular/core';
-import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service';
-import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component';
-import { Routes } from '../../shared/enums/routes.enum';
-import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service';
+import { CommonModule } from '@angular/common'
+import { Component, AfterViewInit, ElementRef, inject } from '@angular/core'
+import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
+import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
+import { Routes } from '../../shared/enums/routes.enum'
+import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service'
 
 @Component({
   selector: 'app-faq-section',
@@ -12,18 +12,18 @@ import { ScrollToSectionService } from '../../shared/services/scroll-to-section.
 })
 export class FaqSectionComponent implements AfterViewInit {
   // This will hold the state of the accordion items
-  openIndex: number | null = null;
-  routes = Routes;
-  scroller = inject(ScrollToSectionService);
-  private elementRef = inject(ElementRef);
-  private intersectionObserverService = inject(IntersectionObserverService);
+  openIndex: number | null = null
+  routes = Routes
+  scroller = inject(ScrollToSectionService)
+  private elementRef = inject(ElementRef)
+  private intersectionObserverService = inject(IntersectionObserverService)
 
   ngAfterViewInit() {
     this.intersectionObserverService.observeElements(
       this.elementRef,
       'animate-visible',
       'animate',
-    );
+    )
   }
 
   accordionItems = [
@@ -54,13 +54,13 @@ export class FaqSectionComponent implements AfterViewInit {
       answer:
         'Mein Coaching basiert nicht nur auf Techniken und Methoden, sondern auch auf meiner persönlichen Erfahrung. Nach einem schweren Motorradunfall musste ich mein Leben komplett neu gestalten. Heute lebe ich meine Berufung – und genau das möchte ich auch dir ermöglichen. Mit einer Mischung aus Empathie, Struktur und Praxisnähe begleite ich dich auf deinem Weg.',
     },
-  ];
+  ]
 
   toggleAccordion(index: number) {
-    this.openIndex = this.openIndex === index ? null : index;
+    this.openIndex = this.openIndex === index ? null : index
   }
 
   trackByIndex(index: number, item: any): number {
-    return index;
+    return index
   }
 }

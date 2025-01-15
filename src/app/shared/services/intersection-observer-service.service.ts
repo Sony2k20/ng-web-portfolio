@@ -1,4 +1,4 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core'
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class IntersectionObserverService {
    * @param rootMargin - The intersection shift in y-axis (min should be '-180px').
    * @param delay - Delay for animation.
    */
-  private observer: IntersectionObserver | null = null;
+  private observer: IntersectionObserver | null = null
 
   observeElements(
     elementRef: ElementRef,
@@ -24,11 +24,11 @@ export class IntersectionObserverService {
   ) {
     const elements = elementRef.nativeElement.querySelectorAll(
       `.${querySelectorClass}`,
-    );
+    )
 
     if (elements.length === 0) {
-      console.warn(`Elements with class "${querySelectorClass}" not found.`);
-      return;
+      console.warn(`Elements with class "${querySelectorClass}" not found.`)
+      return
     }
 
     this.observer = new IntersectionObserver(
@@ -36,19 +36,19 @@ export class IntersectionObserverService {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add(classNameToAdd);
-            }, delay);
-            this.observer?.unobserve(entry.target);
+              entry.target.classList.add(classNameToAdd)
+            }, delay)
+            this.observer?.unobserve(entry.target)
           }
-        });
+        })
       },
       { rootMargin },
-    );
+    )
 
-    elements.forEach((element: Element) => this.observer!.observe(element));
+    elements.forEach((element: Element) => this.observer!.observe(element))
   }
 
   ngOnDestroy() {
-    this.observer?.disconnect();
+    this.observer?.disconnect()
   }
 }

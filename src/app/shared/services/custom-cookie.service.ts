@@ -1,75 +1,75 @@
-import { inject, Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { GoogleAnalyticsService } from './google-analytics.service';
-import { BehaviorSubject } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { inject, Injectable } from '@angular/core'
+import { CookieService } from 'ngx-cookie-service'
+import { GoogleAnalyticsService } from './google-analytics.service'
+import { BehaviorSubject } from 'rxjs'
+import { environment } from '../../../environments/environment'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomCookieService {
-  $showCookieBanner = new BehaviorSubject<boolean>(false);
+  $showCookieBanner = new BehaviorSubject<boolean>(false)
 
-  private cookieService = inject(CookieService);
-  private googleAnalyticsService = inject(GoogleAnalyticsService);
+  private cookieService = inject(CookieService)
+  private googleAnalyticsService = inject(GoogleAnalyticsService)
 
   initializeCookieService() {
     if (environment.cookies === 'true') {
-      const cookieConsent = this.cookieService.get('cookieConsent');
+      const cookieConsent = this.cookieService.get('cookieConsent')
       if (cookieConsent === 'false') {
-        const cookies = this.cookieService.getAll();
+        const cookies = this.cookieService.getAll()
         Object.keys(cookies).forEach((value) => {
           if (value.includes('_ga')) {
-            this.cookieService.delete(value);
+            this.cookieService.delete(value)
           }
-        });
+        })
       } else if (cookieConsent === 'true') {
-        this.googleAnalyticsService.loadAnalyticsScript();
+        this.googleAnalyticsService.loadAnalyticsScript()
       } else {
-        this.$showCookieBanner.next(true);
+        this.$showCookieBanner.next(true)
       }
     }
   }
 
   acceptCookies() {
-    this.cookieService.set('cookieConsent', 'true', 365);
-    this.googleAnalyticsService.loadAnalyticsScript();
+    this.cookieService.set('cookieConsent', 'true', 365)
+    this.googleAnalyticsService.loadAnalyticsScript()
 
     const buttonElement = document.querySelector(
       '.cookie-banner',
-    ) as HTMLElement;
+    ) as HTMLElement
     if (buttonElement) {
-      buttonElement.classList.add('slideOutFromBot');
+      buttonElement.classList.add('slideOutFromBot')
     }
 
     setTimeout(() => {
       if (buttonElement) {
-        this.$showCookieBanner.next(false);
+        this.$showCookieBanner.next(false)
       }
-    }, 400);
+    }, 400)
   }
 
   declineCookies() {
-    this.cookieService.set('cookieConsent', 'false', 365);
+    this.cookieService.set('cookieConsent', 'false', 365)
 
-    const cookies = this.cookieService.getAll();
+    const cookies = this.cookieService.getAll()
     Object.keys(cookies).forEach((value) => {
       if (value.includes('_ga')) {
-        this.cookieService.delete(value);
+        this.cookieService.delete(value)
       }
-    });
+    })
 
     const buttonElement = document.querySelector(
       '.cookie-banner',
-    ) as HTMLElement;
+    ) as HTMLElement
     if (buttonElement) {
-      buttonElement.classList.add('slideOutFromBot');
+      buttonElement.classList.add('slideOutFromBot')
     }
 
     setTimeout(() => {
       if (buttonElement) {
-        this.$showCookieBanner.next(false);
+        this.$showCookieBanner.next(false)
       }
-    }, 400);
+    }, 400)
   }
 }

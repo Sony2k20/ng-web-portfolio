@@ -27,7 +27,7 @@
 
 .loading-sc-bounceball::before {
   position: absolute;
-  content: "";
+  content: '';
   display: block;
   top: 0;
   width: 15px;

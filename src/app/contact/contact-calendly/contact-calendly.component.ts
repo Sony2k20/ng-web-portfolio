@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core'
 
 @Component({
   selector: 'app-contact-calendly',
@@ -7,9 +7,9 @@ import { AfterViewInit, Component } from '@angular/core';
 })
 export class ContactCalendlyComponent implements AfterViewInit {
   ngAfterViewInit(): void {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const script = document.createElement('script')
+    script.src = 'https://assets.calendly.com/assets/external/widget.js'
+    script.async = true
+    document.body.appendChild(script)
   }
 }

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-loading-dots',
@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './loading-dots.component.css',
 })
 export class LoadingDotsComponent {
-  @Input() additionalClasses: string = '';
+  @Input() additionalClasses: string = ''
 }

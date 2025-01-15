@@ -1,5 +1,5 @@
-import { EnvironmentPlugin } from 'webpack';
-const Dotenv = require('dotenv-webpack');
+import { EnvironmentPlugin } from 'webpack'
+const Dotenv = require('dotenv-webpack')
 module.exports = {
   optimization: {
     usedExports: true, // Tree-shaking for used exports
@@ -8,4 +8,4 @@ module.exports = {
   },
   mode: 'production',
   plugins: [new Dotenv()],
-};
+}
