@@ -63,5 +63,6 @@ jobs:
             docker run -d \
               --name ${{ github.event.repository.name }} \
               --network my_network \
+              --restart unless-stopped \
               -p 4200:80 \
               sony2k20/${{ github.event.repository.name }}:prod
