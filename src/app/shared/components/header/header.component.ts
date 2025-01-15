@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HamburgerMenuComponent } from '../../component-library/hamburger-menu/hamburger-menu.component'
-import { RouterModule } from '@angular/router'
+import { Router, RouterModule } from '@angular/router'
 import { ScrollToSectionService } from '../../services/scroll-to-section.service'
 import { ScrollTriggerHeaderService } from '../../services/scroll-trigger-header.service'
 import { Contact } from '../../enums/contact.enum'
@@ -22,18 +22,16 @@ import { Routes } from '../../enums/routes.enum'
 export class HeaderComponent implements OnInit {
   @ViewChild('start', { static: false }) start!: ElementRef
   routes = Routes
-
   contact = Contact
-
-  private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService)
-
-  scroller = inject(ScrollToSectionService)
-
   isMenuOpen = false
   isElementVisible = false
   isScrolled = false
-
   isSmallScreen = false
+
+  scroller = inject(ScrollToSectionService)
+  router = inject(Router)
+
+  private scrollTriggerHeaderService = inject(ScrollTriggerHeaderService)
 
   @HostListener('window:resize', [])
   onResize() {
@@ -86,5 +84,9 @@ export class HeaderComponent implements OnInit {
         this.scroller.scrollToSection(route, sectionId, event)
       }, 400)
     } else this.scroller.scrollToSection(route, sectionId, event)
+  }
+
+  isActiveRoute(route: string): boolean {
+    return this.router.url === route
   }
 }

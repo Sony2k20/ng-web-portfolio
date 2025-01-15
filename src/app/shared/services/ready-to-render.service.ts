@@ -63,14 +63,16 @@ export class ReadyToRenderService {
     const eyesomeFont = new FontFaceObserver('Eyesome', {
       weight: 100,
     })
+    const aileronFont = new FontFaceObserver('Aileron', {
+      weight: 400,
+    })
 
-    eyesomeFont
-      .load(null, 5000)
+    Promise.all([eyesomeFont.load(null, 5000), aileronFont.load(null, 5000)])
       .then(() => {
         this.fontRdy$.next(true)
       })
       .catch((error) => {
-        console.error('Font failed to load', error)
+        console.error('One or more fonts failed to load', error)
       })
   }
 }
