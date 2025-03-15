@@ -19,7 +19,11 @@ export class EmailService {
   private http = inject(HttpClient)
 
   sendEmail(payload: EmailPayload): Observable<void> {
-    return this.http.post<void>(this.API_URL, payload)
+    return this.http.post<void>(`${this.API_URL}/email/send`, payload)
+  }
+
+  sendWorkbook(payload: EmailPayload): Observable<void> {
+    return this.http.post<void>(`${this.API_URL}/email/sendWorkbook`, payload)
   }
 
   getTemplate(fileName: string): Observable<string> {

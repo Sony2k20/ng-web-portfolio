@@ -1,0 +1,65 @@
+<div
+  class="mx-auto max-w-screen-lg px-5 sm:px-12 2xl:px-0 py-24 text-md xl:text-xl leading-8 md:min-h-screen flex flex-col justify-center items-center"
+>
+  <div>
+    <h2
+      class="text-3xl xl:text-5xl text-center uppercase leading-tight italic tracking-wider animate"
+    >
+      Workbook
+    </h2>
+    <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
+
+    <div class="flex flex-col items-center text-center pt-16 border-t">
+      <p class="pb-12 leading-8 xl:leading-9">
+        Trage deine E-Mail Adresse ein um ein kostenloses Workbook zu erhalten.
+      </p>
+
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="emailForm"
+        class="mx-auto px-2 w-full"
+      >
+        <div class="mb-5">
+          <label for="to" class="mb-2 text-sm"
+            >E-Mail Adresse <span class="text-red-700">*</span></label
+          >
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="bg-white border border-primary font-aileron text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+            [ngClass]="{
+              'border-red-700':
+                emailForm.get('email')?.invalid &&
+                emailForm.get('email')?.touched,
+            }"
+          />
+          <div
+            *ngIf="
+              emailForm.get('email')?.touched && emailForm.get('email')?.invalid
+            "
+            class="text-red-700 text-xs mt-1"
+          >
+            <div *ngIf="emailForm.get('email')?.errors?.['required']">
+              E-Mail Adresse ist erforderlich.
+            </div>
+            <div *ngIf="emailForm.get('email')?.errors?.['email']">
+              Bitte geben Sie eine gültige E-Mail-Adresse ein.
+            </div>
+          </div>
+        </div>
+
+        <div class="min-h-3 mb-4">
+          <app-loading-dots *ngIf="isLoading"></app-loading-dots>
+        </div>
+
+        <app-main-button
+          [isDisabled]="isLoading"
+          type="submit"
+          text="Absenden"
+          additionalClasses="flex mx-auto uppercase"
+        ></app-main-button>
+      </form>
+    </div>
+  </div>
+</div>
