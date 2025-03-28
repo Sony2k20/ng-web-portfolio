@@ -43,7 +43,6 @@ export class WorkbookComponent implements AfterViewInit {
 
   private fb = inject(FormBuilder)
   private snackbarService = inject(SnackbarService)
-  private emailWorkbookTemplate: string = ''
   private emailService = inject(EmailService)
 
   constructor() {
@@ -68,20 +67,19 @@ export class WorkbookComponent implements AfterViewInit {
     }
     this.isLoading = true
 
-    const confirmationEmail: EmailPayload = {
-      fromName: 'Katharina Niesche',
-      to: this.emailForm.get('email')?.value,
-      subject: 'Dein Workbook',
-      text: '',
-      html: this.emailWorkbookTemplate,
-    }
-
     this.emailService
       .getTemplate('email-workbook.html')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         switchMap((content) => {
-          this.emailWorkbookTemplate = content
+          const confirmationEmail: EmailPayload = {
+            fromName: 'Katharina Niesche',
+            to: this.emailForm.get('email')?.value,
+            subject: 'Dein Workbook wartet auf dich! \u2728',
+            text: '',
+            html: content,
+          }
+
           return this.emailService.sendWorkbook(confirmationEmail)
         }),
       )
