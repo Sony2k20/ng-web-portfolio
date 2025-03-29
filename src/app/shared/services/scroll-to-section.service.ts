@@ -13,7 +13,12 @@ export class ScrollToSectionService {
   private navigationEndSubscription$?: Subscription
   viewInitDone$ = new Subject<boolean>()
 
-  scrollToSection(route: string, sectionId: string, event?: Event): void {
+  scrollToSection(
+    route: string,
+    sectionId: string,
+    event?: Event,
+    tab?: string,
+  ): void {
     if (event) {
       event.preventDefault()
     }
@@ -25,7 +30,7 @@ export class ScrollToSectionService {
       this.scrollToSectionUtil(sectionId, 100)
     } else {
       this.navigateAndWait(sectionId)
-      this.router.navigate([route])
+      this.router.navigate([route], { queryParams: { tab: tab } })
     }
   }
 

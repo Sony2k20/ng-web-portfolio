@@ -10,6 +10,7 @@ import { CoachingComponent } from './coaching/coaching.component'
 import { ReadyToRenderService } from '../shared/services/ready-to-render.service'
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service'
 import { WorkbookComponent } from './workbook/workbook.component'
+import { DeepDiveComponent } from './deep-dive/deep-dive.component'
 
 @Component({
   selector: 'app-landing-page',
@@ -23,6 +24,7 @@ import { WorkbookComponent } from './workbook/workbook.component'
     FooterComponent,
     CoachingComponent,
     WorkbookComponent,
+    DeepDiveComponent,
   ],
   templateUrl: './landing-page.component.html',
 })
