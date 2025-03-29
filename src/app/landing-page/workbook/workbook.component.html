@@ -5,24 +5,24 @@
     <h2
       class="text-3xl xl:text-5xl text-center uppercase leading-tight italic tracking-wider animate"
     >
-      Workbook
+      Finde Klarheit über deine Berufung
     </h2>
     <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
 
-    <div class="flex flex-col items-center text-center pt-16 border-t">
+    <div class="flex flex-col items-center text-center pt-16">
       <p class="pb-12 leading-8 xl:leading-9">
-        Trage deine E-Mail Adresse ein um ein kostenloses Workbook zu erhalten.
+        Starte jetzt deine Reise zu mehr beruflicher Erfüllung! Trage einfach
+        <br />
+        deine E-Mail-Adresse ein, und ich sende dir dein Workbook direkt zu.
       </p>
 
       <form
         (ngSubmit)="onSubmit()"
         [formGroup]="emailForm"
-        class="mx-auto px-2 w-full"
+        class="mx-auto px-2 max-w-96 w-full"
       >
         <div class="mb-5">
-          <label for="to" class="mb-2 text-sm"
-            >E-Mail Adresse <span class="text-red-700">*</span></label
-          >
+          <label for="to" class="mb-2 text-sm">E-Mail Adresse </label>
           <input
             id="email"
             formControlName="email"

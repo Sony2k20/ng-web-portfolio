@@ -19,6 +19,22 @@
       ></div>
     </button>
     <button
+      (click)="switchTab('deep-dive')"
+      [class.active]="activeTab === 'deep-dive'"
+      class="flex-1 px-4 py-3 transition-colors duration-500 fadeInNav"
+      [ngClass]="
+        activeTab === 'deep-dive'
+          ? 'bg-transparent hover:bg-transparent cursor-default'
+          : 'bg-accent-light/25 hover:bg-accent-light cursor-pointer'
+      "
+    >
+      Deep Dive
+      <div
+        *ngIf="activeTab === 'deep-dive'"
+        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+      ></div>
+    </button>
+    <button
       (click)="switchTab('general')"
       [class.active]="activeTab === 'general'"
       class="flex-1 px-4 py-3 transition-colors duration-500 fadeInNav"
@@ -39,8 +55,20 @@
     class="fadeInNav"
     [ngClass]="activeTab === 'coaching' ? 'visible' : 'hidden'"
   >
-    <app-contact-calendly></app-contact-calendly>
+    <app-contact-calendly
+      baseUrl="https://calendly.com/katharinaniesche/30min"
+    ></app-contact-calendly>
   </div>
+
+  <div
+    class="fadeInNav"
+    [ngClass]="activeTab === 'deep-dive' ? 'visible' : 'hidden'"
+  >
+    <app-contact-calendly
+      baseUrl="https://calendly.com/katharinaniesche/deep-dive-session"
+    ></app-contact-calendly>
+  </div>
+
   <div
     class="fadeInNav p-5 pb-9"
     [ngClass]="activeTab === 'general' ? 'visible' : 'hidden'"
