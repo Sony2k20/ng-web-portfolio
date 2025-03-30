@@ -1,65 +1,101 @@
 <div
-  class="mx-auto max-w-screen-lg px-5 sm:px-12 2xl:px-0 py-24 text-md xl:text-xl leading-8 md:min-h-screen flex flex-col justify-center items-center"
+  class="mx-auto max-w-screen-2xl px-8 sm:px-12 2xl:px-0 py-24 pb-22 text-md xl:text-xl leading-8 md:min-h-screen flex flex-col"
 >
   <div>
-    <h2
-      class="text-3xl xl:text-5xl text-center uppercase leading-tight italic tracking-wider animate"
-    >
-      Finde Klarheit über deine Berufung
-    </h2>
-    <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
+    <div class="text-center leading-tight uppercase animate">
+      <h2 class="text-3xl xl:text-5xl mb-5 italic tracking-wider mx-2">
+        Mein Workbook
+      </h2>
+      <h3 class="text-2xl xl:text-3xl leading-tight tracking-wider">
+        Dein Start in die Berufung
+      </h3>
+    </div>
 
-    <div class="flex flex-col items-center text-center pt-16">
-      <p class="pb-12 leading-8 xl:leading-9">
-        Starte jetzt deine Reise zu mehr beruflicher Erfüllung! Trage einfach
-        <br />
-        deine E-Mail-Adresse ein, und ich sende dir dein Workbook direkt zu.
-      </p>
+    <hr
+      class="[height:1.5px] border-0 w-44 md:w-64 my-8 mb-11 bg-accent mx-auto"
+    />
 
-      <form
-        (ngSubmit)="onSubmit()"
-        [formGroup]="emailForm"
-        class="mx-auto px-2 max-w-96 w-full"
-      >
-        <div class="mb-5">
-          <label for="to" class="mb-2 text-sm">E-Mail Adresse </label>
-          <input
-            id="email"
-            formControlName="email"
-            type="email"
-            class="bg-white border border-primary font-aileron text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
-            [ngClass]="{
-              'border-red-700':
-                emailForm.get('email')?.invalid &&
-                emailForm.get('email')?.touched,
-            }"
-          />
-          <div
-            *ngIf="
-              emailForm.get('email')?.touched && emailForm.get('email')?.invalid
+    <div class="xl:flex relative mx-auto text-md xl:text-xl overflow-hidden">
+      <!-- Left Section (Image) -->
+      <div class="flex mx-auto items-center justify-center xl:justify-end">
+        <div
+          class="flex-shrink-0 w-11/12 sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-8/12 xl:mr-24"
+        >
+          <img
+            src="../../assets/images/workbook.png"
+            srcset="
+              ../../assets/images/workbook.png  768w,
+              ../../assets/images/workbook.png 1300w,
+              ../../assets/images/workbook.png 1500w
             "
-            class="text-red-700 text-xs mt-1"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            alt="Beschreibung des Bildes"
+            class="w-full h-auto max-h-[90vh] object-contain"
+          />
+        </div>
+      </div>
+
+      <!-- Right Section (Text Content) -->
+      <div
+        class="flex flex-col mx-auto items-center xl:items-start justify-center w-full md:w-11/12 lg:w-9/12 2xl:[width:69%] 3xl:[width:62%] h-full pl-0 pt-10 pb-2 xl:mr-36"
+      >
+        <div class="flex flex-col items-center text-center">
+          <p class="pb-10 leading-8 xl:leading-9">
+            Du spürst, dass da mehr für dich möglich ist, aber irgendwie fehlt
+            der klare nächste Schritt? Dieses
+            <strong>kostenlose</strong> Workbook ist dein erster Guide: ein
+            kompakter Begleiter, um Blockaden zu lösen , deine wahren Stärken zu
+            erkennen und mutige Entscheidungen zu treffen. Trage deine
+            E-Mail-Adresse ein, und ich sende dir dein Workbook direkt zu!
+          </p>
+
+          <form
+            (ngSubmit)="onSubmit()"
+            [formGroup]="emailForm"
+            class="mx-auto px-2 max-w-96 w-full"
           >
-            <div *ngIf="emailForm.get('email')?.errors?.['required']">
-              E-Mail Adresse ist erforderlich.
+            <div class="mb-4">
+              <label for="to" class="mb-2 text-sm">E-Mail Adresse </label>
+              <input
+                id="email"
+                formControlName="email"
+                type="email"
+                class="bg-white border border-primary font-aileron text-sm rounded-lg focus:ring-accent-dark focus:border-accent block w-full p-2.5"
+                [ngClass]="{
+                  'border-red-700':
+                    emailForm.get('email')?.invalid &&
+                    emailForm.get('email')?.touched,
+                }"
+              />
+              <div
+                *ngIf="
+                  emailForm.get('email')?.touched &&
+                  emailForm.get('email')?.invalid
+                "
+                class="text-red-700 text-xs mt-1"
+              >
+                <div *ngIf="emailForm.get('email')?.errors?.['required']">
+                  E-Mail Adresse ist erforderlich.
+                </div>
+                <div *ngIf="emailForm.get('email')?.errors?.['email']">
+                  Bitte geben Sie eine gültige E-Mail-Adresse ein.
+                </div>
+              </div>
             </div>
-            <div *ngIf="emailForm.get('email')?.errors?.['email']">
-              Bitte geben Sie eine gültige E-Mail-Adresse ein.
+
+            <div class="min-h-3">
+              <app-loading-dots *ngIf="isLoading"></app-loading-dots>
             </div>
-          </div>
-        </div>
 
-        <div class="min-h-3 mb-4">
-          <app-loading-dots *ngIf="isLoading"></app-loading-dots>
+            <app-main-button
+              [isDisabled]="isLoading"
+              type="submit"
+              text="Absenden"
+              additionalClasses="flex mx-auto uppercase"
+            ></app-main-button>
+          </form>
         </div>
-
-        <app-main-button
-          [isDisabled]="isLoading"
-          type="submit"
-          text="Absenden"
-          additionalClasses="flex mx-auto uppercase"
-        ></app-main-button>
-      </form>
+      </div>
     </div>
   </div>
 </div>
