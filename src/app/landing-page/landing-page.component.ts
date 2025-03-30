@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common'
+import { CommonModule, ViewportScroller } from '@angular/common'
 import { AfterViewInit, Component, inject } from '@angular/core'
 import { HeroSectionComponent } from './hero-section/hero-section.component'
 import { FaqSectionComponent } from './faq-section/faq-section.component'
@@ -11,6 +11,7 @@ import { ReadyToRenderService } from '../shared/services/ready-to-render.service
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service'
 import { WorkbookComponent } from './workbook/workbook.component'
 import { DeepDiveComponent } from './deep-dive/deep-dive.component'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-landing-page',
@@ -31,10 +32,33 @@ import { DeepDiveComponent } from './deep-dive/deep-dive.component'
 export class LandingPageComponent implements AfterViewInit {
   readyToRenderService = inject(ReadyToRenderService)
   private scrollToSectionService = inject(ScrollToSectionService)
+  private route = inject(ActivatedRoute)
+  private router = inject(Router)
+  private viewportScroller = inject(ViewportScroller)
 
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true)
     this.readyToRenderService.isVideoReelLoaded$.next(true)
+
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        setTimeout(() => {
+          this.scrollToFragment(fragment)
+        }, 200)
+      }
+    })
+  }
+
+  scrollToFragment(fragment: string) {
+    try {
+      this.viewportScroller.scrollToAnchor(fragment)
+    } catch (e) {
+      console.warn('Scroll to anchor failed, falling back to native scroll')
+      const element = document.getElementById(fragment)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
   }
 
   onImageLoad(event: Event): void {
