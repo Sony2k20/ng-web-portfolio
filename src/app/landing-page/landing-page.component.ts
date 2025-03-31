@@ -59,7 +59,7 @@ export class LandingPageComponent implements AfterViewInit {
       .subscribe(() => {
         setTimeout(() => {
           this.scrollToFragment(this.fragment)
-        }, 300)
+        }, 100)
       })
   }
 
