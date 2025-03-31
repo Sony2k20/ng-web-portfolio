@@ -1,4 +1,4 @@
-name: Deploy NestJS Docker App to Prod
+name: Deploy Angular Docker App to Prod
 
 on:
   workflow_dispatch:
