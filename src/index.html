@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="app-version" content="1.0.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Katharina Niesche | Transformations- und Erfolgscoach</title>
     <meta
       name="description"
-      content="Katharina ist dein Transformations- und Erfolgscoach. Finde Klarheit, löse Hindernisse und entdecke berufliche Erfüllung."              
+      content="Katharina ist dein Transformations- und Erfolgscoach. Finde Klarheit, löse Hindernisse und entdecke berufliche Erfüllung."
     />
     <meta
       name="keywords"
@@ -51,6 +52,32 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="stylesheet-loading-screen" href="styles-loading-screen.css" />
   </head>
+  <script>
+    ;(async function checkVersion() {
+      try {
+        const response = await fetch('/index.html?t=' + new Date().getTime(), {
+          cache: 'no-cache',
+        })
+        const text = await response.text()
+        const newVersionMatch = text.match(
+          /<meta name="app-version" content="(.*?)">/,
+        )
+        const newVersion = newVersionMatch ? newVersionMatch[1] : null
+
+        if (!newVersion) return // Exit if no version is found
+
+        const oldVersion = localStorage.getItem('app-version')
+        if (oldVersion && oldVersion !== newVersion) {
+          localStorage.setItem('app-version', newVersion)
+          location.reload()
+        } else {
+          localStorage.setItem('app-version', newVersion)
+        }
+      } catch (error) {
+        console.error('Version check failed:', error)
+      }
+    })()
+  </script>
   <body>
     <div id="loading-screen" class="loading-sc-wrap">
       <div class="loading-sc-loading">
