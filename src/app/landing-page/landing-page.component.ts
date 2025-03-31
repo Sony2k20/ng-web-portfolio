@@ -11,7 +11,7 @@ import { ReadyToRenderService } from '../shared/services/ready-to-render.service
 import { ScrollToSectionService } from '../shared/services/scroll-to-section.service'
 import { WorkbookComponent } from './workbook/workbook.component'
 import { DeepDiveComponent } from './deep-dive/deep-dive.component'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { combineLatest, filter, switchMap, tap } from 'rxjs'
 
 @Component({
@@ -34,7 +34,6 @@ export class LandingPageComponent implements AfterViewInit {
   readyToRenderService = inject(ReadyToRenderService)
   private scrollToSectionService = inject(ScrollToSectionService)
   private route = inject(ActivatedRoute)
-  private router = inject(Router)
   private viewportScroller = inject(ViewportScroller)
   fragment: string = ''
 
@@ -59,7 +58,7 @@ export class LandingPageComponent implements AfterViewInit {
       .subscribe(() => {
         setTimeout(() => {
           this.scrollToFragment(this.fragment)
-        }, 100)
+        }, 300)
       })
   }
 
