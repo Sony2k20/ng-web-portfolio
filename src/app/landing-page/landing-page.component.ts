@@ -12,6 +12,7 @@ import { ScrollToSectionService } from '../shared/services/scroll-to-section.ser
 import { WorkbookComponent } from './workbook/workbook.component'
 import { DeepDiveComponent } from './deep-dive/deep-dive.component'
 import { ActivatedRoute, Router } from '@angular/router'
+import { combineLatest, filter, switchMap, tap } from 'rxjs'
 
 @Component({
   selector: 'app-landing-page',
@@ -35,18 +36,31 @@ export class LandingPageComponent implements AfterViewInit {
   private route = inject(ActivatedRoute)
   private router = inject(Router)
   private viewportScroller = inject(ViewportScroller)
+  fragment: string = ''
 
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true)
     this.readyToRenderService.isVideoReelLoaded$.next(true)
 
-    this.route.fragment.subscribe((fragment) => {
-      if (fragment) {
+    this.route.fragment
+      .pipe(
+        filter((fragment) => !!fragment),
+        tap((fragment) => {
+          if (fragment) this.fragment = fragment
+        }),
+        switchMap(() =>
+          combineLatest([
+            this.readyToRenderService.heroImageRdy$,
+            this.readyToRenderService.fontRdy$,
+          ]),
+        ),
+        filter(([heroReady, fontReady]) => heroReady && fontReady), // Ensure both are true
+      )
+      .subscribe(() => {
         setTimeout(() => {
-          this.scrollToFragment(fragment)
-        }, 200)
-      }
-    })
+          this.scrollToFragment(this.fragment)
+        }, 300)
+      })
   }
 
   scrollToFragment(fragment: string) {
