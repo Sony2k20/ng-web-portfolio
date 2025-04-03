@@ -7,6 +7,7 @@ import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-
 import { ReadyToRenderService } from './shared/services/ready-to-render.service'
 import Lenis from 'lenis'
 import { LenisService } from './shared/services/lenis.service'
+import { CanonicalService } from './shared/services/canonical.service'
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,11 @@ import { LenisService } from './shared/services/lenis.service'
 export class AppComponent implements OnInit, AfterViewInit {
   private readyToRenderService = inject(ReadyToRenderService)
   private lenisService = inject(LenisService)
+  private canonicalService = inject(CanonicalService)
 
   ngOnInit() {
     gsap.registerPlugin(ScrollTrigger)
+    this.canonicalService.setCanonicalURL()
   }
 
   ngAfterViewInit() {
