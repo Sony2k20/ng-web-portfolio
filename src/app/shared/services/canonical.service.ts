@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core'
-import { DomSanitizer, Meta } from '@angular/platform-browser'
-import { Router } from '@angular/router'
+import { Meta } from '@angular/platform-browser'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CanonicalService {
-  constructor(
-    private meta: Meta,
-    private router: Router,
-  ) {}
+  constructor(private meta: Meta) {}
 
-  setCanonicalURL(url?: string) {
-    const canonicalURL = url || window.location.origin + this.router.url
-    this.meta.updateTag({ rel: 'canonical', href: canonicalURL })
+  setCanonicalURL(url: string) {
+    this.meta.updateTag({ rel: 'canonical', href: url })
   }
 }

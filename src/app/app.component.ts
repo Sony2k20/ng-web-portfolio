@@ -5,9 +5,9 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import { SnackbarComponent } from './shared/component-library/snackbar/component/snackbar.component'
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component'
 import { ReadyToRenderService } from './shared/services/ready-to-render.service'
-import Lenis from 'lenis'
 import { LenisService } from './shared/services/lenis.service'
 import { CanonicalService } from './shared/services/canonical.service'
+import { environment } from '../environments/environment'
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     gsap.registerPlugin(ScrollTrigger)
-    this.canonicalService.setCanonicalURL()
+    this.canonicalService.setCanonicalURL(environment.url)
   }
 
   ngAfterViewInit() {
