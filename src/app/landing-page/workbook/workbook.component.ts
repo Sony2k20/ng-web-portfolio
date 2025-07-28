@@ -19,7 +19,7 @@ import { LoadingDotsComponent } from '../../shared/component-library/loading-dot
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
 import { HttpClientModule } from '@angular/common/http'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
-import { switchMap } from 'rxjs'
+import { finalize, switchMap } from 'rxjs'
 
 @Component({
   selector: 'app-workbook',
@@ -70,7 +70,6 @@ export class WorkbookComponent implements AfterViewInit {
     this.emailService
       .getTemplate('email-workbook.html')
       .pipe(
-        takeUntilDestroyed(this.destroyRef),
         switchMap((content) => {
           const confirmationEmail: EmailPayload = {
             fromName: 'Katharina Niesche',
@@ -82,6 +81,8 @@ export class WorkbookComponent implements AfterViewInit {
 
           return this.emailService.sendWorkbook(confirmationEmail)
         }),
+        finalize(() => (this.isLoading = false)),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
         next: () => {
@@ -96,6 +97,5 @@ export class WorkbookComponent implements AfterViewInit {
           )
         },
       })
-    this.isLoading = false
   }
 }
