@@ -75,11 +75,11 @@ jobs:
         run: |
           cd target-repo
           SHORT_SHA=${{ steps.vars.outputs.SHORT_SHA }}
-          sed -i "s/tag:.*/tag: $SHORT_SHA/" app-of-apps/apps/ng-web-blog.yaml
+          sed -i "s/tag:.*/tag: $SHORT_SHA/" app-of-apps/apps/ng-web-portfolio.yaml
 
       - name: Commit and Push Changes
         run: |
           cd target-repo
-          git add app-of-apps/apps/ng-web-blog.yaml
+          git add app-of-apps/apps/ng-web-portfolio.yaml
           git commit -m "Update ng-web-blog to version ${{ steps.vars.outputs.SHORT_SHA }}"
           git push origin master
