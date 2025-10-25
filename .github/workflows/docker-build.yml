@@ -15,11 +15,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
-        #https://github.com/npm/cli/issues/4828
+      # https://github.com/npm/cli/issues/4828
       - name: Workaround for arm - remove package-lock.json
-        run: rm package-lock.json
+        run: rm -f package-lock.json
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
@@ -39,12 +39,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Get short SHA
+        id: vars
+        run: |
+          echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
+
       - name: Build Docker image
         run: |
           docker buildx build \
-          --platform linux/arm64,linux/amd64 \
-          --tag sony2k20/ng-web-portfolio:latest \
-          --push .
+            --platform linux/arm64,linux/amd64 \
+            --tag sony2k20/ng-web-portfolio:latest \
+            --tag sony2k20/ng-web-portfolio:${{ steps.vars.outputs.SHORT_SHA }} \
+            --push .
 
   update-deployment:
     runs-on: ubuntu-latest
@@ -53,26 +59,26 @@ jobs:
       - name: Checkout the source repo
         uses: actions/checkout@v3
 
+      - name: Get short SHA
+        id: vars
+        run: |
+          echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
+
       - name: Clone Target Repository
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git config --global credential.helper cache
           git clone https://${{ secrets.COMMIT_TO_REPO_TOKEN }}@github.com/Sony2k20/gitops-deployments.git target-repo
-          cd target-repo
 
-      - name: Generate Timestamp
-        id: generate-timestamp
-        run: echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-
-      - name: Update Deployment YAML with Timestamp
+      - name: Update image tag with short SHA
         run: |
           cd target-repo
-          sed -i "/deploymentTime:/s/:.*/: \"$(date "+%Y-%m-%d %H:%M:%S")\"/" helm-charts/${{ github.event.repository.name }}/templates/deployment.yaml
+          SHORT_SHA=${{ steps.vars.outputs.SHORT_SHA }}
+          sed -i "s/tag:.*/tag: $SHORT_SHA/" apps/ng-web-blog.yaml
 
       - name: Commit and Push Changes
         run: |
           cd target-repo
-          git add helm-charts/${{ github.event.repository.name }}/templates/deployment.yaml
-          git commit -m "Update deployment timestamp to $timestamp"
+          git add apps/ng-web-blog.yaml
+          git commit -m "Update ng-web-blog to version ${{ steps.vars.outputs.SHORT_SHA }}"
           git push origin master
