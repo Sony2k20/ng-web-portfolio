@@ -74,7 +74,7 @@ jobs:
         run: |
           cd target-repo
           SHORT_SHA=${{ steps.vars.outputs.SHORT_SHA }}
-          sed -i "s/tag:.*/tag: $SHORT_SHA/" apps/ng-web-blog.yaml
+          sed -i "s/tag:.*/tag: $SHORT_SHA/" app-of-apps/apps/ng-web-blog.yaml
 
       - name: Commit and Push Changes
         run: |
