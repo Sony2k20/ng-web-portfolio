@@ -80,6 +80,6 @@ jobs:
       - name: Commit and Push Changes
         run: |
           cd target-repo
-          git add apps/ng-web-blog.yaml
+          git add app-of-apps/apps/ng-web-blog.yaml
           git commit -m "Update ng-web-blog to version ${{ steps.vars.outputs.SHORT_SHA }}"
           git push origin master
