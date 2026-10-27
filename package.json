@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "node scripts/ng-env.mjs serve",
+    "build": "node scripts/ng-env.mjs build",
+    "watch": "node scripts/ng-env.mjs build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
     "format": "prettier --write ."
@@ -29,8 +29,7 @@
     "zone.js": "~0.16.3"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^22.0.1",
-    "@angular-devkit/build-angular": "^22.2.4",
+    "@angular/build": "^22.2.4",
     "@angular/cli": "^22.2.4",
     "@angular/compiler-cli": "^22.2.3",
     "@eslint/js": "^10.0.1",
@@ -41,7 +40,6 @@
     "@types/jasmine": "~7.0.0",
     "angular-eslint": "^22.6.0",
     "autoprefixer": "^10.6.2",
-    "dotenv-webpack": "^9.0.0",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.7",
