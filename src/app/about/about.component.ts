@@ -1,4 +1,9 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core'
+import {
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+} from '@angular/core'
 import { FooterComponent } from '../shared/components/footer/footer.component'
 import { HeaderComponent } from '../shared/components/header/header.component'
 import { CommonModule } from '@angular/common'
@@ -12,7 +17,7 @@ import { ScrollToSectionService } from '../shared/services/scroll-to-section.ser
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './about.component.html',
 })
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
   contact = Contact
   readyToRenderService = inject(ReadyToRenderService)
 
@@ -22,7 +27,7 @@ export class AboutComponent {
     this.scrollToSectionService.viewInitDone$.next(true)
   }
 
-  onImageLoad(event: Event): void {
+  onImageLoad(): void {
     this.readyToRenderService.aboutImageRdy$.next(true)
   }
 }

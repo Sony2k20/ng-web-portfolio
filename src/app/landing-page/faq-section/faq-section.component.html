@@ -10,11 +10,7 @@
     <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
 
     <div id="faq">
-      @for (
-        item of accordionItems;
-        track trackByIndex(i, item);
-        let i = $index
-      ) {
+      @for (item of accordionItems; track i; let i = $index) {
         <div
           [ngClass]="{
             'border-b border-primary': i < accordionItems.length - 1,

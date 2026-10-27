@@ -13,8 +13,8 @@ import {
   styleUrl: './fade-out-button.component.css',
 })
 export class FadeOutButtonComponent {
-  @Input() type: string = ''
-  @Input() text: string = ''
-  @Input() additionalClasses: string = ''
+  @Input() type = ''
+  @Input() text = ''
+  @Input() additionalClasses = ''
   platform = SocialPlatform
 }

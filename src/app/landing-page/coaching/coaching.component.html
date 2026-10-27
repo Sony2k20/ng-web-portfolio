@@ -97,7 +97,7 @@
         <ul
           class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-y-8 mb-12 xl:text-lg"
         >
-          @for (item of items; track trackByIndex($index, item)) {
+          @for (item of items; track $index) {
             <li class="block items-start justify-center text-center">
               {{ item.text }}
               <div

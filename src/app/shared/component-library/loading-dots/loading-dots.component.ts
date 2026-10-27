@@ -9,5 +9,5 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
   styleUrl: './loading-dots.component.css',
 })
 export class LoadingDotsComponent {
-  @Input() additionalClasses: string = ''
+  @Input() additionalClasses = ''
 }

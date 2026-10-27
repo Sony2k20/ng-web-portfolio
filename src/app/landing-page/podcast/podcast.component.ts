@@ -19,7 +19,7 @@ import { VideoReelComponent } from './video-reel/video-reel.component'
 })
 export class PodcastComponent implements AfterViewInit {
   socialLinks = SocialLinks
-  isVideoReelLoaded: boolean = false
+  isVideoReelLoaded = false
 
   private elementRef = inject(ElementRef)
   private intersectionObserverService = inject(IntersectionObserverService)

@@ -1,5 +1,6 @@
 import {
   Component,
+  inject,
   OnInit,
   OnDestroy,
   ChangeDetectionStrategy,
@@ -15,10 +16,9 @@ import { SnackbarService } from '../service/snackbar.service'
   imports: [],
 })
 export class SnackbarComponent implements OnInit, OnDestroy {
+  private snackbarService = inject(SnackbarService)
   message: string | null = null
   private snackbarSubscription: Subscription | undefined
-
-  constructor(private snackbarService: SnackbarService) {}
 
   ngOnInit() {
     this.snackbarSubscription = this.snackbarService.snackbar$.subscribe(

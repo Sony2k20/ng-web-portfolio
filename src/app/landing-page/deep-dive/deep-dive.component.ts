@@ -3,6 +3,7 @@ import {
   ElementRef,
   inject,
   ChangeDetectionStrategy,
+  AfterViewInit,
 } from '@angular/core'
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
 import { Routes } from '../../shared/enums/routes.enum'
@@ -15,7 +16,7 @@ import { ScrollToSectionService } from '../../shared/services/scroll-to-section.
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './deep-dive.component.html',
 })
-export class DeepDiveComponent {
+export class DeepDiveComponent implements AfterViewInit {
   private elementRef = inject(ElementRef)
   private intersectionObserverService = inject(IntersectionObserverService)
 
@@ -37,9 +38,5 @@ export class DeepDiveComponent {
       'animate-visible',
       'animate',
     )
-  }
-
-  trackByIndex(index: number, item: any): number {
-    return index
   }
 }

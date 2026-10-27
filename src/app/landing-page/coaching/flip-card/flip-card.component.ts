@@ -3,6 +3,7 @@ import {
   ElementRef,
   inject,
   ChangeDetectionStrategy,
+  AfterViewInit,
 } from '@angular/core'
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service'
 
@@ -13,7 +14,7 @@ import { IntersectionObserverService } from '../../../shared/services/intersecti
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './flip-card.component.css',
 })
-export class FlipCardComponent {
+export class FlipCardComponent implements AfterViewInit {
   private elementRef = inject(ElementRef)
   private intersectionObserverService = inject(IntersectionObserverService)
 

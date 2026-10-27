@@ -66,8 +66,4 @@ export class FaqSectionComponent implements AfterViewInit {
   toggleAccordion(index: number) {
     this.openIndex = this.openIndex === index ? null : index
   }
-
-  trackByIndex(index: number, item: any): number {
-    return index
-  }
 }

@@ -5,6 +5,8 @@ import {
   inject,
   ViewChild,
   ChangeDetectionStrategy,
+  AfterViewInit,
+  OnDestroy,
 } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { ReadyToRenderService } from '../../../shared/services/ready-to-render.service'
@@ -17,12 +19,12 @@ import { IntersectionObserverService } from '../../../shared/services/intersecti
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './video-reel.component.css',
 })
-export class VideoReelComponent {
+export class VideoReelComponent implements AfterViewInit, OnDestroy {
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>
-  isMuted: boolean = true
+  isMuted = true
   iconClicked = false
   readyToRenderService = inject(ReadyToRenderService)
-  private _cleanupFns: Array<() => void> = []
+  private _cleanupFns: (() => void)[] = []
   private elementRef = inject(ElementRef)
   private intersectionObserverService = inject(IntersectionObserverService)
 

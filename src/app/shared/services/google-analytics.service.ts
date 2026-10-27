@@ -25,12 +25,18 @@ export class GoogleAnalyticsService {
 
     script.onload = () => {
       // Initialize gtag after the script has loaded
-      ;(window as any).dataLayer = (window as any).dataLayer || []
-      ;(window as any).gtag = function () {
-        ;(window as any).dataLayer.push(arguments)
+      const w = window as unknown as {
+        dataLayer: unknown[]
+        gtag: (...args: unknown[]) => void
       }
-      ;(window as any).gtag('js', new Date())
-      ;(window as any).gtag('config', 'G-W7LN7NPFVM')
+      w.dataLayer = w.dataLayer || []
+      w.gtag = function () {
+        // gtag.js expects the native arguments object, not an array
+        // eslint-disable-next-line prefer-rest-params
+        w.dataLayer.push(arguments)
+      }
+      w.gtag('js', new Date())
+      w.gtag('config', 'G-W7LN7NPFVM')
       this.initializeAnalyticsTracking()
     }
   }

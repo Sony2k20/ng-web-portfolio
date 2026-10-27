@@ -3,6 +3,7 @@ import {
   ElementRef,
   inject,
   ChangeDetectionStrategy,
+  AfterViewInit,
 } from '@angular/core'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
@@ -16,7 +17,7 @@ import { FlipCardComponent } from './flip-card/flip-card.component'
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './coaching.component.html',
 })
-export class CoachingComponent {
+export class CoachingComponent implements AfterViewInit {
   private elementRef = inject(ElementRef)
   private intersectionObserverService = inject(IntersectionObserverService)
 
@@ -38,9 +39,5 @@ export class CoachingComponent {
       'animate-visible',
       'animate',
     )
-  }
-
-  trackByIndex(index: number, item: any): number {
-    return index
   }
 }
