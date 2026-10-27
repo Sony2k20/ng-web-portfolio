@@ -1,10 +1,16 @@
-import { Component, ElementRef, inject } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service'
 
 @Component({
   selector: 'app-flip-card',
   imports: [],
   templateUrl: './flip-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './flip-card.component.css',
 })
 export class FlipCardComponent {

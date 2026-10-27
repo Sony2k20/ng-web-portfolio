@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, Input } from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
 import {
   SocialLinksComponent,
   SocialPlatform,
@@ -9,6 +9,7 @@ import {
   selector: 'app-fade-out-button',
   imports: [CommonModule, SocialLinksComponent],
   templateUrl: './fade-out-button.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './fade-out-button.component.css',
 })
 export class FadeOutButtonComponent {

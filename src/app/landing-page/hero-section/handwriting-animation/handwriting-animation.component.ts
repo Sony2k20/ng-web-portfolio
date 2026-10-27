@@ -3,12 +3,14 @@ import {
   Component,
   QueryList,
   ViewChildren,
+  ChangeDetectionStrategy,
 } from '@angular/core'
 
 @Component({
   selector: 'app-handwriting-animation',
   imports: [],
   templateUrl: './handwriting-animation.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './handwriting-animation.component.css',
 })
 export class HandwritingAnimationComponent implements AfterViewInit {

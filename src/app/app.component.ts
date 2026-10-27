@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, inject, NgZone, OnInit } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  NgZone,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -11,6 +18,7 @@ import { environment } from '../environments/environment'
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, SnackbarComponent, CookieBannerComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, AfterViewInit {

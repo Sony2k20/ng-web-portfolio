@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, inject } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 
 import { HeaderComponent } from '../shared/components/header/header.component'
 import { FooterComponent } from '../shared/components/footer/footer.component'
@@ -10,6 +15,7 @@ import { ReadyToRenderService } from '../shared/services/ready-to-render.service
 @Component({
   selector: 'app-privacy-policy',
   imports: [HeaderComponent, FooterComponent, CommonModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './privacy-policy.component.html',
 })
 export class PrivacyPolicyComponent implements AfterViewInit {

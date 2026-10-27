@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common'
-import { Component, DestroyRef, inject } from '@angular/core'
+import {
+  Component,
+  DestroyRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import {
   FormBuilder,
   FormGroup,
@@ -22,6 +27,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
     MainButtonComponent,
     LoadingDotsComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './contact-form.component.html',
 })
 export class ContactFormComponent {

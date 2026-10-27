@@ -1,4 +1,9 @@
-import { Component, ElementRef, inject } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
 import { Routes } from '../../shared/enums/routes.enum'
@@ -8,6 +13,7 @@ import { FlipCardComponent } from './flip-card/flip-card.component'
 @Component({
   selector: 'app-coaching',
   imports: [MainButtonComponent, FlipCardComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './coaching.component.html',
 })
 export class CoachingComponent {

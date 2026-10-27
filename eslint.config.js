@@ -22,6 +22,8 @@ module.exports = tseslint.config(
           endOfLine: 'auto',
         },
       ],
+      // Components keep Eager change detection (set by the Angular v22 migration)
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
       '@angular-eslint/directive-selector': [
         'error',
         {

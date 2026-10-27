@@ -4,6 +4,7 @@ import {
   AfterViewInit,
   inject,
   CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
 } from '@angular/core'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { SocialLinksComponent } from '../../shared/component-library/social-links/social-links.component'
@@ -15,6 +16,7 @@ import { Routes } from '../../shared/enums/routes.enum'
   selector: 'app-about-me',
   imports: [SocialLinksComponent],
   templateUrl: './about-me.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AboutMeComponent implements AfterViewInit {

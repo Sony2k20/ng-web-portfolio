@@ -1,4 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { Subscription } from 'rxjs'
 import { SnackbarService } from '../service/snackbar.service'
 
@@ -6,6 +11,7 @@ import { SnackbarService } from '../service/snackbar.service'
   selector: 'app-snackbar',
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [],
 })
 export class SnackbarComponent implements OnInit, OnDestroy {

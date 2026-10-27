@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
 import { SocialLinks } from '../../enums/social-links.enum'
 
 export enum SocialPlatform {
@@ -13,6 +13,7 @@ export enum SocialPlatform {
   selector: 'app-social-links',
   imports: [],
   styleUrls: ['./social-links.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './social-links.component.html',
 })
 export class SocialLinksComponent {
