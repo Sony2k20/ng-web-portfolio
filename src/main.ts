@@ -8,9 +8,7 @@ import {
   withRouterConfig,
 } from '@angular/router'
 import { routes } from './app/app.routes'
-import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import 'zone.js'
+import { provideZoneChangeDetection } from '@angular/core'
 
 const routesConfig: RouterConfigOptions = {
   // onSameUrlNavigation: 'reload', // not working correctly
@@ -24,7 +22,6 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 bootstrapApplication(AppComponent, {
   providers: [
     provideZoneChangeDetection(),
-    importProvidersFrom(BrowserAnimationsModule),
     provideRouter(
       routes,
       withRouterConfig(routesConfig),

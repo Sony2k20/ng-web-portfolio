@@ -29,7 +29,8 @@
             "scripts": [],
             "define": {
               "NG_APP_ENV": "{}"
-            }
+            },
+            "allowedCommonJsDependencies": ["fontfaceobserver"]
           },
           "configurations": {
             "production": {
