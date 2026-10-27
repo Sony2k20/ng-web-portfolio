@@ -1,13 +1,13 @@
 <div
-  class="mx-auto max-w-screen-lg px-5 sm:px-12 2xl:px-0 py-24 text-md xl:text-xl leading-8 md:min-h-screen flex flex-col justify-center items-center"
+  class="mx-auto max-w-(--breakpoint-lg) px-5 sm:px-12 2xl:px-0 py-24 text-md xl:text-xl/7 leading-8 md:min-h-screen flex flex-col justify-center items-center"
 >
   <div>
     <h2
-      class="text-3xl xl:text-5xl text-center uppercase leading-tight italic tracking-wider animate"
+      class="text-3xl xl:text-5xl/none text-center uppercase leading-tight italic tracking-wider animate"
     >
       Häufig gestellte Fragen
     </h2>
-    <hr class="[height:1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
+    <hr class="h-[1.5px] border-0 w-44 md:w-64 my-8 bg-accent mx-auto" />
 
     <div id="faq">
       @for (item of accordionItems; track i; let i = $index) {
@@ -15,7 +15,7 @@
           [ngClass]="{
             'border-b border-primary': i < accordionItems.length - 1,
           }"
-          class="max-w-screen-xl mx-auto flex flex-col justify-center items-center"
+          class="max-w-(--breakpoint-xl) mx-auto flex flex-col justify-center items-center"
         >
           <button
             (click)="toggleAccordion(i)"

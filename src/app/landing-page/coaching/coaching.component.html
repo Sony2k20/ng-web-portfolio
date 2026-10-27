@@ -1,18 +1,16 @@
 <div
-  class="mx-auto pt-24 text-md xl:text-xl md:min-h-screen max-w-screen-xl flex flex-col leading-8 xl:leading-9"
+  class="mx-auto pt-24 text-md xl:text-xl md:min-h-screen max-w-(--breakpoint-xl) flex flex-col leading-8 xl:leading-9"
 >
   <div>
     <div class="text-center leading-tight uppercase animate">
       <h2 class="text-3xl xl:text-5xl mb-5 italic tracking-wider mx-2">
         Live Your Calling
       </h2>
-      <h3 class="text-2xl xl:text-3xl leading-tight tracking-wider">
+      <h3 class="text-2xl xl:text-3xl/9 leading-tight tracking-wider">
         1:1 Coaching
       </h3>
     </div>
-    <hr
-      class="[height:1.5px] border-0 w-44 md:w-64 mt-8 mb-7 bg-accent mx-auto"
-    />
+    <hr class="h-[1.5px] border-0 w-44 md:w-64 mt-8 mb-7 bg-accent mx-auto" />
 
     <div class="px-8 sm:px-12 2xl:px-0">
       <div class="my-12">
@@ -28,7 +26,7 @@
 
           <div class="flex items-center justify-center w-full md:w-auto">
             <div
-              class="relative w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-gradient-to-b"
+              class="relative w-full h-[2px] bg-linear-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-linear-to-b"
             ></div>
           </div>
 
@@ -41,7 +39,7 @@
 
           <div class="flex items-center justify-center w-full md:w-auto">
             <div
-              class="relative w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-gradient-to-b"
+              class="relative w-full h-[2px] bg-linear-to-r from-transparent via-accent to-transparent mx-4 md:w-[2px] md:h-36 md:bg-linear-to-b"
             ></div>
           </div>
 
@@ -54,7 +52,7 @@
         </div>
       </div>
 
-      <div class="text-left mx-auto mb-12 md:mb-20 max-w-screen-lg">
+      <div class="text-left mx-auto mb-12 md:mb-20 max-w-(--breakpoint-lg)">
         <p class="mb-8">
           <strong>Live Your Calling</strong> ist ein exklusives
           <strong>viermonatiges Coaching-Programm</strong> für Menschen, die
@@ -101,13 +99,13 @@
             <li class="block items-start justify-center text-center">
               {{ item.text }}
               <div
-                class="mt-3 w-8/12 md:w-72 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+                class="mt-3 w-8/12 md:w-72 h-[2px] mx-auto bg-linear-to-r from-transparent via-accent/70 to-transparent fadeInNav"
               ></div>
             </li>
           }
         </ul>
 
-        <p class="md:px-12 mt-14 md:mt-19">
+        <p class="md:px-12 mt-14">
           Melde dich zu einem kostenlosen Coffee Talk an, um herauszufinden, ob
           wir zueinander passen. In diesem Gespräch erhältst du bereits erste
           wertvolle Impulse, die dir Klarheit und Orientierung bieten.
