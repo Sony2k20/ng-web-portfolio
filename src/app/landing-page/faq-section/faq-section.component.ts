@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common'
-import { Component, AfterViewInit, ElementRef, inject } from '@angular/core'
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
 import { Routes } from '../../shared/enums/routes.enum'
@@ -8,6 +14,7 @@ import { ScrollToSectionService } from '../../shared/services/scroll-to-section.
 @Component({
   selector: 'app-faq-section',
   imports: [CommonModule, MainButtonComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './faq-section.component.html',
 })
 export class FaqSectionComponent implements AfterViewInit {

@@ -10,38 +10,31 @@
   style="display: none"
 />
 
-<div
-  *ngIf="
-    (readyToRenderService.heroImageRdy$ | async) &&
-    (readyToRenderService.fontRdy$ | async)
-  "
->
-  <app-header id="header" class="bg-secondary"></app-header>
-
-  <app-hero-section></app-hero-section>
-
-  <div id="about" class="bg-secondary">
-    <app-about-me></app-about-me>
+@if (
+  (readyToRenderService.heroImageRdy$ | async) &&
+  (readyToRenderService.fontRdy$ | async)
+) {
+  <div>
+    <app-header id="header" class="bg-secondary"></app-header>
+    <app-hero-section></app-hero-section>
+    <div id="about" class="bg-secondary">
+      <app-about-me></app-about-me>
+    </div>
+    <div id="coaching" class="bg-gradient-to-r from-primary to-secondary">
+      <app-coaching></app-coaching>
+    </div>
+    <div id="deep-dive" class="bg-gradient-to-r from-primary to-secondary">
+      <app-deep-dive></app-deep-dive>
+    </div>
+    <div id="workbook" class="bg-secondary">
+      <app-workbook></app-workbook>
+    </div>
+    <div id="podcast" class="bg-gradient-to-r from-primary to-primary/55">
+      <app-podcast></app-podcast>
+    </div>
+    <div id="faq" class="bg-secondary">
+      <app-faq-section></app-faq-section>
+    </div>
+    <app-footer></app-footer>
   </div>
-
-  <div id="coaching" class="bg-gradient-to-r from-primary to-secondary">
-    <app-coaching></app-coaching>
-  </div>
-
-  <div id="deep-dive" class="bg-gradient-to-r from-primary to-secondary">
-    <app-deep-dive></app-deep-dive>
-  </div>
-
-  <div id="workbook" class="bg-secondary">
-    <app-workbook></app-workbook>
-  </div>
-
-  <div id="podcast" class="bg-gradient-to-r from-primary to-primary/55">
-    <app-podcast></app-podcast>
-  </div>
-
-  <div id="faq" class="bg-secondary">
-    <app-faq-section></app-faq-section>
-  </div>
-  <app-footer></app-footer>
-</div>
+}

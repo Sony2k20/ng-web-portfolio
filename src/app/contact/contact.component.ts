@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, inject } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { EmailService } from '../shared/services/email.service'
 import { CommonModule } from '@angular/common'
@@ -20,6 +25,7 @@ import { ContactTabsComponent } from './contact-tabs/contact-tabs.component'
     ContactTabsComponent,
   ],
   templateUrl: './contact.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [EmailService],
 })
 export class ContactComponent implements AfterViewInit {

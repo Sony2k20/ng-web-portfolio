@@ -5,6 +5,7 @@ import {
   inject,
   OnInit,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HamburgerMenuComponent } from '../../component-library/hamburger-menu/hamburger-menu.component'
@@ -17,6 +18,7 @@ import { Routes } from '../../enums/routes.enum'
 @Component({
   selector: 'app-header',
   imports: [HamburgerMenuComponent, CommonModule, RouterModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {

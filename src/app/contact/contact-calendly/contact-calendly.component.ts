@@ -1,8 +1,14 @@
-import { AfterViewInit, Component, Input } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 
 @Component({
   selector: 'app-contact-calendly',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './contact-calendly.component.html',
 })
 export class ContactCalendlyComponent implements AfterViewInit {

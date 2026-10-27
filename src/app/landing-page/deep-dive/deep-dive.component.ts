@@ -1,13 +1,18 @@
-import { Component, ElementRef, inject } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { MainButtonComponent } from '../../shared/component-library/main-button/main-button.component'
 import { Routes } from '../../shared/enums/routes.enum'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service'
-import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-deep-dive',
-  imports: [MainButtonComponent, CommonModule],
+  imports: [MainButtonComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './deep-dive.component.html',
 })
 export class DeepDiveComponent {

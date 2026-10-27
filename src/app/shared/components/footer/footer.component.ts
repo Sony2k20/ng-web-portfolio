@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core'
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core'
 import { SocialLinksComponent } from '../../component-library/social-links/social-links.component'
 import { RouterModule } from '@angular/router'
 import { Routes } from '../../enums/routes.enum'
@@ -9,6 +9,7 @@ import { CustomCookieService } from '../../services/custom-cookie.service'
 @Component({
   selector: 'app-footer',
   imports: [SocialLinksComponent, RouterModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {

@@ -1,5 +1,10 @@
 import { CommonModule, ViewportScroller } from '@angular/common'
-import { AfterViewInit, Component, inject } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { HeroSectionComponent } from './hero-section/hero-section.component'
 import { FaqSectionComponent } from './faq-section/faq-section.component'
 import { AboutMeComponent } from './about-me/about-me.component'
@@ -28,6 +33,7 @@ import { combineLatest, filter, switchMap, tap } from 'rxjs'
     WorkbookComponent,
     DeepDiveComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './landing-page.component.html',
 })
 export class LandingPageComponent implements AfterViewInit {

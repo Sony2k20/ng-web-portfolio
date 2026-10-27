@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common'
-import { Component, ElementRef, inject, ViewChild } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  inject,
+  ViewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { ReadyToRenderService } from '../../../shared/services/ready-to-render.service'
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service'
@@ -8,6 +14,7 @@ import { IntersectionObserverService } from '../../../shared/services/intersecti
   selector: 'app-video-reel',
   imports: [FormsModule, CommonModule],
   templateUrl: './video-reel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './video-reel.component.css',
 })
 export class VideoReelComponent {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core'
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core'
 import { FooterComponent } from '../shared/components/footer/footer.component'
 import { HeaderComponent } from '../shared/components/header/header.component'
 import { CommonModule } from '@angular/common'
@@ -9,6 +9,7 @@ import { ScrollToSectionService } from '../shared/services/scroll-to-section.ser
 @Component({
   selector: 'app-about',
   imports: [FooterComponent, HeaderComponent, CommonModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './about.component.html',
 })
 export class AboutComponent {

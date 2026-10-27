@@ -4,6 +4,7 @@ import {
   DestroyRef,
   ElementRef,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import {
@@ -31,6 +32,7 @@ import { finalize, switchMap } from 'rxjs'
     HttpClientModule,
   ],
   templateUrl: './workbook.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [EmailService],
 })
 export class WorkbookComponent implements AfterViewInit {
