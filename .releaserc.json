@@ -22,11 +22,6 @@
           {
             "type": "revert",
             "release": "patch"
-          },
-          {
-            "type": "chore",
-            "scope": "deps",
-            "release": "patch"
           }
         ]
       }
@@ -64,11 +59,6 @@
             {
               "type": "style",
               "section": "Styles"
-            },
-            {
-              "type": "chore",
-              "scope": "deps",
-              "section": "Dependencies"
             }
           ]
         }
