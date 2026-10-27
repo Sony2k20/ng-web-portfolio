@@ -9,8 +9,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
   styleUrl: './main-button.component.css',
 })
 export class MainButtonComponent {
-  @Input() type: string = ''
-  @Input() text: string = ''
-  @Input() additionalClasses: string = ''
-  @Input() isDisabled: boolean = false
+  @Input() type = ''
+  @Input() text = ''
+  @Input() additionalClasses = ''
+  @Input() isDisabled = false
 }

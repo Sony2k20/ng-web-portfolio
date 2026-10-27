@@ -93,7 +93,7 @@ export class WorkbookComponent implements AfterViewInit {
           )
           this.emailForm.reset()
         },
-        error: (err) => {
+        error: () => {
           this.snackbarService.showSnackbar(
             'Das Workbook konnte nicht verschickt werden! Versuchen Sie es später erneut.',
           )

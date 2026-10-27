@@ -4,6 +4,7 @@ import {
   DestroyRef,
   inject,
   ChangeDetectionStrategy,
+  OnInit,
 } from '@angular/core'
 import {
   FormBuilder,
@@ -30,7 +31,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './contact-form.component.html',
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit {
   emailForm: FormGroup
   isLoading = false
   private destroyRef = inject(DestroyRef)
@@ -38,8 +39,8 @@ export class ContactFormComponent {
   private fb = inject(FormBuilder)
   private snackbarService = inject(SnackbarService)
   private emailService = inject(EmailService)
-  private emailConfirmationTemplate: string = ''
-  private emailInquiryTemplate: string = ''
+  private emailConfirmationTemplate = ''
+  private emailInquiryTemplate = ''
 
   constructor() {
     this.emailForm = this.fb.group({
@@ -141,7 +142,7 @@ export class ContactFormComponent {
 
   private replacePlaceholder(
     template: string,
-    values: { [key: string]: string },
+    values: Record<string, string>,
   ): string {
     let updatedTemplate = template
 

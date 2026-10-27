@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactTabsComponent implements OnInit {
-  @Input() activeTab: string = 'coaching'
+  @Input() activeTab = 'coaching'
 
   private router = inject(ActivatedRoute)
 

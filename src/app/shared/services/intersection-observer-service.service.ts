@@ -1,10 +1,10 @@
-import { Injectable, ElementRef } from '@angular/core'
+import { Injectable, ElementRef, OnDestroy } from '@angular/core'
 
 @Injectable({
   providedIn: 'root',
 })
 // to do - use gsap
-export class IntersectionObserverService {
+export class IntersectionObserverService implements OnDestroy {
   /**
    * Observe multiple elements and add a class when they become visible.
    * @param elementRef - The ElementRef of the parent container.

@@ -41,7 +41,7 @@ export class LandingPageComponent implements AfterViewInit {
   private scrollToSectionService = inject(ScrollToSectionService)
   private route = inject(ActivatedRoute)
   private viewportScroller = inject(ViewportScroller)
-  fragment: string = ''
+  fragment = ''
 
   ngAfterViewInit(): void {
     this.scrollToSectionService.viewInitDone$.next(true)
@@ -71,7 +71,7 @@ export class LandingPageComponent implements AfterViewInit {
   scrollToFragment(fragment: string) {
     try {
       this.viewportScroller.scrollToAnchor(fragment)
-    } catch (e) {
+    } catch {
       console.warn('Scroll to anchor failed, falling back to native scroll')
       const element = document.getElementById(fragment)
       if (element) {
@@ -80,7 +80,7 @@ export class LandingPageComponent implements AfterViewInit {
     }
   }
 
-  onImageLoad(event: Event): void {
+  onImageLoad(): void {
     this.readyToRenderService.heroImageRdy$.next(true)
   }
 }

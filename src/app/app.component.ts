@@ -2,7 +2,6 @@ import {
   AfterViewInit,
   Component,
   inject,
-  NgZone,
   OnInit,
   ChangeDetectionStrategy,
 } from '@angular/core'

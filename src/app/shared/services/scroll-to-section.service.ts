@@ -48,7 +48,7 @@ export class ScrollToSectionService {
 
   private scrollToSectionUtil(sectionId: string, waitTime: number): void {
     setTimeout(() => {
-      let sectionElement = document.querySelector(`#${sectionId}`)
+      const sectionElement = document.querySelector(`#${sectionId}`)
 
       if (sectionElement) {
         const topOffset =
