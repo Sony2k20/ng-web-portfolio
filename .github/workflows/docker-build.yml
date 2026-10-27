@@ -1,22 +1,74 @@
-name: Build Angular App and Docker Image
+name: Release, Build and Deploy
 on:
   workflow_dispatch:
   push:
     branches:
       - master
 
+# Releases must run one after another, otherwise two runs could compute the same version
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: "24"
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Computes the next semver version from the commit messages (Conventional Commits),
+      # creates the git tag vX.Y.Z and a GitHub release
+      - name: Create release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # A new release tags HEAD. A manual run without a new release redeploys the latest version.
+      - name: Determine version
+        id: version
+        run: |
+          TAG=$(git tag --points-at HEAD --list 'v*' | sort -V | tail -n 1)
+          if [ -z "$TAG" ] && [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG=$(git describe --tags --abbrev=0 --match 'v*' 2>/dev/null || true)
+          fi
+          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+          echo "Version: ${TAG:-no new release}"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: release
+    if: needs.release.outputs.version != ''
+    env:
+      VERSION: ${{ needs.release.outputs.version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          ref: v${{ needs.release.outputs.version }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
 
       # https://github.com/npm/cli/issues/4828
       - name: Workaround for arm - remove package-lock.json
@@ -32,54 +84,49 @@ jobs:
         run: ng build --configuration=development
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v4
 
       - name: Log in to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Get short SHA
-        id: vars
-        run: |
-          echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
 
       - name: Build Docker image
         run: |
           docker buildx build \
             --platform linux/arm64,linux/amd64 \
             --tag sony2k20/ng-web-portfolio:latest \
-            --tag sony2k20/ng-web-portfolio:${{ steps.vars.outputs.SHORT_SHA }} \
+            --tag sony2k20/ng-web-portfolio:$VERSION \
+            --tag sony2k20/ng-web-portfolio:${VERSION%.*} \
+            --tag sony2k20/ng-web-portfolio:${VERSION%%.*} \
             --push .
 
   update-deployment:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [release, build]
+    env:
+      VERSION: ${{ needs.release.outputs.version }}
     steps:
-      - name: Checkout the source repo
-        uses: actions/checkout@v3
-
-      - name: Get short SHA
-        id: vars
-        run: |
-          echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
-
       - name: Clone Target Repository
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git clone https://${{ secrets.COMMIT_TO_REPO_TOKEN }}@github.com/Sony2k20/gitops-deployments.git target-repo
 
-      - name: Update image tag with short SHA
+      - name: Update image tag with version
         run: |
           cd target-repo
-          SHORT_SHA=${{ steps.vars.outputs.SHORT_SHA }}
-          sed -i "s/tag:.*/tag: $SHORT_SHA/" app-of-apps/apps/ng-web-portfolio.yaml
+          sed -i "s/tag:.*/tag: $VERSION/" app-of-apps/apps/ng-web-portfolio.yaml
 
       - name: Commit and Push Changes
         run: |
           cd target-repo
           git add app-of-apps/apps/ng-web-portfolio.yaml
-          git commit -m "Update ng-web-blog to version ${{ steps.vars.outputs.SHORT_SHA }}"
+          # Nothing to commit when the same version is redeployed manually
+          if git diff --cached --quiet; then
+            echo "Version $VERSION is already deployed"
+            exit 0
+          fi
+          git commit -m "Update ng-web-portfolio to version $VERSION"
           git push origin master
