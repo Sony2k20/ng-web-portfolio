@@ -6,14 +6,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Releases follow [Semantic Versioning](https://semver.org) and are created automatically by [semantic-release](https://semantic-release.gitbook.io) on every push to `master`. The next version is derived from the commit messages, which must follow [Conventional Commits](https://www.conventionalcommits.org):
 
-| Commit message                                                                            | Release                   |
-| ----------------------------------------------------------------------------------------- | ------------------------- |
-| `fix: …`, `perf: …`, `build: …`, `refactor: …`, `style: …`, `revert: …`, `chore(deps): …` | Patch (`1.0.0` → `1.0.1`) |
-| `feat: …`                                                                                 | Minor (`1.0.1` → `1.1.0`) |
-| `feat!: …` or a `BREAKING CHANGE:` footer                                                 | Major (`1.1.0` → `2.0.0`) |
-| `docs: …`, `ci: …`, `test: …`, `chore: …`                                                 | No release                |
+| Commit message                                                          | Release                   |
+| ----------------------------------------------------------------------- | ------------------------- |
+| `fix: …`, `perf: …`, `build: …`, `refactor: …`, `style: …`, `revert: …` | Patch (`1.0.0` → `1.0.1`) |
+| `feat: …`                                                               | Minor (`1.0.1` → `1.1.0`) |
+| `feat!: …` or a `BREAKING CHANGE:` footer                               | Major (`1.1.0` → `2.0.0`) |
+| `docs: …`, `ci: …`, `test: …`, `chore: …` (incl. `chore(deps)`)         | No release                |
 
 A release creates the git tag `vX.Y.Z` and a GitHub release with release notes, pushes the Docker image `sony2k20/ng-web-portfolio` with the tags `X.Y.Z`, `X.Y`, `X` and `latest`, and sets `X.Y.Z` in the GitOps repository. Pushes without a release-worthy commit are not deployed; running the workflow manually redeploys the latest version. The `version` field in `package.json` is not used.
+
+## Dependency updates
+
+[Renovate](https://docs.renovatebot.com) keeps dependencies up to date (`renovate.json`). It opens PRs on Monday mornings for updates that are at least 3 days old; the `CI` workflow lints and builds every PR.
+
+- Updates that change the deployed app (Angular, Tailwind, PostCSS and runtime dependencies) are committed as `fix(deps)` and therefore create a patch release when merged. They are never merged automatically.
+- Minor/patch updates of dev tooling and GitHub Actions as well as the weekly lock file maintenance are committed as `chore(deps)` (no release) and merged automatically once CI is green.
+- Angular majors and majors of the release tooling are only opened after approval in the Dependency Dashboard issue. Angular majors still need `ng update` migrations on the Renovate branch. TypeScript and zone.js are not updated separately; `ng update` moves them together with Angular.
+- The Node.js version lives in `.nvmrc`.
 
 ## Development server
 

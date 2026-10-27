@@ -1,0 +1,87 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":timezone(Europe/Berlin)"
+  ],
+  "schedule": ["before 6am on monday"],
+  "minimumReleaseAge": "3 days",
+  "labels": ["dependencies"],
+  "osvVulnerabilityAlerts": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Keep package.json ranges in sync with the installed versions",
+      "matchManagers": ["npm"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Dev tooling (lint, format, test, release, CI actions) does not change the deployed app: automerge minor/patch once CI is green",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Angular framework and build toolchain in one PR",
+      "groupName": "Angular",
+      "matchPackageNames": [
+        "@angular/**",
+        "@angular-devkit/**",
+        "zone.js",
+        "typescript"
+      ]
+    },
+    {
+      "description": "Packages that change the built app use fix(deps), which makes semantic-release publish a patch release and deploy it; no automerge",
+      "matchPackageNames": [
+        "@angular/**",
+        "@angular-devkit/**",
+        "zone.js",
+        "typescript",
+        "tailwindcss",
+        "@tailwindcss/**",
+        "postcss"
+      ],
+      "semanticCommitType": "fix",
+      "automerge": false
+    },
+    {
+      "description": "Angular majors need `ng update` migrations: only create the PR after approval in the Dependency Dashboard",
+      "matchPackageNames": ["@angular/**", "@angular-devkit/**"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "TypeScript and zone.js must stay within the range the installed Angular version supports; `ng update` bumps them together with Angular",
+      "matchPackageNames": ["typescript", "zone.js"],
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
+      "description": "Node.js and its type definitions move together",
+      "groupName": "Node.js",
+      "matchPackageNames": ["node", "@types/node"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "semantic-release bundles its own conventional-changelog writer; a newer preset major can break releases only after merge, so wait for approval",
+      "matchPackageNames": [
+        "semantic-release",
+        "@semantic-release/**",
+        "conventional-changelog-conventionalcommits"
+      ],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
