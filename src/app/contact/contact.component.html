@@ -1,35 +1,33 @@
-<div *ngIf="readyToRenderService.fontRdy$ | async">
-  <app-header id="header" class="bg-secondary"></app-header>
-
-  <div
-    class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary text-md xl:text-xl"
-  >
+@if (readyToRenderService.fontRdy$ | async) {
+  <div>
+    <app-header id="header" class="bg-secondary"></app-header>
     <div
-      class="mx-auto w-full pt-28 lg:pt-32 md:pb-24 lg:min-h-screen leading-8 xl:leading-9 fadeInBg"
+      class="bg-gradient-to-r from-primary/60 via-primary/70 to-secondary text-md xl:text-xl"
     >
-      <div class="px-6 sm:px-16 2xl:px-0">
-        <h2
-          class="text-3xl lg:text-5xl text-center uppercase italic tracking-wider"
-        >
-          Kontakt
-        </h2>
-        <hr
-          class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto"
-        />
-
-        <div class="mx-auto mb-12 text-justify max-w-screen-md">
-          <p>
-            Du interessierst dich für mein Coaching-Programm oder hast eine
-            allgemeine Frage? Such dir einfach einen passenden Termin aus und
-            wir schauen gemeinsam wie ich dich am besten unterstützen kann. Ich
-            freue mich schon sehr darauf dich kennenzulernen!
-          </p>
+      <div
+        class="mx-auto w-full pt-28 lg:pt-32 md:pb-24 lg:min-h-screen leading-8 xl:leading-9 fadeInBg"
+      >
+        <div class="px-6 sm:px-16 2xl:px-0">
+          <h2
+            class="text-3xl lg:text-5xl text-center uppercase italic tracking-wider"
+          >
+            Kontakt
+          </h2>
+          <hr
+            class="[height:1.5px] border-0 w-44 lg:w-48 my-8 bg-accent mx-auto"
+          />
+          <div class="mx-auto mb-12 text-justify max-w-screen-md">
+            <p>
+              Du interessierst dich für mein Coaching-Programm oder hast eine
+              allgemeine Frage? Such dir einfach einen passenden Termin aus und
+              wir schauen gemeinsam wie ich dich am besten unterstützen kann.
+              Ich freue mich schon sehr darauf dich kennenzulernen!
+            </p>
+          </div>
         </div>
+        <app-contact-tabs class="px-0"></app-contact-tabs>
       </div>
-
-      <app-contact-tabs class="px-0"></app-contact-tabs>
     </div>
+    <app-footer></app-footer>
   </div>
-
-  <app-footer></app-footer>
-</div>
+}

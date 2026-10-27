@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common'
 import { Component, ElementRef, inject } from '@angular/core'
 import { IntersectionObserverService } from '../../../shared/services/intersection-observer-service.service'
 
 @Component({
   selector: 'app-flip-card',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './flip-card.component.html',
   styleUrl: './flip-card.component.css',
 })

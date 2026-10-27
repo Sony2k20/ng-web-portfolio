@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core'
 import { SocialLinks } from '../../enums/social-links.enum'
-import { CommonModule } from '@angular/common'
 
 export enum SocialPlatform {
   Youtube = 'youtube',
@@ -12,7 +11,7 @@ export enum SocialPlatform {
 
 @Component({
   selector: 'app-social-links',
-  imports: [CommonModule],
+  imports: [],
   styleUrls: ['./social-links.component.css'],
   templateUrl: './social-links.component.html',
 })

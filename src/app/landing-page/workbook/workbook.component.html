@@ -61,24 +61,25 @@
                     emailForm.get('email')?.touched,
                 }"
               />
-              <div
-                *ngIf="
-                  emailForm.get('email')?.touched &&
-                  emailForm.get('email')?.invalid
-                "
-                class="text-red-700 text-xs mt-1"
-              >
-                <div *ngIf="emailForm.get('email')?.errors?.['required']">
-                  E-Mail Adresse ist erforderlich.
+              @if (
+                emailForm.get('email')?.touched &&
+                emailForm.get('email')?.invalid
+              ) {
+                <div class="text-red-700 text-xs mt-1">
+                  @if (emailForm.get('email')?.errors?.['required']) {
+                    <div>E-Mail Adresse ist erforderlich.</div>
+                  }
+                  @if (emailForm.get('email')?.errors?.['email']) {
+                    <div>Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+                  }
                 </div>
-                <div *ngIf="emailForm.get('email')?.errors?.['email']">
-                  Bitte geben Sie eine gültige E-Mail-Adresse ein.
-                </div>
-              </div>
+              }
             </div>
 
             <div class="min-h-3">
-              <app-loading-dots *ngIf="isLoading"></app-loading-dots>
+              @if (isLoading) {
+                <app-loading-dots></app-loading-dots>
+              }
             </div>
 
             <app-main-button

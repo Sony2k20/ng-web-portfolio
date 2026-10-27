@@ -15,23 +15,22 @@
             emailForm.get('firstName')?.touched,
         }"
       />
-      <div
-        *ngIf="
-          emailForm.get('firstName')?.touched &&
-          emailForm.get('firstName')?.invalid
-        "
-        class="text-red-700 text-xs mt-1"
-      >
-        <div *ngIf="emailForm.get('firstName')?.errors?.['required']">
-          Vorname ist erforderlich.
+      @if (
+        emailForm.get('firstName')?.touched &&
+        emailForm.get('firstName')?.invalid
+      ) {
+        <div class="text-red-700 text-xs mt-1">
+          @if (emailForm.get('firstName')?.errors?.['required']) {
+            <div>Vorname ist erforderlich.</div>
+          }
+          @if (emailForm.get('firstName')?.errors?.['pattern']) {
+            <div>Nur Buchstaben sind erlaubt.</div>
+          }
+          @if (emailForm.get('firstName')?.errors?.['maxLength']) {
+            <div>Der Name darf maximal 30 Zeichen lang sein.</div>
+          }
         </div>
-        <div *ngIf="emailForm.get('firstName')?.errors?.['pattern']">
-          Nur Buchstaben sind erlaubt.
-        </div>
-        <div *ngIf="emailForm.get('firstName')?.errors?.['maxLength']">
-          Der Name darf maximal 30 Zeichen lang sein.
-        </div>
-      </div>
+      }
     </div>
 
     <!-- Surname -->
@@ -49,22 +48,21 @@
             emailForm.get('surname')?.touched,
         }"
       />
-      <div
-        *ngIf="
-          emailForm.get('surname')?.touched && emailForm.get('surname')?.invalid
-        "
-        class="text-red-700 text-xs mt-1"
-      >
-        <div *ngIf="emailForm.get('surname')?.errors?.['required']">
-          Nachname ist erforderlich.
+      @if (
+        emailForm.get('surname')?.touched && emailForm.get('surname')?.invalid
+      ) {
+        <div class="text-red-700 text-xs mt-1">
+          @if (emailForm.get('surname')?.errors?.['required']) {
+            <div>Nachname ist erforderlich.</div>
+          }
+          @if (emailForm.get('surname')?.errors?.['pattern']) {
+            <div>Nur Buchstaben sind erlaubt.</div>
+          }
+          @if (emailForm.get('surname')?.errors?.['maxLength']) {
+            <div>Der Name darf maximal 30 Zeichen lang sein.</div>
+          }
         </div>
-        <div *ngIf="emailForm.get('surname')?.errors?.['pattern']">
-          Nur Buchstaben sind erlaubt.
-        </div>
-        <div *ngIf="emailForm.get('surname')?.errors?.['maxLength']">
-          Der Name darf maximal 30 Zeichen lang sein.
-        </div>
-      </div>
+      }
     </div>
   </div>
 
@@ -83,17 +81,16 @@
           emailForm.get('to')?.invalid && emailForm.get('to')?.touched,
       }"
     />
-    <div
-      *ngIf="emailForm.get('to')?.touched && emailForm.get('to')?.invalid"
-      class="text-red-700 text-xs mt-1"
-    >
-      <div *ngIf="emailForm.get('to')?.errors?.['required']">
-        E-Mail Adresse ist erforderlich.
+    @if (emailForm.get('to')?.touched && emailForm.get('to')?.invalid) {
+      <div class="text-red-700 text-xs mt-1">
+        @if (emailForm.get('to')?.errors?.['required']) {
+          <div>E-Mail Adresse ist erforderlich.</div>
+        }
+        @if (emailForm.get('to')?.errors?.['email']) {
+          <div>Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+        }
       </div>
-      <div *ngIf="emailForm.get('to')?.errors?.['email']">
-        Bitte geben Sie eine gültige E-Mail-Adresse ein.
-      </div>
-    </div>
+    }
   </div>
 
   <!-- Message -->
@@ -111,20 +108,21 @@
           emailForm.get('message')?.touched,
       }"
     ></textarea>
-    <div
-      *ngIf="
-        emailForm.get('message')?.touched && emailForm.get('message')?.invalid
-      "
-      class="text-red-700 text-xs mt-1"
-    >
-      <div *ngIf="emailForm.get('message')?.errors?.['required']">
-        Eine Nachricht ist erforderlich.
+    @if (
+      emailForm.get('message')?.touched && emailForm.get('message')?.invalid
+    ) {
+      <div class="text-red-700 text-xs mt-1">
+        @if (emailForm.get('message')?.errors?.['required']) {
+          <div>Eine Nachricht ist erforderlich.</div>
+        }
       </div>
-    </div>
+    }
   </div>
 
   <div class="min-h-3 mb-4">
-    <app-loading-dots *ngIf="isLoading"></app-loading-dots>
+    @if (isLoading) {
+      <app-loading-dots></app-loading-dots>
+    }
   </div>
 
   <app-main-button

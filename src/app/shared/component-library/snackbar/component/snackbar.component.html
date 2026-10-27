@@ -1,3 +1,5 @@
-<div *ngIf="message" class="snackbar">
-  {{ message }}
-</div>
+@if (message) {
+  <div class="snackbar">
+    {{ message }}
+  </div>
+}

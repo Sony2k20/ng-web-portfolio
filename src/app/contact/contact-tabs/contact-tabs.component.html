@@ -13,10 +13,11 @@
       "
     >
       Coffee Talk
-      <div
-        *ngIf="activeTab === 'coaching'"
-        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
-      ></div>
+      @if (activeTab === 'coaching') {
+        <div
+          class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+        ></div>
+      }
     </button>
     <button
       (click)="switchTab('deep-dive')"
@@ -29,10 +30,11 @@
       "
     >
       Deep Dive
-      <div
-        *ngIf="activeTab === 'deep-dive'"
-        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
-      ></div>
+      @if (activeTab === 'deep-dive') {
+        <div
+          class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+        ></div>
+      }
     </button>
     <button
       (click)="switchTab('general')"
@@ -45,10 +47,11 @@
       "
     >
       Allgemeine Anfrage
-      <div
-        *ngIf="activeTab === 'general'"
-        class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
-      ></div>
+      @if (activeTab === 'general') {
+        <div
+          class="mt-[1.4px] w-full md:w-9/12 h-[2px] mx-auto bg-gradient-to-r from-transparent via-accent/70 to-transparent fadeInNav"
+        ></div>
+      }
     </button>
   </div>
   <div

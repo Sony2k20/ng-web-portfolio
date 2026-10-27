@@ -3,11 +3,10 @@ import { MainButtonComponent } from '../../shared/component-library/main-button/
 import { Routes } from '../../shared/enums/routes.enum'
 import { IntersectionObserverService } from '../../shared/services/intersection-observer-service.service'
 import { ScrollToSectionService } from '../../shared/services/scroll-to-section.service'
-import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-deep-dive',
-  imports: [MainButtonComponent, CommonModule],
+  imports: [MainButtonComponent],
   templateUrl: './deep-dive.component.html',
 })
 export class DeepDiveComponent {
