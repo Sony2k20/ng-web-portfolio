@@ -17,7 +17,7 @@ A release creates the git tag `vX.Y.Z` and a GitHub release with release notes, 
 
 ## Dependency updates
 
-[Renovate](https://docs.renovatebot.com) keeps dependencies up to date (`renovate.json`). It opens PRs on Monday mornings for updates that are at least 3 days old; the `CI` workflow lints and builds every PR.
+[Renovate](https://docs.renovatebot.com) keeps dependencies up to date (`renovate.json`). It runs self-hosted as the CronJob in [gitops-deployments](https://github.com/Sony2k20/gitops-deployments) (`app-of-apps/apps/renovate.yaml`), not as a GitHub Action or app. It opens PRs on Monday mornings for updates that are at least 3 days old; the `CI` workflow lints and builds every PR.
 
 - Updates that change the deployed app (Angular, Tailwind, PostCSS and runtime dependencies) are committed as `fix(deps)` and therefore create a patch release when merged. They are never merged automatically.
 - Minor/patch updates of dev tooling and GitHub Actions as well as the weekly lock file maintenance are committed as `chore(deps)` (no release) and merged automatically once CI is green.
