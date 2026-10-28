@@ -115,10 +115,12 @@ jobs:
           git config --global user.email "actions@github.com"
           git clone https://${{ secrets.COMMIT_TO_REPO_TOKEN }}@github.com/Sony2k20/gitops-deployments.git target-repo
 
+      # The file also holds the email service's tag: only touch the line right below our repository
       - name: Update image tag with version
         run: |
           cd target-repo
-          sed -i "s/tag:.*/tag: $VERSION/" app-of-apps/apps/ng-web-portfolio.yaml
+          sed -i -E "\#^\s*repository: sony2k20/ng-web-portfolio\s*\$#{n;s#^(\s*)tag:.*#\1tag: $VERSION#}" app-of-apps/apps/ng-web-portfolio.yaml
+          grep -A1 -E "^\s*repository: sony2k20/ng-web-portfolio\s*$" app-of-apps/apps/ng-web-portfolio.yaml | grep -qE "^\s*tag: $VERSION$"
 
       - name: Commit and Push Changes
         run: |
