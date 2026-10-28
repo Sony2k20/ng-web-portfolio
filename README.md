@@ -50,12 +50,12 @@ The values in `environment.ts` can be overridden by a `.env` file (template:
 (`npm start`, `npm run build`, `npm run watch`), which pass them to the Angular
 CLI via `scripts/ng-env.mjs`, not with `ng serve` / `ng build` directly.
 
-| Variable           | Description                                      |
-| ------------------ | ------------------------------------------------ |
-| `URL`              | Public URL of the site (canonical links)         |
-| `COOKIES`          | `true` enables the cookie banner and analytics   |
-| `EMAIL_SERVER_URL` | Base URL of the email service                    |
-| `EMAIL_ADRESS`     | Address that receives contact form inquiries     |
+| Variable           | Description                                    |
+| ------------------ | ---------------------------------------------- |
+| `URL`              | Public URL of the site (canonical links)       |
+| `COOKIES`          | `true` enables the cookie banner and analytics |
+| `EMAIL_SERVER_URL` | Base URL of the email service                  |
+| `EMAIL_ADRESS`     | Address that receives contact form inquiries   |
 
 ## Versioning and deployment
 
